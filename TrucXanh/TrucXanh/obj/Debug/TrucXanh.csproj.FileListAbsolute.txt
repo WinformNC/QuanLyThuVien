@@ -1,0 +1,10 @@
+F:\Studio\C#\TrucXanh\TrucXanh\bin\Debug\TrucXanh.exe.config
+F:\Studio\C#\TrucXanh\TrucXanh\bin\Debug\TrucXanh.exe
+F:\Studio\C#\TrucXanh\TrucXanh\bin\Debug\TrucXanh.pdb
+F:\Studio\C#\TrucXanh\TrucXanh\obj\Debug\TrucXanh.csprojResolveAssemblyReference.cache
+F:\Studio\C#\TrucXanh\TrucXanh\obj\Debug\TrucXanh.Form1.resources
+F:\Studio\C#\TrucXanh\TrucXanh\obj\Debug\TrucXanh.Properties.Resources.resources
+F:\Studio\C#\TrucXanh\TrucXanh\obj\Debug\TrucXanh.csproj.GenerateResource.Cache
+F:\Studio\C#\TrucXanh\TrucXanh\obj\Debug\TrucXanh.exe
+F:\Studio\C#\TrucXanh\TrucXanh\obj\Debug\TrucXanh.pdb
+F:\Studio\C#\TrucXanh\TrucXanh\obj\Debug\TrucXanh.Start.resources
