@@ -17,6 +17,7 @@ namespace TrucXanh
     public partial class Form1 : Form
     {
         int W = 60, H = 100, Distance = 20, Flag = 0, maxICol = 6, pImage;
+        
         TrucXanh.ListImage list = new TrucXanh.ListImage();
         string hide = "..//..//Res//hide.png";
         PictureBox temp1, temp2;
@@ -26,7 +27,7 @@ namespace TrucXanh
             InitializeComponent();
 
 
-
+            timer1.Interval = 50;
         }
         public Form1(int pImage)
         {
@@ -96,19 +97,7 @@ namespace TrucXanh
             PictureBox pb = (PictureBox)sender;
             if (Flag > 1)
             {
-                if (temp1.Name == temp2.Name)
-                {
-                    this.Controls.Remove(getPb(temp1));
-                    this.Controls.Remove(getPb(temp2));
-                }
-                else
-                {
-
-                    getPb(temp2).Image = Image.FromFile(hide);
-                    getPb(temp1).Image = Image.FromFile(hide);
-
-                }
-
+                timer1.Enabled = false;
                 Flag = 1;
                 pb.Image = null;
                 temp1 = pb;
@@ -117,10 +106,11 @@ namespace TrucXanh
             }
             else if (Flag > 0)
             {
-
+                
                 pb.Image = null;
                 Flag++;
                 temp2 = pb;
+                timer1.Enabled = true;
             }
             else
             {
@@ -140,14 +130,24 @@ namespace TrucXanh
             return temp;
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            this.Close();
+            if (temp1.Name == temp2.Name)
+            {
+                this.Controls.Remove(getPb(temp1));
+                this.Controls.Remove(getPb(temp2));
+            }
+            else
+            {
+
+                getPb(temp2).Image = Image.FromFile(hide);
+                getPb(temp1).Image = Image.FromFile(hide);
+
+            }
+
         }
 
-        private void Form1_FormClosed(object sender, FormClosingEventArgs e)
-        {
-            this.Close();
-        }
     }
 }
