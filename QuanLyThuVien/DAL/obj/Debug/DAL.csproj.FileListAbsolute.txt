@@ -1,0 +1,6 @@
+C:\Users\Dell7559\Desktop\QuanLyThuVien\DAL\bin\Debug\DAL.dll.config
+C:\Users\Dell7559\Desktop\QuanLyThuVien\DAL\bin\Debug\DAL.dll
+C:\Users\Dell7559\Desktop\QuanLyThuVien\DAL\bin\Debug\DAL.pdb
+C:\Users\Dell7559\Desktop\QuanLyThuVien\DAL\obj\Debug\DAL.dll
+C:\Users\Dell7559\Desktop\QuanLyThuVien\DAL\obj\Debug\DAL.pdb
+C:\Users\Dell7559\Desktop\QuanLyThuVien\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
