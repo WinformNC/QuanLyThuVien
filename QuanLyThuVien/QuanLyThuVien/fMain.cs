@@ -21,6 +21,7 @@ namespace QuanLyThuVien
         fTheLoai fTL;
         fChucVu fCV;
         fMuonTaiLieu fMTL;
+        fDanhSachSV fDSSV;
 
         public fMain()
         {
@@ -152,6 +153,21 @@ namespace QuanLyThuVien
                 fMTL = new fMuonTaiLieu();
                 fMTL.MdiParent = this;
                 fMTL.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnSV_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraForm(typeof(fDanhSachSV));
+            if (frm == null)
+            {
+                fDSSV = new fDanhSachSV();
+                fDSSV.MdiParent = this;
+                fDSSV.Show();
             }
             else
             {
