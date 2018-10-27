@@ -4,3 +4,9 @@ F:\Studio\WinformNC\QuanLyThuVien\linQ\bin\Debug\linQ.pdb
 F:\Studio\WinformNC\QuanLyThuVien\linQ\obj\Debug\linQ.csprojResolveAssemblyReference.cache
 F:\Studio\WinformNC\QuanLyThuVien\linQ\obj\Debug\linQ.dll
 F:\Studio\WinformNC\QuanLyThuVien\linQ\obj\Debug\linQ.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\linQ\bin\Debug\linQ.dll.config
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\linQ\bin\Debug\linQ.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\linQ\bin\Debug\linQ.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\linQ\obj\Debug\linQ.csprojResolveAssemblyReference.cache
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\linQ\obj\Debug\linQ.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\linQ\obj\Debug\linQ.pdb

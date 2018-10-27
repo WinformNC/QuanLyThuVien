@@ -33,5 +33,16 @@ namespace linQ.Properties {
                 return ((string)(this["QuanLyThuVienConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-66PHT9S\\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated S" +
+            "ecurity=True")]
+        public string QuanLyThuVienConnectionString1 {
+            get {
+                return ((string)(this["QuanLyThuVienConnectionString1"]));
+            }
+        }
     }
 }

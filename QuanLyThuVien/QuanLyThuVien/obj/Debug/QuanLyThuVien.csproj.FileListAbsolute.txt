@@ -71,3 +71,5 @@ F:\Studio\WinformNC\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.exe
 F:\Studio\WinformNC\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.pdb
 F:\Studio\WinformNC\QuanLyThuVien\QuanLyThuVien\bin\Debug\linQ.dll
 F:\Studio\WinformNC\QuanLyThuVien\QuanLyThuVien\bin\Debug\linQ.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\bin\Debug\linQ.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\bin\Debug\linQ.pdb

@@ -13,10 +13,5 @@ namespace BLL
         SachDAL sachDAL = new SachDAL();
 
         public SachBLL() { }
-
-        public DataTable LoadSach()
-        {
-            return sachDAL.loadSach();
-        }
     }
 }
