@@ -191,7 +191,146 @@
             this.dtgvSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvSach.Size = new System.Drawing.Size(1103, 572);
             this.dtgvSach.TabIndex = 19;
-            this.dtgvSach.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvSach_RowEnter);
+            this.dtgvSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvSach_CellClick);
+            // 
+            // ImageSach
+            // 
+            this.ImageSach.HeaderText = "Ảnh";
+            this.ImageSach.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ImageSach.Name = "ImageSach";
+            this.ImageSach.ReadOnly = true;
+            this.ImageSach.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // MASACH
+            // 
+            this.MASACH.DataPropertyName = "MASACH";
+            this.MASACH.HeaderText = "Mã Sách";
+            this.MASACH.Name = "MASACH";
+            this.MASACH.ReadOnly = true;
+            // 
+            // TENSACH
+            // 
+            this.TENSACH.DataPropertyName = "TENSACH";
+            this.TENSACH.HeaderText = "Tên Sách";
+            this.TENSACH.Name = "TENSACH";
+            this.TENSACH.ReadOnly = true;
+            // 
+            // TENTHELOAI
+            // 
+            this.TENTHELOAI.DataPropertyName = "TENTHELOAI";
+            this.TENTHELOAI.HeaderText = "Tên thể loại";
+            this.TENTHELOAI.Name = "TENTHELOAI";
+            this.TENTHELOAI.ReadOnly = true;
+            // 
+            // VITRI
+            // 
+            this.VITRI.DataPropertyName = "MAVITRI";
+            this.VITRI.HeaderText = "Vị Trí";
+            this.VITRI.Name = "VITRI";
+            this.VITRI.ReadOnly = true;
+            // 
+            // TENTACGIA
+            // 
+            this.TENTACGIA.DataPropertyName = "TENTACGIA";
+            this.TENTACGIA.HeaderText = "Tên tác giả";
+            this.TENTACGIA.Name = "TENTACGIA";
+            this.TENTACGIA.ReadOnly = true;
+            // 
+            // TenNXB
+            // 
+            this.TenNXB.DataPropertyName = "TENNXB";
+            this.TenNXB.HeaderText = "Tên nhà xuất bản";
+            this.TenNXB.Name = "TenNXB";
+            this.TenNXB.ReadOnly = true;
+            // 
+            // NAMXB
+            // 
+            this.NAMXB.DataPropertyName = "NAMXB";
+            this.NAMXB.HeaderText = "Năm xuất bản";
+            this.NAMXB.Name = "NAMXB";
+            this.NAMXB.ReadOnly = true;
+            // 
+            // MOTA
+            // 
+            this.MOTA.DataPropertyName = "MOTA";
+            this.MOTA.HeaderText = "Mô tả";
+            this.MOTA.Name = "MOTA";
+            this.MOTA.ReadOnly = true;
+            // 
+            // SOLUONG
+            // 
+            this.SOLUONG.DataPropertyName = "SOLUONG";
+            this.SOLUONG.HeaderText = "Số Lượng";
+            this.SOLUONG.Name = "SOLUONG";
+            this.SOLUONG.ReadOnly = true;
+            // 
+            // MANXB
+            // 
+            this.MANXB.DataPropertyName = "MANXB";
+            this.MANXB.HeaderText = "Column1";
+            this.MANXB.Name = "MANXB";
+            this.MANXB.ReadOnly = true;
+            this.MANXB.Visible = false;
+            // 
+            // MATHELOAI
+            // 
+            this.MATHELOAI.DataPropertyName = "MATHELOAI";
+            this.MATHELOAI.HeaderText = "Column1";
+            this.MATHELOAI.Name = "MATHELOAI";
+            this.MATHELOAI.ReadOnly = true;
+            this.MATHELOAI.Visible = false;
+            // 
+            // MATACGIA
+            // 
+            this.MATACGIA.DataPropertyName = "MATACGIA";
+            this.MATACGIA.HeaderText = "Column1";
+            this.MATACGIA.Name = "MATACGIA";
+            this.MATACGIA.ReadOnly = true;
+            this.MATACGIA.Visible = false;
+            // 
+            // MAVITRI
+            // 
+            this.MAVITRI.DataPropertyName = "MAVITRI";
+            this.MAVITRI.HeaderText = "Column1";
+            this.MAVITRI.Name = "MAVITRI";
+            this.MAVITRI.ReadOnly = true;
+            this.MAVITRI.Visible = false;
+            // 
+            // VT
+            // 
+            this.VT.HeaderText = "Column1";
+            this.VT.Name = "VT";
+            this.VT.ReadOnly = true;
+            this.VT.Visible = false;
+            // 
+            // TACGIA
+            // 
+            this.TACGIA.HeaderText = "Column1";
+            this.TACGIA.Name = "TACGIA";
+            this.TACGIA.ReadOnly = true;
+            this.TACGIA.Visible = false;
+            // 
+            // NHAXB
+            // 
+            this.NHAXB.HeaderText = "Column1";
+            this.NHAXB.Name = "NHAXB";
+            this.NHAXB.ReadOnly = true;
+            this.NHAXB.Visible = false;
+            // 
+            // THELOAI
+            // 
+            this.THELOAI.HeaderText = "Column1";
+            this.THELOAI.Name = "THELOAI";
+            this.THELOAI.ReadOnly = true;
+            this.THELOAI.Visible = false;
+            // 
+            // HINHANHSACH
+            // 
+            this.HINHANHSACH.DataPropertyName = "HINHANHSACH";
+            this.HINHANHSACH.HeaderText = "Column1";
+            this.HINHANHSACH.Name = "HINHANHSACH";
+            this.HINHANHSACH.ReadOnly = true;
+            this.HINHANHSACH.Visible = false;
             // 
             // ImageSach
             // 
