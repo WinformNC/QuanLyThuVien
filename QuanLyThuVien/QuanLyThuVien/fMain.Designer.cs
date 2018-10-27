@@ -49,6 +49,7 @@
             this.btnTheLoai = new DevExpress.XtraBars.BarButtonItem();
             this.btnViTri = new DevExpress.XtraBars.BarButtonItem();
             this.btnChucVu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSV = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -60,7 +61,6 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnSV = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -122,6 +122,7 @@
             this.btnTraTaiLieu.Id = 3;
             this.btnTraTaiLieu.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Return_Book_32;
             this.btnTraTaiLieu.Name = "btnTraTaiLieu";
+            this.btnTraTaiLieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTraTaiLieu_ItemClick);
             // 
             // btnThem1
             // 
@@ -164,6 +165,7 @@
             this.btnDSMuon.Id = 9;
             this.btnDSMuon.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Reading_321;
             this.btnDSMuon.Name = "btnDSMuon";
+            this.btnDSMuon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSMuon_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -228,6 +230,13 @@
             this.btnChucVu.Id = 18;
             this.btnChucVu.Name = "btnChucVu";
             this.btnChucVu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChucVu_ItemClick);
+            // 
+            // btnSV
+            // 
+            this.btnSV.Caption = "Danh sách sinh viên";
+            this.btnSV.Id = 19;
+            this.btnSV.Name = "btnSV";
+            this.btnSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSV_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -302,13 +311,6 @@
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // btnSV
-            // 
-            this.btnSV.Caption = "Danh sách sinh viên";
-            this.btnSV.Id = 19;
-            this.btnSV.Name = "btnSV";
-            this.btnSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSV_ItemClick);
             // 
             // fMain
             // 

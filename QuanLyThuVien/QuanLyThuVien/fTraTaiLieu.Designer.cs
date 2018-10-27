@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThuVien
 {
-    partial class fDSMuon
+    partial class fTraTaiLieu
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dtgvMuon = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.btnTra = new DevExpress.XtraEditors.SimpleButton();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMuon)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.dtgvMuon, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnTra, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(985, 701);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dtgvMuon
             // 
@@ -59,8 +77,7 @@
             this.dtgvMuon.EnableHeadersVisualStyles = false;
             this.dtgvMuon.HeaderBgColor = System.Drawing.Color.White;
             this.dtgvMuon.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtgvMuon.Location = new System.Drawing.Point(0, 0);
-            this.dtgvMuon.MultiSelect = false;
+            this.dtgvMuon.Location = new System.Drawing.Point(3, 73);
             this.dtgvMuon.Name = "dtgvMuon";
             this.dtgvMuon.ReadOnly = true;
             this.dtgvMuon.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -74,19 +91,31 @@
             this.dtgvMuon.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvMuon.RowTemplate.Height = 24;
             this.dtgvMuon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvMuon.Size = new System.Drawing.Size(950, 754);
-            this.dtgvMuon.TabIndex = 33;
+            this.dtgvMuon.Size = new System.Drawing.Size(979, 625);
+            this.dtgvMuon.TabIndex = 34;
             // 
-            // fDSMuon
+            // btnTra
+            // 
+            this.btnTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTra.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.btnTra.Location = new System.Drawing.Point(3, 32);
+            this.btnTra.Name = "btnTra";
+            this.btnTra.Size = new System.Drawing.Size(168, 35);
+            this.btnTra.TabIndex = 35;
+            this.btnTra.Text = "Trả tài liệu";
+            this.btnTra.Click += new System.EventHandler(this.btnTra_Click);
+            // 
+            // fTraTaiLieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 754);
-            this.Controls.Add(this.dtgvMuon);
+            this.ClientSize = new System.Drawing.Size(985, 701);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "fDSMuon";
-            this.Text = "Danh sách mượn";
-            this.Load += new System.EventHandler(this.fDSMuon_Load);
+            this.Name = "fTraTaiLieu";
+            this.Text = "Trả tài liệu";
+            this.Load += new System.EventHandler(this.fTraTaiLieu_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMuon)).EndInit();
             this.ResumeLayout(false);
 
@@ -94,6 +123,9 @@
 
         #endregion
 
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dtgvMuon;
+        private DevExpress.XtraEditors.SimpleButton btnTra;
+
     }
 }

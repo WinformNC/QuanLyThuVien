@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DSMuonDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="NXBDAL.cs" />
     <Compile Include="Object\TacGia.cs" />
