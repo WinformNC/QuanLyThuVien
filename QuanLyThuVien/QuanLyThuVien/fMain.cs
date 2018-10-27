@@ -24,6 +24,7 @@ namespace QuanLyThuVien
         fDanhSachSV fDSSV;
         fDSMuon fDSM;
         fTraTaiLieu fTTL;
+        fDSPhat fDSP;
 
         public fMain()
         {
@@ -209,7 +210,17 @@ namespace QuanLyThuVien
 
         private void btnDSPhat_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            Form frm = kiemtraForm(typeof(fDSPhat));
+            if (frm == null)
+            {
+                fDSP = new fDSPhat();
+                fDSP.MdiParent = this;
+                fDSP.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
         }
     }
 }
