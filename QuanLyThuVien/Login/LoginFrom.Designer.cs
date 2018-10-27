@@ -40,7 +40,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(177, 31);
+            this.textBox1.Location = new System.Drawing.Point(309, 31);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(177, 90);
+            this.textBox2.Location = new System.Drawing.Point(309, 90);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 1;
@@ -57,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 38);
+            this.label1.Location = new System.Drawing.Point(190, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 2;
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 90);
+            this.label2.Location = new System.Drawing.Point(190, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(177, 129);
+            this.btn_login.Location = new System.Drawing.Point(309, 129);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(75, 23);
             this.btn_login.TabIndex = 4;
@@ -96,7 +96,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "LoginFrom";
-            this.Size = new System.Drawing.Size(327, 178);
+            this.Size = new System.Drawing.Size(435, 178);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

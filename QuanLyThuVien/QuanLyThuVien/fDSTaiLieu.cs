@@ -87,7 +87,7 @@ namespace QuanLyThuVien
         private void setBtn(bool b)
         {
             btnXoa.Enabled = btnSua.Enabled = b;
-            setBoolField(b);
+            
         }
         private void btnLoadImage_Click(object sender, EventArgs e)
         {
@@ -109,8 +109,9 @@ namespace QuanLyThuVien
             txtMa.Focus();
             chucnang = CHUCNANG.THEM;
             clearTextBox();
-
+            setBoolField(true);
             setBtn(false);
+            btnThem.Enabled = false;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -141,28 +142,33 @@ namespace QuanLyThuVien
             //    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             //if (r == DialogResult.Yes)
             //{
-                sua();
+                chucnang = CHUCNANG.SUA;
                 dtgvSach.DataSource = conn.loadSach();
                 loadDataGrid();
                 setBtn(false);
+                btnTaiLai.Enabled = false;
                 btnLuu.Enabled = true;
             //}
-                dtgvSach.DataSource = conn.loadSach();
+                
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            loadDataGrid();
+           
             loadCombobox();
             setBtn(false);
             clearTextBox();
-            dtgvSach.DataSource = conn.loadSach();
+            loadDataGrid();
+            setBoolField(false);
+            btnThem.Enabled = true;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (chucnang == CHUCNANG.THEM)
                 them();
+            else if (chucnang == CHUCNANG.SUA)
+                sua();
             if(conn.saveSach() == 1)
                 MessageBox.Show("Lưu thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
@@ -236,7 +242,8 @@ namespace QuanLyThuVien
             txtNamXB.Text = dtgvSach["NAMXB", index].Value.ToString();
             setBtn(true);
             btnThem.Enabled =false;
-            
+            setBoolField(false);
+            clearTextBox();
         }
 
       
