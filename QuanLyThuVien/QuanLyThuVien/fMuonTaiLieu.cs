@@ -17,11 +17,13 @@ namespace QuanLyThuVien
     {
     
         Conection conn = new Conection();
+        createPrimaryKey pk = new createPrimaryKey();
         string ma, ten, maNV;
         public fMuonTaiLieu()
         {
             InitializeComponent();
             dtgvDS.DataSource = conn.loadSach();
+            this.maNV = "NV001";
         }
         public fMuonTaiLieu(string maNV)
         {
@@ -99,7 +101,10 @@ namespace QuanLyThuVien
        
         private void btnMuon_Click(object sender, EventArgs e)
         {
-            
+            if (conn.addPhieuMuon(pk.createKeyMuonSach(), maNV, cboMaSV.SelectedValue.ToString(), dtgvMuon.RowCount,ma) == 1)
+                MessageBox.Show("Thêm thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Thêm không thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         
         private void dtgvDS_CellClick(object sender, DataGridViewCellEventArgs e)

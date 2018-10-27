@@ -212,6 +212,14 @@ namespace linQ
 				return this.GetTable<sachView>();
 			}
 		}
+		
+		public System.Data.Linq.Table<PMCT> PMCTs
+		{
+			get
+			{
+				return this.GetTable<PMCT>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETMUONTRA")]
@@ -3262,6 +3270,159 @@ namespace linQ
 				if ((this._TENTHELOAI != value))
 				{
 					this._TENTHELOAI = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PMCT")]
+	public partial class PMCT
+	{
+		
+		private string _MAPHIEUMUON;
+		
+		private string _MASACH;
+		
+		private string _MANV;
+		
+		private string _MASINHVIEN;
+		
+		private System.Nullable<System.DateTime> _NGAYMUON;
+		
+		private System.Nullable<System.DateTime> _NGAYDUKIENTRA;
+		
+		private System.Nullable<double> _PHIMUON;
+		
+		private System.Nullable<double> _PHICOC;
+		
+		public PMCT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPHIEUMUON", DbType="Char(5) NOT NULL", CanBeNull=false)]
+		public string MAPHIEUMUON
+		{
+			get
+			{
+				return this._MAPHIEUMUON;
+			}
+			set
+			{
+				if ((this._MAPHIEUMUON != value))
+				{
+					this._MAPHIEUMUON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASACH", DbType="Char(5) NOT NULL", CanBeNull=false)]
+		public string MASACH
+		{
+			get
+			{
+				return this._MASACH;
+			}
+			set
+			{
+				if ((this._MASACH != value))
+				{
+					this._MASACH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANV", DbType="Char(5)")]
+		public string MANV
+		{
+			get
+			{
+				return this._MANV;
+			}
+			set
+			{
+				if ((this._MANV != value))
+				{
+					this._MANV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASINHVIEN", DbType="Char(5)")]
+		public string MASINHVIEN
+		{
+			get
+			{
+				return this._MASINHVIEN;
+			}
+			set
+			{
+				if ((this._MASINHVIEN != value))
+				{
+					this._MASINHVIEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYMUON", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYMUON
+		{
+			get
+			{
+				return this._NGAYMUON;
+			}
+			set
+			{
+				if ((this._NGAYMUON != value))
+				{
+					this._NGAYMUON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYDUKIENTRA", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYDUKIENTRA
+		{
+			get
+			{
+				return this._NGAYDUKIENTRA;
+			}
+			set
+			{
+				if ((this._NGAYDUKIENTRA != value))
+				{
+					this._NGAYDUKIENTRA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHIMUON", DbType="Float")]
+		public System.Nullable<double> PHIMUON
+		{
+			get
+			{
+				return this._PHIMUON;
+			}
+			set
+			{
+				if ((this._PHIMUON != value))
+				{
+					this._PHIMUON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHICOC", DbType="Float")]
+		public System.Nullable<double> PHICOC
+		{
+			get
+			{
+				return this._PHICOC;
+			}
+			set
+			{
+				if ((this._PHICOC != value))
+				{
+					this._PHICOC = value;
 				}
 			}
 		}

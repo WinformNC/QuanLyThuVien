@@ -29,13 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
+            this.loginFrom1 = new Login.LoginFrom();
             this.SuspendLayout();
+            // 
+            // loginFrom1
+            // 
+            this.loginFrom1.BackColor = System.Drawing.Color.Transparent;
+            this.loginFrom1.Location = new System.Drawing.Point(388, 97);
+            this.loginFrom1.Name = "loginFrom1";
+            this.loginFrom1.Size = new System.Drawing.Size(260, 210);
+            this.loginFrom1.TabIndex = 0;
             // 
             // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 386);
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
+            this.BackgroundImageStore = global::QuanLyThuVien.Properties.Resources.bg;
+            this.ClientSize = new System.Drawing.Size(713, 386);
+            this.Controls.Add(this.loginFrom1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -48,6 +60,9 @@
         }
 
         #endregion
+
+        private Login.LoginFrom loginFrom1;
+
 
     }
 }

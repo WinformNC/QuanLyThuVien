@@ -9,6 +9,7 @@ namespace linQ
     public class Conection
     {
         DataTVDataContext linq = new DataTVDataContext();
+        createPrimaryKey pk = new createPrimaryKey();
         public Conection()
         { }
         public List<TACGIA> loadTacGia()
@@ -111,7 +112,7 @@ namespace linQ
             return linq.SINHVIENs.Select(t => t).ToList<SINHVIEN>();
         }
 
-        public int themPhieuMuon(string maphieumuon,string manv,string masinhvien,DateTime ngaymuon,int sosach)
+        public int addPhieuMuon(string maphieumuon,string manv,string masinhvien,int sosach,string masach)
         {
             try
             {
@@ -119,11 +120,14 @@ namespace linQ
                 ptm.MAPHIEUMUON = maphieumuon;
                 ptm.MANV = manv;
                 ptm.MASINHVIEN = masinhvien;
-                ptm.NGAYMUON = DateTime.Today;
+                DateTime ngaymuon = DateTime.Today;
+                ptm.NGAYMUON = ngaymuon;
                 ptm.NGAYDUKIENTRA = ngaymuon.AddDays(10);
                 ptm.PHICOC = 150000;
                 ptm.PHIMUON = 20000;
+                
                 linq.PHIEUMUONTRAs.InsertOnSubmit(ptm);
+                addCTPhieuMuonTra(maphieumuon, masach);
                 linq.SubmitChanges();
                 return 1;
 
@@ -131,6 +135,26 @@ namespace linQ
             catch {
                 return 0;
             }
+        }
+
+        //Phieu muon tra
+        public void addCTPhieuMuonTra(string maphieumuon, string masach)
+        {
+            CHITIETMUONTRA ct = new CHITIETMUONTRA();
+            ct.MAPHIEUMUON = maphieumuon;
+            ct.MASACH = masach;
+            linq.CHITIETMUONTRAs.InsertOnSubmit(ct);
+            
+        }
+
+
+        public List<PMCT> loadPMCT()
+        {
+            return linq.PMCTs.Select(t => t).ToList<PMCT>();
+        }
+        public List<PMCT> loadPMCT(string maSV)
+        {
+            return linq.PMCTs.Where(t => t.MASINHVIEN == maSV).Select(t => t).ToList<PMCT>();
         }
     }
 }

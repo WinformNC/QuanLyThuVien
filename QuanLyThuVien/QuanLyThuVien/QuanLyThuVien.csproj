@@ -283,6 +283,10 @@
       <Project>{0ba572d6-9e4b-4e1d-9596-7b66b343ab5a}</Project>
       <Name>linQ</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Login\Login.csproj">
+      <Project>{92F5E326-7A28-4379-A048-9C656ADB7C02}</Project>
+      <Name>Login</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_Search_32.png" />
@@ -304,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_Plus_Math_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

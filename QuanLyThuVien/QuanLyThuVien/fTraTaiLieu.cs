@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
-
+using linQ;
 namespace QuanLyThuVien
 {
     public partial class fTraTaiLieu : DevExpress.XtraEditors.XtraForm
     {
-        DSMuonBLL dsMuon = new DSMuonBLL();
-
+        //DSMuonBLL dsMuon = new DSMuonBLL();
+        Conection conn = new Conection();
         public fTraTaiLieu()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace QuanLyThuVien
 
         private void loadDSMuon()
         {
-            dtgvMuon.DataSource = dsMuon.LoadDSMuon();
+            dtgvMuon.DataSource = conn.loadPMCT();
             setNameCol();
         }
 
@@ -42,6 +42,7 @@ namespace QuanLyThuVien
             dtgvMuon.Columns[5].HeaderText = "Ngày dự kiến trả";
             dtgvMuon.Columns[6].HeaderText = "Phí mượn";
             dtgvMuon.Columns[7].HeaderText = "Phí cọc";
+           
         }
 
         private void btnTra_Click(object sender, EventArgs e)

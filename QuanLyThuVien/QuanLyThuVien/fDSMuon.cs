@@ -28,7 +28,7 @@ namespace QuanLyThuVien
 
         private void LoadDSMuon()
         {
-            dtgvMuon.DataSource = conn.loadMuonSach();
+            dtgvMuon.DataSource = conn.loadPMCT();
             setNameCol();
         }
 

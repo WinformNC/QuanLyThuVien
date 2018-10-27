@@ -155,4 +155,16 @@
       <Column Name="TENTHELOAI" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.PMCT" Member="PMCTs">
+    <Type Name="PMCT">
+      <Column Name="MAPHIEUMUON" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MASACH" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="MASINHVIEN" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="NGAYMUON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NGAYDUKIENTRA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PHIMUON" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PHICOC" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

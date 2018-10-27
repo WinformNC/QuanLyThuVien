@@ -19,7 +19,7 @@ namespace Login
         public LoginFrom()
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile("F:\\Studio\\WinformNC\\bg.png");
+            //this.BackgroundImage = Image.FromFile("F:\\Studio\\WinformNC\\bg.png");
         }
         public void setValue(Form fmain,Form flogin, string table, string conn)
         {
