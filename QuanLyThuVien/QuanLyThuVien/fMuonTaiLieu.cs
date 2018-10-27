@@ -18,6 +18,8 @@ namespace QuanLyThuVien
     
         Conection conn = new Conection();
         createPrimaryKey pk = new createPrimaryKey();
+        SinhVienBLL sinhvien = new SinhVienBLL();
+
         string ma, ten, maNV;
         public fMuonTaiLieu()
         {
@@ -101,8 +103,18 @@ namespace QuanLyThuVien
        
         private void btnMuon_Click(object sender, EventArgs e)
         {
-            if (conn.addPhieuMuon(pk.createKeyMuonSach(), maNV, cboMaSV.SelectedValue.ToString(), dtgvMuon.RowCount,ma) == 1)
+            string maPhieu = pk.createKeyMuonSach();
+            List<string> lst_MaSach = new List<string>();
+            for (int i = 0; i < dtgvMuon.RowCount; i++)
+            {
+                lst_MaSach.Add(dtgvMuon.Rows[i].Cells[0].Value.ToString());
+            }
+            if (conn.addPhieuMuon(maPhieu, maNV, cboMaSV.SelectedValue.ToString(), dtgvMuon.RowCount, lst_MaSach) == 1)
+            {
+                WordExport word = new WordExport();
+                word.LapPhieuMuon(maPhieu, cboMaSV.SelectedValue.ToString(), sinhvien.FindTenSV(cboMaSV.SelectedValue.ToString()), maNV);
                 MessageBox.Show("Thêm thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }     
             else
                 MessageBox.Show("Thêm không thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

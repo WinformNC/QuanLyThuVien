@@ -11551,12 +11551,17 @@ SELECT MASINHVIEN, MAKHOA, TENSINHVIEN, NGAYSINH_SV, SOCMND_SV, EMAIL_SV, DIACHI
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT MASINHVIEN, MAKHOA, TENSINHVIEN, NGAYSINH_SV, SOCMND_SV, EMAIL_SV, DIACHI_" +
                 "SV, SDT_SV, NAMVAOTRUONG FROM dbo.SINHVIEN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT TENSINHVIEN FROM SINHVIEN WHERE MASINHVIEN = @MASINHVIEN\r\n";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MASINHVIEN", global::System.Data.SqlDbType.Char, 5, global::System.Data.ParameterDirection.Input, 0, 0, "MASINHVIEN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11964,6 +11969,40 @@ SELECT MASINHVIEN, MAKHOA, TENSINHVIEN, NGAYSINH_SV, SOCMND_SV, EMAIL_SV, DIACHI
                     string Original_SDT_SV, 
                     global::System.Nullable<int> Original_NAMVAOTRUONG) {
             return this.Update(Original_MASINHVIEN, MAKHOA, TENSINHVIEN, NGAYSINH_SV, SOCMND_SV, EMAIL_SV, DIACHI_SV, SDT_SV, NAMVAOTRUONG, Original_MASINHVIEN, Original_MAKHOA, Original_TENSINHVIEN, Original_NGAYSINH_SV, Original_SOCMND_SV, Original_EMAIL_SV, Original_DIACHI_SV, Original_SDT_SV, Original_NAMVAOTRUONG);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object FindTenSV_ScalarQuery(string MASINHVIEN) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((MASINHVIEN == null)) {
+                throw new global::System.ArgumentNullException("MASINHVIEN");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(MASINHVIEN));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     

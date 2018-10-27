@@ -61,3 +61,5 @@ C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVi
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.fDSPhat.resources
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\bin\Debug\Login.dll
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\bin\Debug\Login.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\bin\Debug\Syncfusion.DocIO.Base.xml
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\bin\Debug\Syncfusion.XlsIO.Base.xml

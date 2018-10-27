@@ -12,3 +12,10 @@ F:\Studio\WinformNC\QuanLyThuVien\Login\obj\Debug\Login.LoginFrom.resources
 F:\Studio\WinformNC\QuanLyThuVien\Login\obj\Debug\Login.csproj.GenerateResource.Cache
 F:\Studio\WinformNC\QuanLyThuVien\Login\obj\Debug\Login.dll
 F:\Studio\WinformNC\QuanLyThuVien\Login\obj\Debug\Login.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\Login\bin\Debug\Login.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\Login\bin\Debug\Login.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\Login\obj\Debug\Login.csprojResolveAssemblyReference.cache
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\Login\obj\Debug\Login.LoginFrom.resources
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\Login\obj\Debug\Login.csproj.GenerateResource.Cache
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\Login\obj\Debug\Login.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\Login\obj\Debug\Login.pdb

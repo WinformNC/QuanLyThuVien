@@ -25,5 +25,10 @@ namespace DAL
         {
             return adapter.GetData();
         }
+
+        public string FindTenSV(string ma)
+        {
+            return adapterSV.FindTenSV_ScalarQuery(ma).ToString();
+        }
     }
 }

@@ -112,7 +112,7 @@ namespace linQ
             return linq.SINHVIENs.Select(t => t).ToList<SINHVIEN>();
         }
 
-        public int addPhieuMuon(string maphieumuon,string manv,string masinhvien,int sosach,string masach)
+        public int addPhieuMuon(string maphieumuon,string manv,string masinhvien,int sosach,List<string> masach)
         {
             try
             {
@@ -138,12 +138,16 @@ namespace linQ
         }
 
         //Phieu muon tra
-        public void addCTPhieuMuonTra(string maphieumuon, string masach)
+        public void addCTPhieuMuonTra(string maphieumuon, List<string> masach)
         {
-            CHITIETMUONTRA ct = new CHITIETMUONTRA();
-            ct.MAPHIEUMUON = maphieumuon;
-            ct.MASACH = masach;
-            linq.CHITIETMUONTRAs.InsertOnSubmit(ct);
+            for (int i = 0; i < masach.Count; i++)
+            {
+                CHITIETMUONTRA ct = new CHITIETMUONTRA();
+                ct.MAPHIEUMUON = maphieumuon;
+                ct.MASACH = masach[i];
+                linq.CHITIETMUONTRAs.InsertOnSubmit(ct);
+            }
+            
             
         }
 
