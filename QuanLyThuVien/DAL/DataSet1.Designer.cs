@@ -54,7 +54,7 @@ namespace DAL {
         
         private SACHDataTable tableSACH;
         
-        private DataTable1DataTable tableDataTable1;
+        private DSMUONDataTable tableDSMUON;
         
         private global::System.Data.DataRelation relationFK_SINHVIEN_REFERENCE_KHOA;
         
@@ -157,8 +157,8 @@ namespace DAL {
                 if ((ds.Tables["SACH"] != null)) {
                     base.Tables.Add(new SACHDataTable(ds.Tables["SACH"]));
                 }
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["DSMUON"] != null)) {
+                    base.Tables.Add(new DSMUONDataTable(ds.Tables["DSMUON"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -332,9 +332,9 @@ namespace DAL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DataTable1DataTable DataTable1 {
+        public DSMUONDataTable DSMUON {
             get {
-                return this.tableDataTable1;
+                return this.tableDSMUON;
             }
         }
         
@@ -450,8 +450,8 @@ namespace DAL {
                 if ((ds.Tables["SACH"] != null)) {
                     base.Tables.Add(new SACHDataTable(ds.Tables["SACH"]));
                 }
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["DSMUON"] != null)) {
+                    base.Tables.Add(new DSMUONDataTable(ds.Tables["DSMUON"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -576,10 +576,10 @@ namespace DAL {
                     this.tableSACH.InitVars();
                 }
             }
-            this.tableDataTable1 = ((DataTable1DataTable)(base.Tables["DataTable1"]));
+            this.tableDSMUON = ((DSMUONDataTable)(base.Tables["DSMUON"]));
             if ((initTable == true)) {
-                if ((this.tableDataTable1 != null)) {
-                    this.tableDataTable1.InitVars();
+                if ((this.tableDSMUON != null)) {
+                    this.tableDSMUON.InitVars();
                 }
             }
             this.relationFK_SINHVIEN_REFERENCE_KHOA = this.Relations["FK_SINHVIEN_REFERENCE_KHOA"];
@@ -636,8 +636,8 @@ namespace DAL {
             base.Tables.Add(this.tableSINHVIEN_KHOA);
             this.tableSACH = new SACHDataTable();
             base.Tables.Add(this.tableSACH);
-            this.tableDataTable1 = new DataTable1DataTable();
-            base.Tables.Add(this.tableDataTable1);
+            this.tableDSMUON = new DSMUONDataTable();
+            base.Tables.Add(this.tableDSMUON);
             this.relationFK_SINHVIEN_REFERENCE_KHOA = new global::System.Data.DataRelation("FK_SINHVIEN_REFERENCE_KHOA", new global::System.Data.DataColumn[] {
                         this.tableKHOA.MAKHOAColumn}, new global::System.Data.DataColumn[] {
                         this.tableSINHVIEN.MAKHOAColumn}, false);
@@ -688,11 +688,11 @@ namespace DAL {
             this.Relations.Add(this.relationFK_SACH_REFERENCE_VITRI);
             this.relationFK_CTMUONTRA_REFERENCE_PHIEUMUON1 = new global::System.Data.DataRelation("FK_CTMUONTRA_REFERENCE_PHIEUMUON1", new global::System.Data.DataColumn[] {
                         this.tablePHIEUMUONTRA.MAPHIEUMUONColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDataTable1.MAPHIEUMUONColumn}, false);
+                        this.tableDSMUON.MAPHIEUMUONColumn}, false);
             this.Relations.Add(this.relationFK_CTMUONTRA_REFERENCE_PHIEUMUON1);
             this.relationFK_CTMUONTRA_REFERNCE_SACH1 = new global::System.Data.DataRelation("FK_CTMUONTRA_REFERNCE_SACH1", new global::System.Data.DataColumn[] {
                         this.tableSACH.MASACHColumn}, new global::System.Data.DataColumn[] {
-                        this.tableDataTable1.MASACHColumn}, false);
+                        this.tableDSMUON.MASACHColumn}, false);
             this.Relations.Add(this.relationFK_CTMUONTRA_REFERNCE_SACH1);
         }
         
@@ -788,7 +788,7 @@ namespace DAL {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeDataTable1() {
+        private bool ShouldSerializeDSMUON() {
             return false;
         }
         
@@ -893,7 +893,7 @@ namespace DAL {
         public delegate void SACHRowChangeEventHandler(object sender, SACHRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void DataTable1RowChangeEventHandler(object sender, DataTable1RowChangeEvent e);
+        public delegate void DSMUONRowChangeEventHandler(object sender, DSMUONRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5784,7 +5784,7 @@ namespace DAL {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
+        public partial class DSMUONDataTable : global::System.Data.TypedTableBase<DSMUONRow> {
             
             private global::System.Data.DataColumn columnMAPHIEUMUON;
             
@@ -5804,8 +5804,8 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1DataTable() {
-                this.TableName = "DataTable1";
+            public DSMUONDataTable() {
+                this.TableName = "DSMUON";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -5813,7 +5813,7 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DataTable1DataTable(global::System.Data.DataTable table) {
+            internal DSMUONDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -5830,7 +5830,7 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected DataTable1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected DSMUONDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -5910,34 +5910,34 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row this[int index] {
+            public DSMUONRow this[int index] {
                 get {
-                    return ((DataTable1Row)(this.Rows[index]));
+                    return ((DSMUONRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanging;
+            public event DSMUONRowChangeEventHandler DSMUONRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanged;
+            public event DSMUONRowChangeEventHandler DSMUONRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleting;
+            public event DSMUONRowChangeEventHandler DSMUONRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleted;
+            public event DSMUONRowChangeEventHandler DSMUONRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddDataTable1Row(DataTable1Row row) {
+            public void AddDSMUONRow(DSMUONRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(PHIEUMUONTRARow parentPHIEUMUONTRARowByFK_CTMUONTRA_REFERENCE_PHIEUMUON1, SACHRow parentSACHRowByFK_CTMUONTRA_REFERNCE_SACH1, string MANV, string MASINHVIEN, System.DateTime NGAYMUON, System.DateTime NGAYDUKIENTRA, double PHIMUON, double PHICOC) {
-                DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
+            public DSMUONRow AddDSMUONRow(PHIEUMUONTRARow parentPHIEUMUONTRARowByFK_CTMUONTRA_REFERENCE_PHIEUMUON1, SACHRow parentSACHRowByFK_CTMUONTRA_REFERNCE_SACH1, string MANV, string MASINHVIEN, System.DateTime NGAYMUON, System.DateTime NGAYDUKIENTRA, double PHIMUON, double PHICOC) {
+                DSMUONRow rowDSMUONRow = ((DSMUONRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
@@ -5953,15 +5953,15 @@ namespace DAL {
                 if ((parentSACHRowByFK_CTMUONTRA_REFERNCE_SACH1 != null)) {
                     columnValuesArray[1] = parentSACHRowByFK_CTMUONTRA_REFERNCE_SACH1[0];
                 }
-                rowDataTable1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDataTable1Row);
-                return rowDataTable1Row;
+                rowDSMUONRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDSMUONRow);
+                return rowDSMUONRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DataTable1DataTable cln = ((DataTable1DataTable)(base.Clone()));
+                DSMUONDataTable cln = ((DSMUONDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -5969,7 +5969,7 @@ namespace DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DataTable1DataTable();
+                return new DSMUONDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6014,28 +6014,28 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row NewDataTable1Row() {
-                return ((DataTable1Row)(this.NewRow()));
+            public DSMUONRow NewDSMUONRow() {
+                return ((DSMUONRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DataTable1Row(builder);
+                return new DSMUONRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DataTable1Row);
+                return typeof(DSMUONRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DataTable1RowChanged != null)) {
-                    this.DataTable1RowChanged(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.DSMUONRowChanged != null)) {
+                    this.DSMUONRowChanged(this, new DSMUONRowChangeEvent(((DSMUONRow)(e.Row)), e.Action));
                 }
             }
             
@@ -6043,8 +6043,8 @@ namespace DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DataTable1RowChanging != null)) {
-                    this.DataTable1RowChanging(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.DSMUONRowChanging != null)) {
+                    this.DSMUONRowChanging(this, new DSMUONRowChangeEvent(((DSMUONRow)(e.Row)), e.Action));
                 }
             }
             
@@ -6052,8 +6052,8 @@ namespace DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DataTable1RowDeleted != null)) {
-                    this.DataTable1RowDeleted(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.DSMUONRowDeleted != null)) {
+                    this.DSMUONRowDeleted(this, new DSMUONRowChangeEvent(((DSMUONRow)(e.Row)), e.Action));
                 }
             }
             
@@ -6061,14 +6061,14 @@ namespace DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DataTable1RowDeleting != null)) {
-                    this.DataTable1RowDeleting(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.DSMUONRowDeleting != null)) {
+                    this.DSMUONRowDeleting(this, new DSMUONRowChangeEvent(((DSMUONRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveDataTable1Row(DataTable1Row row) {
+            public void RemoveDSMUONRow(DSMUONRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -6095,7 +6095,7 @@ namespace DAL {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DataTable1DataTable";
+                attribute2.FixedValue = "DSMUONDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -8011,12 +8011,12 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row[] GetDataTable1Rows() {
+            public DSMUONRow[] GetDSMUONRows() {
                 if ((this.Table.ChildRelations["FK_CTMUONTRA_REFERENCE_PHIEUMUON1"] == null)) {
-                    return new DataTable1Row[0];
+                    return new DSMUONRow[0];
                 }
                 else {
-                    return ((DataTable1Row[])(base.GetChildRows(this.Table.ChildRelations["FK_CTMUONTRA_REFERENCE_PHIEUMUON1"])));
+                    return ((DSMUONRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CTMUONTRA_REFERENCE_PHIEUMUON1"])));
                 }
             }
         }
@@ -8605,12 +8605,12 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row[] GetDataTable1Rows() {
+            public DSMUONRow[] GetDSMUONRows() {
                 if ((this.Table.ChildRelations["FK_CTMUONTRA_REFERNCE_SACH1"] == null)) {
-                    return new DataTable1Row[0];
+                    return new DSMUONRow[0];
                 }
                 else {
-                    return ((DataTable1Row[])(base.GetChildRows(this.Table.ChildRelations["FK_CTMUONTRA_REFERNCE_SACH1"])));
+                    return ((DSMUONRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CTMUONTRA_REFERNCE_SACH1"])));
                 }
             }
         }
@@ -8618,25 +8618,25 @@ namespace DAL {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DataTable1Row : global::System.Data.DataRow {
+        public partial class DSMUONRow : global::System.Data.DataRow {
             
-            private DataTable1DataTable tableDataTable1;
+            private DSMUONDataTable tableDSMUON;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DataTable1Row(global::System.Data.DataRowBuilder rb) : 
+            internal DSMUONRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDataTable1 = ((DataTable1DataTable)(this.Table));
+                this.tableDSMUON = ((DSMUONDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string MAPHIEUMUON {
                 get {
-                    return ((string)(this[this.tableDataTable1.MAPHIEUMUONColumn]));
+                    return ((string)(this[this.tableDSMUON.MAPHIEUMUONColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.MAPHIEUMUONColumn] = value;
+                    this[this.tableDSMUON.MAPHIEUMUONColumn] = value;
                 }
             }
             
@@ -8644,10 +8644,10 @@ namespace DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string MASACH {
                 get {
-                    return ((string)(this[this.tableDataTable1.MASACHColumn]));
+                    return ((string)(this[this.tableDSMUON.MASACHColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.MASACHColumn] = value;
+                    this[this.tableDSMUON.MASACHColumn] = value;
                 }
             }
             
@@ -8656,14 +8656,14 @@ namespace DAL {
             public string MANV {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.MANVColumn]));
+                        return ((string)(this[this.tableDSMUON.MANVColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MANV\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MANV\' in table \'DSMUON\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.MANVColumn] = value;
+                    this[this.tableDSMUON.MANVColumn] = value;
                 }
             }
             
@@ -8672,14 +8672,14 @@ namespace DAL {
             public string MASINHVIEN {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.MASINHVIENColumn]));
+                        return ((string)(this[this.tableDSMUON.MASINHVIENColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MASINHVIEN\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MASINHVIEN\' in table \'DSMUON\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.MASINHVIENColumn] = value;
+                    this[this.tableDSMUON.MASINHVIENColumn] = value;
                 }
             }
             
@@ -8688,14 +8688,14 @@ namespace DAL {
             public System.DateTime NGAYMUON {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableDataTable1.NGAYMUONColumn]));
+                        return ((global::System.DateTime)(this[this.tableDSMUON.NGAYMUONColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NGAYMUON\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NGAYMUON\' in table \'DSMUON\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.NGAYMUONColumn] = value;
+                    this[this.tableDSMUON.NGAYMUONColumn] = value;
                 }
             }
             
@@ -8704,14 +8704,14 @@ namespace DAL {
             public System.DateTime NGAYDUKIENTRA {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableDataTable1.NGAYDUKIENTRAColumn]));
+                        return ((global::System.DateTime)(this[this.tableDSMUON.NGAYDUKIENTRAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NGAYDUKIENTRA\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NGAYDUKIENTRA\' in table \'DSMUON\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.NGAYDUKIENTRAColumn] = value;
+                    this[this.tableDSMUON.NGAYDUKIENTRAColumn] = value;
                 }
             }
             
@@ -8720,14 +8720,14 @@ namespace DAL {
             public double PHIMUON {
                 get {
                     try {
-                        return ((double)(this[this.tableDataTable1.PHIMUONColumn]));
+                        return ((double)(this[this.tableDSMUON.PHIMUONColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PHIMUON\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PHIMUON\' in table \'DSMUON\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.PHIMUONColumn] = value;
+                    this[this.tableDSMUON.PHIMUONColumn] = value;
                 }
             }
             
@@ -8736,14 +8736,14 @@ namespace DAL {
             public double PHICOC {
                 get {
                     try {
-                        return ((double)(this[this.tableDataTable1.PHICOCColumn]));
+                        return ((double)(this[this.tableDSMUON.PHICOCColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PHICOC\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PHICOC\' in table \'DSMUON\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.PHICOCColumn] = value;
+                    this[this.tableDSMUON.PHICOCColumn] = value;
                 }
             }
             
@@ -8772,73 +8772,73 @@ namespace DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMANVNull() {
-                return this.IsNull(this.tableDataTable1.MANVColumn);
+                return this.IsNull(this.tableDSMUON.MANVColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMANVNull() {
-                this[this.tableDataTable1.MANVColumn] = global::System.Convert.DBNull;
+                this[this.tableDSMUON.MANVColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMASINHVIENNull() {
-                return this.IsNull(this.tableDataTable1.MASINHVIENColumn);
+                return this.IsNull(this.tableDSMUON.MASINHVIENColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMASINHVIENNull() {
-                this[this.tableDataTable1.MASINHVIENColumn] = global::System.Convert.DBNull;
+                this[this.tableDSMUON.MASINHVIENColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNGAYMUONNull() {
-                return this.IsNull(this.tableDataTable1.NGAYMUONColumn);
+                return this.IsNull(this.tableDSMUON.NGAYMUONColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNGAYMUONNull() {
-                this[this.tableDataTable1.NGAYMUONColumn] = global::System.Convert.DBNull;
+                this[this.tableDSMUON.NGAYMUONColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNGAYDUKIENTRANull() {
-                return this.IsNull(this.tableDataTable1.NGAYDUKIENTRAColumn);
+                return this.IsNull(this.tableDSMUON.NGAYDUKIENTRAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNGAYDUKIENTRANull() {
-                this[this.tableDataTable1.NGAYDUKIENTRAColumn] = global::System.Convert.DBNull;
+                this[this.tableDSMUON.NGAYDUKIENTRAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPHIMUONNull() {
-                return this.IsNull(this.tableDataTable1.PHIMUONColumn);
+                return this.IsNull(this.tableDSMUON.PHIMUONColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPHIMUONNull() {
-                this[this.tableDataTable1.PHIMUONColumn] = global::System.Convert.DBNull;
+                this[this.tableDSMUON.PHIMUONColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPHICOCNull() {
-                return this.IsNull(this.tableDataTable1.PHICOCColumn);
+                return this.IsNull(this.tableDSMUON.PHICOCColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPHICOCNull() {
-                this[this.tableDataTable1.PHICOCColumn] = global::System.Convert.DBNull;
+                this[this.tableDSMUON.PHICOCColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9356,22 +9356,22 @@ namespace DAL {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class DataTable1RowChangeEvent : global::System.EventArgs {
+        public class DSMUONRowChangeEvent : global::System.EventArgs {
             
-            private DataTable1Row eventRow;
+            private DSMUONRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1RowChangeEvent(DataTable1Row row, global::System.Data.DataRowAction action) {
+            public DSMUONRowChangeEvent(DSMUONRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row Row {
+            public DSMUONRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -16785,7 +16785,7 @@ SELECT MASACH, MANXB, MATHELOAI, MATACGIA, MAVITRI, TENSACH, NAMXB, HINHANHSACH,
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DataTable1TableAdapter : global::System.ComponentModel.Component {
+    public partial class DSMUONTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -16799,7 +16799,7 @@ SELECT MASACH, MANXB, MATHELOAI, MATACGIA, MAVITRI, TENSACH, NAMXB, HINHANHSACH,
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DataTable1TableAdapter() {
+        public DSMUONTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -16896,7 +16896,7 @@ SELECT MASACH, MANXB, MATHELOAI, MATACGIA, MAVITRI, TENSACH, NAMXB, HINHANHSACH,
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DataTable1";
+            tableMapping.DataSetTable = "DSMUON";
             tableMapping.ColumnMappings.Add("MAPHIEUMUON", "MAPHIEUMUON");
             tableMapping.ColumnMappings.Add("MASACH", "MASACH");
             tableMapping.ColumnMappings.Add("MANV", "MANV");
@@ -16932,7 +16932,7 @@ FROM     CHITIETMUONTRA INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.DataTable1DataTable dataTable) {
+        public virtual int Fill(DataSet1.DSMUONDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -16945,9 +16945,9 @@ FROM     CHITIETMUONTRA INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.DataTable1DataTable GetData() {
+        public virtual DataSet1.DSMUONDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet1.DataTable1DataTable dataTable = new DataSet1.DataTable1DataTable();
+            DataSet1.DSMUONDataTable dataTable = new DataSet1.DSMUONDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

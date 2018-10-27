@@ -12,21 +12,21 @@ using BLL;
 
 namespace QuanLyThuVien
 {
-    public partial class fDSMuon : DevExpress.XtraEditors.XtraForm
+    public partial class fTraTaiLieu : DevExpress.XtraEditors.XtraForm
     {
         DSMuonBLL dsMuon = new DSMuonBLL();
 
-        public fDSMuon()
+        public fTraTaiLieu()
         {
             InitializeComponent();
         }
 
-        private void fDSMuon_Load(object sender, EventArgs e)
+        private void fTraTaiLieu_Load(object sender, EventArgs e)
         {
-            LoadDSMuon();
+            loadDSMuon();
         }
 
-        private void LoadDSMuon()
+        private void loadDSMuon()
         {
             dtgvMuon.DataSource = dsMuon.LoadDSMuon();
             setNameCol();
@@ -42,6 +42,11 @@ namespace QuanLyThuVien
             dtgvMuon.Columns[5].HeaderText = "Ngày dự kiến trả";
             dtgvMuon.Columns[6].HeaderText = "Phí mượn";
             dtgvMuon.Columns[7].HeaderText = "Phí cọc";
+        }
+
+        private void btnTra_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
