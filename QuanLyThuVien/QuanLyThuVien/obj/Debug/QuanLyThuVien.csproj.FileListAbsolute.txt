@@ -79,3 +79,4 @@ F:\Studio\WinformNC\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.fDSMuon.
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.fDSMuon.resources
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.fTraTaiLieu.resources
 >>>>>>> 919a8901bfe02c882696a937277b011c69d3f37b
+F:\Studio\WinformNC\QuanLyThuVien\QuanLyThuVien\obj\Debug\QuanLyThuVien.fTraTaiLieu.resources

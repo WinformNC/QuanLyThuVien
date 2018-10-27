@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
-
+using linQ;
 namespace QuanLyThuVien
 {
     public partial class fDSMuon : DevExpress.XtraEditors.XtraForm
     {
-        DSMuonBLL dsMuon = new DSMuonBLL();
-
+      
+        Conection conn = new Conection();
         public fDSMuon()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace QuanLyThuVien
 
         private void LoadDSMuon()
         {
-            dtgvMuon.DataSource = dsMuon.LoadDSMuon();
+            dtgvMuon.DataSource = conn.loadMuonSach();
             setNameCol();
         }
 

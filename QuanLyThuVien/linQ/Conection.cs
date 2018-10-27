@@ -31,6 +31,7 @@ namespace linQ
         {
             return linq.NHAXBs.Select(t => t).ToList<NHAXB>();
         }
+
         public int saveSach()
         {
             try
@@ -41,8 +42,7 @@ namespace linQ
             catch {
                 return 0;
             }
-        }
-     
+        } 
         public int addSach(string masach,string manxb,string matheloai,string matacgia,string mavitri,string tensach,string namxb,string hinhanhsach,string mota,string soluong)
         {
             try
@@ -96,6 +96,39 @@ namespace linQ
             }
             catch
             {
+                return 0;
+            }
+        }
+
+        public List<PHIEUMUONTRA> loadMuonSach()
+        {
+            return linq.PHIEUMUONTRAs.Select(t => t).ToList<PHIEUMUONTRA>();
+        }
+
+
+        public List<SINHVIEN> loadSinhVien()
+        {
+            return linq.SINHVIENs.Select(t => t).ToList<SINHVIEN>();
+        }
+
+        public int themPhieuMuon(string maphieumuon,string manv,string masinhvien,DateTime ngaymuon,int sosach)
+        {
+            try
+            {
+                PHIEUMUONTRA ptm = new PHIEUMUONTRA();
+                ptm.MAPHIEUMUON = maphieumuon;
+                ptm.MANV = manv;
+                ptm.MASINHVIEN = masinhvien;
+                ptm.NGAYMUON = DateTime.Today;
+                ptm.NGAYDUKIENTRA = ngaymuon.AddDays(10);
+                ptm.PHICOC = 150000;
+                ptm.PHIMUON = 20000;
+                linq.PHIEUMUONTRAs.InsertOnSubmit(ptm);
+                linq.SubmitChanges();
+                return 1;
+
+            }
+            catch {
                 return 0;
             }
         }

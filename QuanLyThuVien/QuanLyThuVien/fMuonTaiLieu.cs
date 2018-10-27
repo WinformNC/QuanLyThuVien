@@ -15,15 +15,20 @@ namespace QuanLyThuVien
 {
     public partial class fMuonTaiLieu : DevExpress.XtraEditors.XtraForm
     {
-        SinhVienBLL sinhvien = new SinhVienBLL();
+    
         Conection conn = new Conection();
-
+        string ma, ten, maNV;
         public fMuonTaiLieu()
         {
             InitializeComponent();
             dtgvDS.DataSource = conn.loadSach();
         }
-
+        public fMuonTaiLieu(string maNV)
+        {
+            InitializeComponent();
+            dtgvDS.DataSource = conn.loadSach();
+            this.maNV = maNV;
+        }
         private void fMuonTaiLieu_Load(object sender, EventArgs e)
         {
             LoadMaSinhVien();
@@ -61,21 +66,14 @@ namespace QuanLyThuVien
 
         private void LoadMaSinhVien()
         {
-            cboMaSV.DataSource = sinhvien.LoadMaSinhVien();
-            cboMaSV.DisplayMember = "MASINHVIEN";
+            cboMaSV.DataSource = conn.loadSinhVien();
+            
             cboMaSV.ValueMember = "MASINHVIEN";
+            cboMaSV.DisplayMember = "TENSINHVIEN";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (dtgvMuon.Rows.Count != 0)
-            {
-                string ma = dtgvMuon.CurrentRow.Cells[1].Value.ToString();
-                if (dtgvMuon.CurrentRow.Cells[9].Value.ToString() == "0")
-                {
-                    MessageBox.Show("Sách bạn chọn hiện không có sẵn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
                 for (int i = 0; i < dtgvMuon.Rows.Count; i++)
                 {
                     if (ma == dtgvMuon.Rows[i].Cells[0].Value.ToString())
@@ -84,9 +82,9 @@ namespace QuanLyThuVien
                         return;
                     }
                 }
-                dtgvMuon.Rows.Add(new object[] { dtgvDS.CurrentRow.Cells[1].Value, dtgvDS.CurrentRow.Cells[2].Value });
+                dtgvMuon.Rows.Add(new object[] { ma, ten });
                 btnMuon.Enabled = true;
-            } 
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -98,10 +96,26 @@ namespace QuanLyThuVien
                 btnMuon.Enabled = false;
             }
         }
-
+       
         private void btnMuon_Click(object sender, EventArgs e)
         {
             
+        }
+        
+        private void dtgvDS_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgvDS.RowCount != 0)
+            {
+                int index = e.RowIndex;
+                 ma = dtgvDS["MASACH", index].Value.ToString();
+                 ten = dtgvDS["TENSACH", index].Value.ToString();
+                 if (dtgvDS["SOLUONG", index].Value.ToString() == "0") 
+                 {
+                     MessageBox.Show("Sách bạn chọn hiện không có sẵn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     return;
+                 }
+                 
+            }
         }
     }
 }
