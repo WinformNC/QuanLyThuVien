@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyThuVien" Class="DataTVDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-VRRUJB7\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Persist Security Info=True;User ID=sa" SettingsObjectName="linQ.Properties.Settings" SettingsPropertyName="QuanLyThuVienConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-66PHT9S\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated Security=True" SettingsObjectName="linQ.Properties.Settings" SettingsPropertyName="QuanLyThuVienConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CHITIETMUONTRA" Member="CHITIETMUONTRAs">
     <Type Name="CHITIETMUONTRA">
       <Column Name="MAPHIEUMUON" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -8,6 +8,13 @@
       <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="PHIEUMUONTRA_CHITIETMUONTRA" Member="PHIEUMUONTRA" ThisKey="MAPHIEUMUON" OtherKey="MAPHIEUMUON" Type="PHIEUMUONTRA" IsForeignKey="true" />
       <Association Name="SACH_CHITIETMUONTRA" Member="SACH" ThisKey="MASACH" OtherKey="MASACH" Type="SACH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VITRI" Member="VITRIs">
+    <Type Name="VITRI">
+      <Column Name="MAVITRI" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VITRI" Member="VITRI1" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="VITRI_SACH" Member="SACHes" ThisKey="MAVITRI" OtherKey="MAVITRI" Type="SACH" />
     </Type>
   </Table>
   <Table Name="dbo.CHUCVU" Member="CHUCVUs">
@@ -86,26 +93,9 @@
       <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="SACH_CHITIETMUONTRA" Member="CHITIETMUONTRAs" ThisKey="MASACH" OtherKey="MASACH" Type="CHITIETMUONTRA" />
       <Association Name="NHAXB_SACH" Member="NHAXB" ThisKey="MANXB" OtherKey="MANXB" Type="NHAXB" IsForeignKey="true" />
+      <Association Name="VITRI_SACH" Member="VITRI" ThisKey="MAVITRI" OtherKey="MAVITRI" Type="VITRI" IsForeignKey="true" />
       <Association Name="TACGIA_SACH" Member="TACGIA" ThisKey="MATACGIA" OtherKey="MATACGIA" Type="TACGIA" IsForeignKey="true" />
       <Association Name="THELOAI_SACH" Member="THELOAI" ThisKey="MATHELOAI" OtherKey="MATHELOAI" Type="THELOAI" IsForeignKey="true" />
-      <Association Name="VITRI_SACH" Member="VITRI" ThisKey="MAVITRI" OtherKey="MAVITRI" Type="VITRI" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
-    <Type Name="TAIKHOAN">
-      <Column Name="TENDANGNHAP" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MADANGNHAP" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="LOAITAIKHOAN" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="TAIKHOAN_NHANVIEN" Member="NHANVIENs" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="NHANVIEN" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TACGIA" Member="TACGIAs">
-    <Type Name="TACGIA">
-      <Column Name="MATACGIA" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENTACGIA" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="DTTACGIA" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
-      <Column Name="DCTACGIA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="TACGIA_SACH" Member="SACHes" ThisKey="MATACGIA" OtherKey="MATACGIA" Type="SACH" />
     </Type>
   </Table>
   <Table Name="dbo.SINHVIEN" Member="SINHVIENs">
@@ -124,18 +114,28 @@
       <Association Name="KHOA_SINHVIEN" Member="KHOA" ThisKey="MAKHOA" OtherKey="MAKHOA" Type="KHOA" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TACGIA" Member="TACGIAs">
+    <Type Name="TACGIA">
+      <Column Name="MATACGIA" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENTACGIA" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DTTACGIA" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="DCTACGIA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TACGIA_SACH" Member="SACHes" ThisKey="MATACGIA" OtherKey="MATACGIA" Type="SACH" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN">
+      <Column Name="TENDANGNHAP" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MADANGNHAP" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="LOAITAIKHOAN" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="TAIKHOAN_NHANVIEN" Member="NHANVIENs" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="NHANVIEN" />
+    </Type>
+  </Table>
   <Table Name="dbo.THELOAI" Member="THELOAIs">
     <Type Name="THELOAI">
       <Column Name="MATHELOAI" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TENTHELOAI" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Association Name="THELOAI_SACH" Member="SACHes" ThisKey="MATHELOAI" OtherKey="MATHELOAI" Type="SACH" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VITRI" Member="VITRIs">
-    <Type Name="VITRI">
-      <Column Name="MAVITRI" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="VITRI" Member="VITRI1" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Association Name="VITRI_SACH" Member="SACHes" ThisKey="MAVITRI" OtherKey="MAVITRI" Type="SACH" />
     </Type>
   </Table>
   <Table Name="dbo.sachView" Member="sachViews">
