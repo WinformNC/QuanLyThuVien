@@ -61,6 +61,7 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.btnDSPhat = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -88,10 +89,11 @@
             this.btnTheLoai,
             this.btnViTri,
             this.btnChucVu,
-            this.btnSV});
+            this.btnSV,
+            this.btnDSPhat});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 20;
+            this.ribbonControl1.MaxItemId = 21;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -253,6 +255,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDSTaiLieu);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDSMuon);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnDSPhat);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Quản lý tài liệu";
             // 
@@ -312,6 +315,13 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
+            // btnDSPhat
+            // 
+            this.btnDSPhat.Caption = "Danh sách phạt";
+            this.btnDSPhat.Id = 20;
+            this.btnDSPhat.Name = "btnDSPhat";
+            this.btnDSPhat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSPhat_ItemClick);
+            // 
             // fMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -366,5 +376,6 @@
         private DevExpress.XtraBars.BarButtonItem btnChucVu;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnSV;
+        private DevExpress.XtraBars.BarButtonItem btnDSPhat;
     }
 }

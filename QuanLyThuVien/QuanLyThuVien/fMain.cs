@@ -206,5 +206,10 @@ namespace QuanLyThuVien
                 frm.Activate();
             }
         }
+
+        private void btnDSPhat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }
