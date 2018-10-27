@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
+using linQ;
 
 namespace QuanLyThuVien
 {
     public partial class fMuonTaiLieu : DevExpress.XtraEditors.XtraForm
     {
         SinhVienBLL sinhvien = new SinhVienBLL();
-        SachBLL sach = new SachBLL();
+        Conection conn = new Conection();
 
         public fMuonTaiLieu()
         {
             InitializeComponent();
-            dtgvDS.DataSource = sach.LoadSach();
+            dtgvDS.DataSource = conn.loadSach();
         }
 
         private void fMuonTaiLieu_Load(object sender, EventArgs e)
@@ -48,17 +49,14 @@ namespace QuanLyThuVien
             {
                 try
                 {
-                    dtgvDS.Rows[i].Cells[0].Value = Image.FromFile(dtgvDS.Rows[i].Cells[9].Value.ToString());
+                    string s = dtgvDS.Rows[i].Cells[17].Value.ToString();
+                    dtgvDS.Rows[i].Cells[0].Value = Image.FromFile(dtgvDS["HINHANHSACH", i].Value.ToString());
                 }
                 catch
                 {
                     dtgvDS.Rows[i].Cells[0].Value = Properties.Resources.Book_96px;
                 }
             }
-            dtgvDS.Columns[1].SortMode = dtgvDS.Columns[2].SortMode = dtgvDS.Columns[3].SortMode = dtgvDS.Columns[4].SortMode = dtgvDS.Columns[5].SortMode = dtgvDS.Columns[6].SortMode = dtgvDS.Columns[7].SortMode = dtgvDS.Columns[8].SortMode = dtgvDS.Columns[9].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            dtgvDS.Columns[9].Visible = false;
-            setNameCol_DS();
         }
 
         private void LoadMaSinhVien()
@@ -73,11 +71,11 @@ namespace QuanLyThuVien
             if (dtgvMuon.Rows.Count != 0)
             {
                 string ma = dtgvMuon.CurrentRow.Cells[1].Value.ToString();
-                //if (dtgvMuon.CurrentRow.Cells[8].Value.ToString() == "0")
-                //{
-                //    MessageBox.Show("Sách bạn chọn hiện không có sẵn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
-                //}
+                if (dtgvMuon.CurrentRow.Cells[9].Value.ToString() == "0")
+                {
+                    MessageBox.Show("Sách bạn chọn hiện không có sẵn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 for (int i = 0; i < dtgvMuon.Rows.Count; i++)
                 {
                     if (ma == dtgvMuon.Rows[i].Cells[0].Value.ToString())
@@ -99,6 +97,11 @@ namespace QuanLyThuVien
             {
                 btnMuon.Enabled = false;
             }
+        }
+
+        private void btnMuon_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
