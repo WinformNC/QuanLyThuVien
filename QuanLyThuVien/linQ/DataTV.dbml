@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyThuVien" Class="DataTVDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-66PHT9S\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated Security=True" SettingsObjectName="linQ.Properties.Settings" SettingsPropertyName="QuanLyThuVienConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-VRRUJB7\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Persist Security Info=True;User ID=sa" SettingsObjectName="linQ.Properties.Settings" SettingsPropertyName="QuanLyThuVienConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CHITIETMUONTRA" Member="CHITIETMUONTRAs">
     <Type Name="CHITIETMUONTRA">
       <Column Name="MAPHIEUMUON" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -8,13 +8,6 @@
       <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="PHIEUMUONTRA_CHITIETMUONTRA" Member="PHIEUMUONTRA" ThisKey="MAPHIEUMUON" OtherKey="MAPHIEUMUON" Type="PHIEUMUONTRA" IsForeignKey="true" />
       <Association Name="SACH_CHITIETMUONTRA" Member="SACH" ThisKey="MASACH" OtherKey="MASACH" Type="SACH" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VITRI" Member="VITRIs">
-    <Type Name="VITRI">
-      <Column Name="MAVITRI" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="VITRI" Member="VITRI1" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Association Name="VITRI_SACH" Member="SACHes" ThisKey="MAVITRI" OtherKey="MAVITRI" Type="SACH" />
     </Type>
   </Table>
   <Table Name="dbo.CHUCVU" Member="CHUCVUs">
@@ -56,15 +49,6 @@
       <Association Name="NHAXB_SACH" Member="SACHes" ThisKey="MANXB" OtherKey="MANXB" Type="SACH" />
     </Type>
   </Table>
-  <Table Name="dbo.PHAT" Member="PHATs">
-    <Type Name="PHAT">
-      <Column Name="MAPHAT" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MASINHVIEN" Type="System.String" DbType="Char(5)" CanBeNull="true" />
-      <Column Name="SOTIENPHAT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LYDO" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Association Name="SINHVIEN_PHAT" Member="SINHVIEN" ThisKey="MASINHVIEN" OtherKey="MASINHVIEN" Type="SINHVIEN" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.PHIEUMUONTRA" Member="PHIEUMUONTRAs">
     <Type Name="PHIEUMUONTRA">
       <Column Name="MAPHIEUMUON" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -93,9 +77,9 @@
       <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="SACH_CHITIETMUONTRA" Member="CHITIETMUONTRAs" ThisKey="MASACH" OtherKey="MASACH" Type="CHITIETMUONTRA" />
       <Association Name="NHAXB_SACH" Member="NHAXB" ThisKey="MANXB" OtherKey="MANXB" Type="NHAXB" IsForeignKey="true" />
-      <Association Name="VITRI_SACH" Member="VITRI" ThisKey="MAVITRI" OtherKey="MAVITRI" Type="VITRI" IsForeignKey="true" />
       <Association Name="TACGIA_SACH" Member="TACGIA" ThisKey="MATACGIA" OtherKey="MATACGIA" Type="TACGIA" IsForeignKey="true" />
       <Association Name="THELOAI_SACH" Member="THELOAI" ThisKey="MATHELOAI" OtherKey="MATHELOAI" Type="THELOAI" IsForeignKey="true" />
+      <Association Name="VITRI_SACH" Member="VITRI" ThisKey="MAVITRI" OtherKey="MAVITRI" Type="VITRI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.SINHVIEN" Member="SINHVIENs">
@@ -109,8 +93,8 @@
       <Column Name="DIACHI_SV" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="SDT_SV" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
       <Column Name="NAMVAOTRUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="SINHVIEN_PHAT" Member="PHATs" ThisKey="MASINHVIEN" OtherKey="MASINHVIEN" Type="PHAT" />
       <Association Name="SINHVIEN_PHIEUMUONTRA" Member="PHIEUMUONTRAs" ThisKey="MASINHVIEN" OtherKey="MASINHVIEN" Type="PHIEUMUONTRA" />
+      <Association Name="SINHVIEN_PHAT" Member="PHATs" ThisKey="MASINHVIEN" OtherKey="MASINHVIEN" Type="PHAT" />
       <Association Name="KHOA_SINHVIEN" Member="KHOA" ThisKey="MAKHOA" OtherKey="MAKHOA" Type="KHOA" IsForeignKey="true" />
     </Type>
   </Table>
@@ -138,6 +122,13 @@
       <Association Name="THELOAI_SACH" Member="SACHes" ThisKey="MATHELOAI" OtherKey="MATHELOAI" Type="SACH" />
     </Type>
   </Table>
+  <Table Name="dbo.VITRI" Member="VITRIs">
+    <Type Name="VITRI">
+      <Column Name="MAVITRI" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VITRI" Member="VITRI1" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="VITRI_SACH" Member="SACHes" ThisKey="MAVITRI" OtherKey="MAVITRI" Type="SACH" />
+    </Type>
+  </Table>
   <Table Name="dbo.sachView" Member="sachViews">
     <Type Name="sachView">
       <Column Name="MASACH" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
@@ -155,8 +146,17 @@
       <Column Name="TENTHELOAI" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PMCT" Member="PMCTs">
-    <Type Name="PMCT">
+  <Table Name="dbo.PHAT" Member="PHATs">
+    <Type Name="PHAT">
+      <Column Name="MAPHAT" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MASINHVIEN" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="SOTIENPHAT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LYDO" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="SINHVIEN_PHAT" Member="SINHVIEN" ThisKey="MASINHVIEN" OtherKey="MASINHVIEN" Type="SINHVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ViewCT" Member="ViewCTs">
+    <Type Name="ViewCT">
       <Column Name="MAPHIEUMUON" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MASACH" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="MANV" Type="System.String" DbType="Char(5)" CanBeNull="true" />
@@ -165,6 +165,7 @@
       <Column Name="NGAYDUKIENTRA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="PHIMUON" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="PHICOC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

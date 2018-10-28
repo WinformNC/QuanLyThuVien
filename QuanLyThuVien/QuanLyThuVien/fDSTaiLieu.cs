@@ -19,12 +19,9 @@ namespace QuanLyThuVien
     public partial class fDSTaiLieu : DevExpress.XtraEditors.XtraForm
     {
         CHUCNANG chucnang;
-        //SachBLL sachBLL = new SachBLL();
-        //TheLoaiBLL theloaiBLL = new TheLoaiBLL();
-        //ViTriBLL vitriBLL = new ViTriBLL();
-        //TacGiaBLL tacgiaBLL = new TacGiaBLL();
-        //NXBBLL nxbBLL = new NXBBLL();
+
         Conection conn = new Conection();
+        createPrimaryKey pk = new createPrimaryKey();
         string PathImg = "";
 
         public fDSTaiLieu()
@@ -82,7 +79,7 @@ namespace QuanLyThuVien
 
         private void setBoolField(bool b)
         {
-            btnLoadImage.Enabled = btnHuy.Enabled = btnLuu.Enabled = txtMa.Enabled = txtTen.Enabled = txtMoTa.Enabled = txtNamXB.Enabled = cboViTri.Enabled = cboTheLoai.Enabled = cboTacGia.Enabled = cboNXB.Enabled = b;
+            btnLoadImage.Enabled = btnHuy.Enabled = btnLuu.Enabled = txtTen.Enabled = txtMoTa.Enabled = txtNamXB.Enabled = cboViTri.Enabled = cboTheLoai.Enabled = cboTacGia.Enabled = cboNXB.Enabled = b;
         }
         private void setBtn(bool b)
         {
@@ -111,7 +108,10 @@ namespace QuanLyThuVien
             clearTextBox();
             setBoolField(true);
             setBtn(false);
+            txtMa.Text = pk.createKeySach();
+            picbxAnh.Image = Properties.Resources.Book_96px;
             btnThem.Enabled = false;
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -143,9 +143,10 @@ namespace QuanLyThuVien
             //if (r == DialogResult.Yes)
             //{
                 chucnang = CHUCNANG.SUA;
-                dtgvSach.DataSource = conn.loadSach();
+                
                 loadDataGrid();
                 setBtn(false);
+                setBoolField(true);
                 btnTaiLai.Enabled = false;
                 btnLuu.Enabled = true;
             //}
@@ -161,6 +162,7 @@ namespace QuanLyThuVien
             loadDataGrid();
             setBoolField(false);
             btnThem.Enabled = true;
+            picbxAnh.Image = Properties.Resources.Book_96px;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -169,10 +171,8 @@ namespace QuanLyThuVien
                 them();
             else if (chucnang == CHUCNANG.SUA)
                 sua();
-            if(conn.saveSach() == 1)
-                MessageBox.Show("Lưu thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Lưu thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            conn.saveSach();
+             
 
             
             dtgvSach.DataSource = conn.loadSach();
@@ -187,14 +187,9 @@ namespace QuanLyThuVien
         }
         private void them()
         {
-           
             if (conn.addSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, "1") == 1)
-            {
                 MessageBox.Show("Nhập thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-            }
             else
-            
                 MessageBox.Show("Nhập không thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void sua()
@@ -243,7 +238,17 @@ namespace QuanLyThuVien
             setBtn(true);
             btnThem.Enabled =false;
             setBoolField(false);
-            clearTextBox();
+            
+        }
+
+   
+        private void textEdit1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dtgvSach.DataSource = conn.loadSach(textEdit1.Text);
+                loadDataGrid();
+            }
         }
 
       

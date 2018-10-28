@@ -30,7 +30,7 @@ namespace Login
         }
         public void LoginData()
         {
-            string sql = "SELECT * from " + table + " where taikhoan ='" + textBox1.Text + "' and matkhau ='" + textBox2.Text + "'";
+            string sql = "SELECT * from " + table + " where TENDANGNHAP ='" + textBox1.Text + "' and MADANGNHAP ='" + textBox2.Text + "'";
             SqlConnection connection = new SqlConnection(Conn);
             connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sql, connection);
@@ -42,6 +42,7 @@ namespace Login
             {
                 flogin.Hide();
                 fmain.ShowDialog();
+                flogin.Show();
                 
             }
             else

@@ -9,9 +9,9 @@ C:\Users\Dell7559\Documents\WF\QuanLyThuVien\DAL\bin\Debug\DAL.dll
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\DAL\bin\Debug\DAL.pdb
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\DAL\obj\Debug\DAL.dll
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\DAL\obj\Debug\DAL.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 F:\Studio\WinformNC\QuanLyThuVien\DAL\bin\Debug\DAL.dll.config
 F:\Studio\WinformNC\QuanLyThuVien\DAL\bin\Debug\DAL.dll
 F:\Studio\WinformNC\QuanLyThuVien\DAL\bin\Debug\DAL.pdb
 F:\Studio\WinformNC\QuanLyThuVien\DAL\obj\Debug\DAL.dll
 F:\Studio\WinformNC\QuanLyThuVien\DAL\obj\Debug\DAL.pdb
-F:\Studio\WinformNC\QuanLyThuVien\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

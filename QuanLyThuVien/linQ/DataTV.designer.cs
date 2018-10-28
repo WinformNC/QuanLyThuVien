@@ -33,9 +33,6 @@ namespace linQ
     partial void InsertCHITIETMUONTRA(CHITIETMUONTRA instance);
     partial void UpdateCHITIETMUONTRA(CHITIETMUONTRA instance);
     partial void DeleteCHITIETMUONTRA(CHITIETMUONTRA instance);
-    partial void InsertVITRI(VITRI instance);
-    partial void UpdateVITRI(VITRI instance);
-    partial void DeleteVITRI(VITRI instance);
     partial void InsertCHUCVU(CHUCVU instance);
     partial void UpdateCHUCVU(CHUCVU instance);
     partial void DeleteCHUCVU(CHUCVU instance);
@@ -48,9 +45,6 @@ namespace linQ
     partial void InsertNHAXB(NHAXB instance);
     partial void UpdateNHAXB(NHAXB instance);
     partial void DeleteNHAXB(NHAXB instance);
-    partial void InsertPHAT(PHAT instance);
-    partial void UpdatePHAT(PHAT instance);
-    partial void DeletePHAT(PHAT instance);
     partial void InsertPHIEUMUONTRA(PHIEUMUONTRA instance);
     partial void UpdatePHIEUMUONTRA(PHIEUMUONTRA instance);
     partial void DeletePHIEUMUONTRA(PHIEUMUONTRA instance);
@@ -69,10 +63,16 @@ namespace linQ
     partial void InsertTHELOAI(THELOAI instance);
     partial void UpdateTHELOAI(THELOAI instance);
     partial void DeleteTHELOAI(THELOAI instance);
+    partial void InsertVITRI(VITRI instance);
+    partial void UpdateVITRI(VITRI instance);
+    partial void DeleteVITRI(VITRI instance);
+    partial void InsertPHAT(PHAT instance);
+    partial void UpdatePHAT(PHAT instance);
+    partial void DeletePHAT(PHAT instance);
     #endregion
 		
 		public DataTVDataContext() : 
-				base(global::linQ.Properties.Settings.Default.QuanLyThuVienConnectionString1, mappingSource)
+				base(global::linQ.Properties.Settings.Default.QuanLyThuVienConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -109,14 +109,6 @@ namespace linQ
 			}
 		}
 		
-		public System.Data.Linq.Table<VITRI> VITRIs
-		{
-			get
-			{
-				return this.GetTable<VITRI>();
-			}
-		}
-		
 		public System.Data.Linq.Table<CHUCVU> CHUCVUs
 		{
 			get
@@ -146,14 +138,6 @@ namespace linQ
 			get
 			{
 				return this.GetTable<NHAXB>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PHAT> PHATs
-		{
-			get
-			{
-				return this.GetTable<PHAT>();
 			}
 		}
 		
@@ -205,6 +189,14 @@ namespace linQ
 			}
 		}
 		
+		public System.Data.Linq.Table<VITRI> VITRIs
+		{
+			get
+			{
+				return this.GetTable<VITRI>();
+			}
+		}
+		
 		public System.Data.Linq.Table<sachView> sachViews
 		{
 			get
@@ -213,11 +205,19 @@ namespace linQ
 			}
 		}
 		
-		public System.Data.Linq.Table<PMCT> PMCTs
+		public System.Data.Linq.Table<PHAT> PHATs
 		{
 			get
 			{
-				return this.GetTable<PMCT>();
+				return this.GetTable<PHAT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ViewCT> ViewCTs
+		{
+			get
+			{
+				return this.GetTable<ViewCT>();
 			}
 		}
 	}
@@ -435,120 +435,6 @@ namespace linQ
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VITRI")]
-	public partial class VITRI : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MAVITRI;
-		
-		private string _VITRI1;
-		
-		private EntitySet<SACH> _SACHes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMAVITRIChanging(string value);
-    partial void OnMAVITRIChanged();
-    partial void OnVITRI1Changing(string value);
-    partial void OnVITRI1Changed();
-    #endregion
-		
-		public VITRI()
-		{
-			this._SACHes = new EntitySet<SACH>(new Action<SACH>(this.attach_SACHes), new Action<SACH>(this.detach_SACHes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAVITRI", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAVITRI
-		{
-			get
-			{
-				return this._MAVITRI;
-			}
-			set
-			{
-				if ((this._MAVITRI != value))
-				{
-					this.OnMAVITRIChanging(value);
-					this.SendPropertyChanging();
-					this._MAVITRI = value;
-					this.SendPropertyChanged("MAVITRI");
-					this.OnMAVITRIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="VITRI", Storage="_VITRI1", DbType="NVarChar(10)")]
-		public string VITRI1
-		{
-			get
-			{
-				return this._VITRI1;
-			}
-			set
-			{
-				if ((this._VITRI1 != value))
-				{
-					this.OnVITRI1Changing(value);
-					this.SendPropertyChanging();
-					this._VITRI1 = value;
-					this.SendPropertyChanged("VITRI1");
-					this.OnVITRI1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VITRI_SACH", Storage="_SACHes", ThisKey="MAVITRI", OtherKey="MAVITRI")]
-		public EntitySet<SACH> SACHes
-		{
-			get
-			{
-				return this._SACHes;
-			}
-			set
-			{
-				this._SACHes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SACHes(SACH entity)
-		{
-			this.SendPropertyChanging();
-			entity.VITRI = this;
-		}
-		
-		private void detach_SACHes(SACH entity)
-		{
-			this.SendPropertyChanging();
-			entity.VITRI = null;
 		}
 	}
 	
@@ -1306,181 +1192,6 @@ namespace linQ
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PHAT")]
-	public partial class PHAT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MAPHAT;
-		
-		private string _MASINHVIEN;
-		
-		private System.Nullable<int> _SOTIENPHAT;
-		
-		private string _LYDO;
-		
-		private EntityRef<SINHVIEN> _SINHVIEN;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMAPHATChanging(string value);
-    partial void OnMAPHATChanged();
-    partial void OnMASINHVIENChanging(string value);
-    partial void OnMASINHVIENChanged();
-    partial void OnSOTIENPHATChanging(System.Nullable<int> value);
-    partial void OnSOTIENPHATChanged();
-    partial void OnLYDOChanging(string value);
-    partial void OnLYDOChanged();
-    #endregion
-		
-		public PHAT()
-		{
-			this._SINHVIEN = default(EntityRef<SINHVIEN>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPHAT", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAPHAT
-		{
-			get
-			{
-				return this._MAPHAT;
-			}
-			set
-			{
-				if ((this._MAPHAT != value))
-				{
-					this.OnMAPHATChanging(value);
-					this.SendPropertyChanging();
-					this._MAPHAT = value;
-					this.SendPropertyChanged("MAPHAT");
-					this.OnMAPHATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASINHVIEN", DbType="Char(5)")]
-		public string MASINHVIEN
-		{
-			get
-			{
-				return this._MASINHVIEN;
-			}
-			set
-			{
-				if ((this._MASINHVIEN != value))
-				{
-					if (this._SINHVIEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMASINHVIENChanging(value);
-					this.SendPropertyChanging();
-					this._MASINHVIEN = value;
-					this.SendPropertyChanged("MASINHVIEN");
-					this.OnMASINHVIENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOTIENPHAT", DbType="Int")]
-		public System.Nullable<int> SOTIENPHAT
-		{
-			get
-			{
-				return this._SOTIENPHAT;
-			}
-			set
-			{
-				if ((this._SOTIENPHAT != value))
-				{
-					this.OnSOTIENPHATChanging(value);
-					this.SendPropertyChanging();
-					this._SOTIENPHAT = value;
-					this.SendPropertyChanged("SOTIENPHAT");
-					this.OnSOTIENPHATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LYDO", DbType="NVarChar(30)")]
-		public string LYDO
-		{
-			get
-			{
-				return this._LYDO;
-			}
-			set
-			{
-				if ((this._LYDO != value))
-				{
-					this.OnLYDOChanging(value);
-					this.SendPropertyChanging();
-					this._LYDO = value;
-					this.SendPropertyChanged("LYDO");
-					this.OnLYDOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SINHVIEN_PHAT", Storage="_SINHVIEN", ThisKey="MASINHVIEN", OtherKey="MASINHVIEN", IsForeignKey=true)]
-		public SINHVIEN SINHVIEN
-		{
-			get
-			{
-				return this._SINHVIEN.Entity;
-			}
-			set
-			{
-				SINHVIEN previousValue = this._SINHVIEN.Entity;
-				if (((previousValue != value) 
-							|| (this._SINHVIEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SINHVIEN.Entity = null;
-						previousValue.PHATs.Remove(this);
-					}
-					this._SINHVIEN.Entity = value;
-					if ((value != null))
-					{
-						value.PHATs.Add(this);
-						this._MASINHVIEN = value.MASINHVIEN;
-					}
-					else
-					{
-						this._MASINHVIEN = default(string);
-					}
-					this.SendPropertyChanged("SINHVIEN");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PHIEUMUONTRA")]
 	public partial class PHIEUMUONTRA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1827,11 +1538,11 @@ namespace linQ
 		
 		private EntityRef<NHAXB> _NHAXB;
 		
-		private EntityRef<VITRI> _VITRI;
-		
 		private EntityRef<TACGIA> _TACGIA;
 		
 		private EntityRef<THELOAI> _THELOAI;
+		
+		private EntityRef<VITRI> _VITRI;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1863,9 +1574,9 @@ namespace linQ
 		{
 			this._CHITIETMUONTRAs = new EntitySet<CHITIETMUONTRA>(new Action<CHITIETMUONTRA>(this.attach_CHITIETMUONTRAs), new Action<CHITIETMUONTRA>(this.detach_CHITIETMUONTRAs));
 			this._NHAXB = default(EntityRef<NHAXB>);
-			this._VITRI = default(EntityRef<VITRI>);
 			this._TACGIA = default(EntityRef<TACGIA>);
 			this._THELOAI = default(EntityRef<THELOAI>);
+			this._VITRI = default(EntityRef<VITRI>);
 			OnCreated();
 		}
 		
@@ -2132,40 +1843,6 @@ namespace linQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VITRI_SACH", Storage="_VITRI", ThisKey="MAVITRI", OtherKey="MAVITRI", IsForeignKey=true)]
-		public VITRI VITRI
-		{
-			get
-			{
-				return this._VITRI.Entity;
-			}
-			set
-			{
-				VITRI previousValue = this._VITRI.Entity;
-				if (((previousValue != value) 
-							|| (this._VITRI.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._VITRI.Entity = null;
-						previousValue.SACHes.Remove(this);
-					}
-					this._VITRI.Entity = value;
-					if ((value != null))
-					{
-						value.SACHes.Add(this);
-						this._MAVITRI = value.MAVITRI;
-					}
-					else
-					{
-						this._MAVITRI = default(string);
-					}
-					this.SendPropertyChanged("VITRI");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TACGIA_SACH", Storage="_TACGIA", ThisKey="MATACGIA", OtherKey="MATACGIA", IsForeignKey=true)]
 		public TACGIA TACGIA
 		{
@@ -2234,6 +1911,40 @@ namespace linQ
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VITRI_SACH", Storage="_VITRI", ThisKey="MAVITRI", OtherKey="MAVITRI", IsForeignKey=true)]
+		public VITRI VITRI
+		{
+			get
+			{
+				return this._VITRI.Entity;
+			}
+			set
+			{
+				VITRI previousValue = this._VITRI.Entity;
+				if (((previousValue != value) 
+							|| (this._VITRI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._VITRI.Entity = null;
+						previousValue.SACHes.Remove(this);
+					}
+					this._VITRI.Entity = value;
+					if ((value != null))
+					{
+						value.SACHes.Add(this);
+						this._MAVITRI = value.MAVITRI;
+					}
+					else
+					{
+						this._MAVITRI = default(string);
+					}
+					this.SendPropertyChanged("VITRI");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2291,9 +2002,9 @@ namespace linQ
 		
 		private System.Nullable<int> _NAMVAOTRUONG;
 		
-		private EntitySet<PHAT> _PHATs;
-		
 		private EntitySet<PHIEUMUONTRA> _PHIEUMUONTRAs;
+		
+		private EntitySet<PHAT> _PHATs;
 		
 		private EntityRef<KHOA> _KHOA;
 		
@@ -2323,8 +2034,8 @@ namespace linQ
 		
 		public SINHVIEN()
 		{
-			this._PHATs = new EntitySet<PHAT>(new Action<PHAT>(this.attach_PHATs), new Action<PHAT>(this.detach_PHATs));
 			this._PHIEUMUONTRAs = new EntitySet<PHIEUMUONTRA>(new Action<PHIEUMUONTRA>(this.attach_PHIEUMUONTRAs), new Action<PHIEUMUONTRA>(this.detach_PHIEUMUONTRAs));
+			this._PHATs = new EntitySet<PHAT>(new Action<PHAT>(this.attach_PHATs), new Action<PHAT>(this.detach_PHATs));
 			this._KHOA = default(EntityRef<KHOA>);
 			OnCreated();
 		}
@@ -2513,19 +2224,6 @@ namespace linQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SINHVIEN_PHAT", Storage="_PHATs", ThisKey="MASINHVIEN", OtherKey="MASINHVIEN")]
-		public EntitySet<PHAT> PHATs
-		{
-			get
-			{
-				return this._PHATs;
-			}
-			set
-			{
-				this._PHATs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SINHVIEN_PHIEUMUONTRA", Storage="_PHIEUMUONTRAs", ThisKey="MASINHVIEN", OtherKey="MASINHVIEN")]
 		public EntitySet<PHIEUMUONTRA> PHIEUMUONTRAs
 		{
@@ -2536,6 +2234,19 @@ namespace linQ
 			set
 			{
 				this._PHIEUMUONTRAs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SINHVIEN_PHAT", Storage="_PHATs", ThisKey="MASINHVIEN", OtherKey="MASINHVIEN")]
+		public EntitySet<PHAT> PHATs
+		{
+			get
+			{
+				return this._PHATs;
+			}
+			set
+			{
+				this._PHATs.Assign(value);
 			}
 		}
 		
@@ -2593,18 +2304,6 @@ namespace linQ
 			}
 		}
 		
-		private void attach_PHATs(PHAT entity)
-		{
-			this.SendPropertyChanging();
-			entity.SINHVIEN = this;
-		}
-		
-		private void detach_PHATs(PHAT entity)
-		{
-			this.SendPropertyChanging();
-			entity.SINHVIEN = null;
-		}
-		
 		private void attach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
 		{
 			this.SendPropertyChanging();
@@ -2612,6 +2311,18 @@ namespace linQ
 		}
 		
 		private void detach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		{
+			this.SendPropertyChanging();
+			entity.SINHVIEN = null;
+		}
+		
+		private void attach_PHATs(PHAT entity)
+		{
+			this.SendPropertyChanging();
+			entity.SINHVIEN = this;
+		}
+		
+		private void detach_PHATs(PHAT entity)
 		{
 			this.SendPropertyChanging();
 			entity.SINHVIEN = null;
@@ -3032,6 +2743,120 @@ namespace linQ
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VITRI")]
+	public partial class VITRI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MAVITRI;
+		
+		private string _VITRI1;
+		
+		private EntitySet<SACH> _SACHes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMAVITRIChanging(string value);
+    partial void OnMAVITRIChanged();
+    partial void OnVITRI1Changing(string value);
+    partial void OnVITRI1Changed();
+    #endregion
+		
+		public VITRI()
+		{
+			this._SACHes = new EntitySet<SACH>(new Action<SACH>(this.attach_SACHes), new Action<SACH>(this.detach_SACHes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAVITRI", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MAVITRI
+		{
+			get
+			{
+				return this._MAVITRI;
+			}
+			set
+			{
+				if ((this._MAVITRI != value))
+				{
+					this.OnMAVITRIChanging(value);
+					this.SendPropertyChanging();
+					this._MAVITRI = value;
+					this.SendPropertyChanged("MAVITRI");
+					this.OnMAVITRIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="VITRI", Storage="_VITRI1", DbType="NVarChar(10)")]
+		public string VITRI1
+		{
+			get
+			{
+				return this._VITRI1;
+			}
+			set
+			{
+				if ((this._VITRI1 != value))
+				{
+					this.OnVITRI1Changing(value);
+					this.SendPropertyChanging();
+					this._VITRI1 = value;
+					this.SendPropertyChanged("VITRI1");
+					this.OnVITRI1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VITRI_SACH", Storage="_SACHes", ThisKey="MAVITRI", OtherKey="MAVITRI")]
+		public EntitySet<SACH> SACHes
+		{
+			get
+			{
+				return this._SACHes;
+			}
+			set
+			{
+				this._SACHes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SACHes(SACH entity)
+		{
+			this.SendPropertyChanging();
+			entity.VITRI = this;
+		}
+		
+		private void detach_SACHes(SACH entity)
+		{
+			this.SendPropertyChanging();
+			entity.VITRI = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sachView")]
 	public partial class sachView
 	{
@@ -3275,8 +3100,183 @@ namespace linQ
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PMCT")]
-	public partial class PMCT
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PHAT")]
+	public partial class PHAT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MAPHAT;
+		
+		private string _MASINHVIEN;
+		
+		private System.Nullable<double> _SOTIENPHAT;
+		
+		private string _LYDO;
+		
+		private EntityRef<SINHVIEN> _SINHVIEN;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMAPHATChanging(string value);
+    partial void OnMAPHATChanged();
+    partial void OnMASINHVIENChanging(string value);
+    partial void OnMASINHVIENChanged();
+    partial void OnSOTIENPHATChanging(System.Nullable<double> value);
+    partial void OnSOTIENPHATChanged();
+    partial void OnLYDOChanging(string value);
+    partial void OnLYDOChanged();
+    #endregion
+		
+		public PHAT()
+		{
+			this._SINHVIEN = default(EntityRef<SINHVIEN>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPHAT", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MAPHAT
+		{
+			get
+			{
+				return this._MAPHAT;
+			}
+			set
+			{
+				if ((this._MAPHAT != value))
+				{
+					this.OnMAPHATChanging(value);
+					this.SendPropertyChanging();
+					this._MAPHAT = value;
+					this.SendPropertyChanged("MAPHAT");
+					this.OnMAPHATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASINHVIEN", DbType="Char(5)")]
+		public string MASINHVIEN
+		{
+			get
+			{
+				return this._MASINHVIEN;
+			}
+			set
+			{
+				if ((this._MASINHVIEN != value))
+				{
+					if (this._SINHVIEN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMASINHVIENChanging(value);
+					this.SendPropertyChanging();
+					this._MASINHVIEN = value;
+					this.SendPropertyChanged("MASINHVIEN");
+					this.OnMASINHVIENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOTIENPHAT", DbType="Float")]
+		public System.Nullable<double> SOTIENPHAT
+		{
+			get
+			{
+				return this._SOTIENPHAT;
+			}
+			set
+			{
+				if ((this._SOTIENPHAT != value))
+				{
+					this.OnSOTIENPHATChanging(value);
+					this.SendPropertyChanging();
+					this._SOTIENPHAT = value;
+					this.SendPropertyChanged("SOTIENPHAT");
+					this.OnSOTIENPHATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LYDO", DbType="NVarChar(30)")]
+		public string LYDO
+		{
+			get
+			{
+				return this._LYDO;
+			}
+			set
+			{
+				if ((this._LYDO != value))
+				{
+					this.OnLYDOChanging(value);
+					this.SendPropertyChanging();
+					this._LYDO = value;
+					this.SendPropertyChanged("LYDO");
+					this.OnLYDOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SINHVIEN_PHAT", Storage="_SINHVIEN", ThisKey="MASINHVIEN", OtherKey="MASINHVIEN", IsForeignKey=true)]
+		public SINHVIEN SINHVIEN
+		{
+			get
+			{
+				return this._SINHVIEN.Entity;
+			}
+			set
+			{
+				SINHVIEN previousValue = this._SINHVIEN.Entity;
+				if (((previousValue != value) 
+							|| (this._SINHVIEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SINHVIEN.Entity = null;
+						previousValue.PHATs.Remove(this);
+					}
+					this._SINHVIEN.Entity = value;
+					if ((value != null))
+					{
+						value.PHATs.Add(this);
+						this._MASINHVIEN = value.MASINHVIEN;
+					}
+					else
+					{
+						this._MASINHVIEN = default(string);
+					}
+					this.SendPropertyChanged("SINHVIEN");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ViewCT")]
+	public partial class ViewCT
 	{
 		
 		private string _MAPHIEUMUON;
@@ -3295,7 +3295,9 @@ namespace linQ
 		
 		private System.Nullable<double> _PHICOC;
 		
-		public PMCT()
+		private string _TINHTRANG;
+		
+		public ViewCT()
 		{
 		}
 		
@@ -3423,6 +3425,22 @@ namespace linQ
 				if ((this._PHICOC != value))
 				{
 					this._PHICOC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINHTRANG", DbType="NVarChar(50)")]
+		public string TINHTRANG
+		{
+			get
+			{
+				return this._TINHTRANG;
+			}
+			set
+			{
+				if ((this._TINHTRANG != value))
+				{
+					this._TINHTRANG = value;
 				}
 			}
 		}

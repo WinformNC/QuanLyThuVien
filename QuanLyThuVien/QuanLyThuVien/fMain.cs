@@ -54,7 +54,10 @@ namespace QuanLyThuVien
             }
             else
             {
-                frm.Activate();
+                frm.Close();
+                fDSTL = new fDSTaiLieu();
+                fDSTL.MdiParent = this;
+                fDSTL.Show();
             }
         }
 
@@ -159,7 +162,10 @@ namespace QuanLyThuVien
             }
             else
             {
-                frm.Activate();
+                frm.Close();
+                fMTL = new fMuonTaiLieu();
+                fMTL.MdiParent = this;
+                fMTL.Show();
             }
         }
 
@@ -189,7 +195,10 @@ namespace QuanLyThuVien
             }
             else
             {
-                frm.Activate();
+                frm.Close();
+                fDSM = new fDSMuon();
+                fDSM.MdiParent = this;
+                fDSM.Show();
             }
         }
 
@@ -204,7 +213,10 @@ namespace QuanLyThuVien
             }
             else
             {
-                frm.Activate();
+                frm.Close();
+                fTTL = new fTraTaiLieu();
+                fTTL.MdiParent = this;
+                fTTL.Show();
             }
         }
 
@@ -219,7 +231,10 @@ namespace QuanLyThuVien
             }
             else
             {
-                frm.Activate();
+                frm.Close();
+                fDSP = new fDSPhat();
+                fDSP.MdiParent = this;
+                fDSP.Show();
             }
         }
     }

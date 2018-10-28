@@ -16,6 +16,9 @@ namespace QuanLyThuVien
     {
         //DSMuonBLL dsMuon = new DSMuonBLL();
         Conection conn = new Conection();
+        string phieumuon, masach, masinhvien, lydo, tinhtrang;
+        DateTime ngaydukien;
+        float sotienphat;
         public fTraTaiLieu()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace QuanLyThuVien
 
         private void loadDSMuon()
         {
-            dtgvMuon.DataSource = conn.loadPMCT();
+            dtgvMuon.DataSource = conn.loadViewCT();
             setNameCol();
         }
 
@@ -42,12 +45,41 @@ namespace QuanLyThuVien
             dtgvMuon.Columns[5].HeaderText = "Ngày dự kiến trả";
             dtgvMuon.Columns[6].HeaderText = "Phí mượn";
             dtgvMuon.Columns[7].HeaderText = "Phí cọc";
+            dtgvMuon.Columns[8].HeaderText = "Tình trạng";
            
         }
+        private void dtgvMuon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            ngaydukien = DateTime.Parse(dtgvMuon["NGAYDUKIENTRA", index].Value.ToString());
+            masach = dtgvMuon["MASACH", index].Value.ToString();
+            phieumuon = dtgvMuon["MAPHIEUMUON", index].Value.ToString();
+            masinhvien = dtgvMuon["MASINHVIEN", index].Value.ToString();
+            tinhtrang = dtgvMuon["TINHTRANG", index].Value.ToString();
+        }
+        
+      
 
         private void btnTra_Click(object sender, EventArgs e)
         {
-
+            if (phieumuon != null)
+            {
+                sotienphat = (float)conn.tienphat(ngaydukien, DateTime.Now.AddDays(11));
+                if (sotienphat > 1)
+                    lydo = "Không trả đúng hạn Sách " + masach;
+                int kt = conn.addCTPhieuTra(phieumuon, masach, masinhvien, DateTime.Now.AddDays(11), sotienphat, lydo, tinhtrang);
+                if (kt == 1)
+                {
+                    MessageBox.Show("Trả thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dtgvMuon.DataSource = conn.loadViewCT();
+                }
+                else if (kt == 2)
+                    MessageBox.Show("Sách đã được trả rồi ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Trả không thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Chưa chọn phiếu trả ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

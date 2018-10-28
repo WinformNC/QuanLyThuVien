@@ -13,9 +13,19 @@ namespace QuanLyThuVien
 {
     public partial class fLogin : DevExpress.XtraEditors.XtraForm
     {
+        string conn = "Data Source=DESKTOP-VRRUJB7\\SQLEXPRESS;Initial Catalog=QuanLyThuVien;User ID=sa;Password=sa2012;";
+        string table = "TAIKHOAN";
         public fLogin()
         {
             InitializeComponent();
+            
+           
+        }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+            fMain f = new fMain();
+            loginFrom1.setValue(f, this, table, conn);
         }
     }
 }

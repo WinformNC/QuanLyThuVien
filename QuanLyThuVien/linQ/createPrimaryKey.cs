@@ -19,6 +19,16 @@ namespace linQ
           else
               return "PM001";
        }
+       public string createKeyPhat()
+       {
+           PHAT ph = new PHAT();
+           foreach (PHAT pha in linq.PHATs)
+               ph = pha;
+           if (ph.MAPHAT != null)
+               return createAuto(ph.MAPHAT);
+           else
+               return "PH001";
+       }
        public string createKeySach()
        {
            SACH s = new SACH();

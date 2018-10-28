@@ -288,7 +288,7 @@ create table PHAT
 (
 	MAPHAT char(5) not null,
 	MASINHVIEN char(5),
-	SOTIENPHAT int,
+	SOTIENPHAT float,
 	LYDO nvarchar(30),
 	constraint PK_PHAT primary key (MAPHAT),
 	constraint FK_PHAT_REFERENCE_SINHVIEN foreign key (MASINHVIEN)

@@ -28,7 +28,7 @@ namespace QuanLyThuVien
 
         private void LoadDSMuon()
         {
-            dtgvMuon.DataSource = conn.loadPMCT();
+            dtgvMuon.DataSource = conn.loadViewCT();
             setNameCol();
         }
 
@@ -42,6 +42,8 @@ namespace QuanLyThuVien
             dtgvMuon.Columns[5].HeaderText = "Ngày dự kiến trả";
             dtgvMuon.Columns[6].HeaderText = "Phí mượn";
             dtgvMuon.Columns[7].HeaderText = "Phí cọc";
+            dtgvMuon.Columns[8].HeaderText = "Tình trạng";
         }
+      
     }
 }

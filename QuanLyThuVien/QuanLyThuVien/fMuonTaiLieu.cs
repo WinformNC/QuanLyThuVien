@@ -18,8 +18,6 @@ namespace QuanLyThuVien
     
         Conection conn = new Conection();
         createPrimaryKey pk = new createPrimaryKey();
-        SinhVienBLL sinhvien = new SinhVienBLL();
-
         string ma, ten, maNV;
         public fMuonTaiLieu()
         {
@@ -78,17 +76,21 @@ namespace QuanLyThuVien
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (ma != null)
+            {
                 for (int i = 0; i < dtgvMuon.Rows.Count; i++)
                 {
                     if (ma == dtgvMuon.Rows[i].Cells[0].Value.ToString())
                     {
-                        MessageBox.Show("Sách này đã được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sách này đã được chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
                 dtgvMuon.Rows.Add(new object[] { ma, ten });
                 btnMuon.Enabled = true;
-            
+            }
+            else
+                MessageBox.Show("Chưa chọn sách ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -100,21 +102,23 @@ namespace QuanLyThuVien
                 btnMuon.Enabled = false;
             }
         }
-       
+        private List<string> loadMa()
+        {
+            List<string> masach = new List<string>();
+            for (int i = 0; i < dtgvMuon.RowCount; i++)
+                masach.Add(dtgvDS["MASACH", i].Value.ToString());
+            return masach;
+
+        }
         private void btnMuon_Click(object sender, EventArgs e)
         {
-            string maPhieu = pk.createKeyMuonSach();
-            List<string> lst_MaSach = new List<string>();
-            for (int i = 0; i < dtgvMuon.RowCount; i++)
-            {
-                lst_MaSach.Add(dtgvMuon.Rows[i].Cells[0].Value.ToString());
-            }
-            if (conn.addPhieuMuon(maPhieu, maNV, cboMaSV.SelectedValue.ToString(), dtgvMuon.RowCount, lst_MaSach) == 1)
-            {
-                WordExport word = new WordExport();
-                word.LapPhieuMuon(maPhieu, cboMaSV.SelectedValue.ToString(), sinhvien.FindTenSV(cboMaSV.SelectedValue.ToString()), maNV);
+            int kt = conn.addPhieuMuon(pk.createKeyMuonSach(), maNV, cboMaSV.SelectedValue.ToString(), dtgvMuon.RowCount,loadMa());
+            if ( kt == 1)
                 MessageBox.Show("Thêm thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }     
+            else if( kt == 2)
+                MessageBox.Show("Sinh viên chưa đóng phạt ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (kt == 3)
+                MessageBox.Show("Sinh viên chưa trả sách ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 MessageBox.Show("Thêm không thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
