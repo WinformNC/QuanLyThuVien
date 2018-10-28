@@ -27,3 +27,4 @@ C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\Login\obj\Debug\Login
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\Login\obj\Debug\Login.csproj.GenerateResource.Cache
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\Login\obj\Debug\Login.dll
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\Login\obj\Debug\Login.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\Login\obj\Debug\Login.csprojResolveAssemblyReference.cache

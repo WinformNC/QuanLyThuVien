@@ -22,5 +22,15 @@ namespace BLL
         {
             return taikhoanDAL.Insert(username, pass, loai);
         }
+
+        public string getLoai(string username)
+        {
+            return taikhoanDAL.getLoai(username);
+        }
+
+        public string getMaNV(string tenDN)
+        {
+            return taikhoanDAL.getMaNV(tenDN);
+        }
     }
 }

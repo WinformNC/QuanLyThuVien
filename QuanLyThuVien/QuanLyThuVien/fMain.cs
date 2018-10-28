@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using BLL;
 
 namespace QuanLyThuVien
 {
@@ -25,14 +26,12 @@ namespace QuanLyThuVien
         fDSMuon fDSM;
         fTraTaiLieu fTTL;
         fDSPhat fDSP;
-        string loai;
-
-        public string Loai
-        {
-            get { return loai; }
-            set { loai = value; }
-        }
         
+        //Account
+        string loai;
+        string tenDN;
+        string maNV;
+
         public fMain()
         {
             InitializeComponent();
@@ -302,9 +301,15 @@ namespace QuanLyThuVien
             }
         }
 
+        TaiKhoanBLL taikhoan = new TaiKhoanBLL();
+
         private void fMain_Load(object sender, EventArgs e)
         {
-            this.loai = this.Tag.ToString();
+            this.tenDN = this.Tag.ToString();
+            loai = taikhoan.getLoai(tenDN);
+            maNV = taikhoan.getMaNV(tenDN);
+
+            MessageBox.Show(loai + " " + maNV, "");
         }
     }
 }
