@@ -112,10 +112,15 @@ namespace QuanLyThuVien
         }
         private void btnMuon_Click(object sender, EventArgs e)
         {
-            int kt = conn.addPhieuMuon(pk.createKeyMuonSach(), maNV, cboMaSV.SelectedValue.ToString(), dtgvMuon.RowCount,loadMa());
-            if ( kt == 1)
+            string ma = pk.createKeyMuonSach();
+            int kt = conn.addPhieuMuon(ma, maNV, cboMaSV.SelectedValue.ToString(), dtgvMuon.RowCount,loadMa());
+            if (kt == 1)
+            {
                 MessageBox.Show("Thêm thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else if( kt == 2)
+                frmPhieuMuon phieuMuon = new frmPhieuMuon(ma.ToString(), maNV);
+                phieuMuon.Show();
+            }
+            else if (kt == 2)
                 MessageBox.Show("Sinh viên chưa đóng phạt ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (kt == 3)
                 MessageBox.Show("Sinh viên chưa trả sách ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
