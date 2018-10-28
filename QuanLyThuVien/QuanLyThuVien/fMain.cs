@@ -265,14 +265,14 @@ namespace QuanLyThuVien
             Form frm = kiemtraForm(typeof(fTraTaiLieu));
             if (frm == null)
             {
-                fTTL = new fTraTaiLieu();
+                fTTL = new fTraTaiLieu(maNV);
                 fTTL.MdiParent = this;
                 fTTL.Show();
             }
             else
             {
                 frm.Close();
-                fTTL = new fTraTaiLieu();
+                fTTL = new fTraTaiLieu(maNV);
                 fTTL.MdiParent = this;
                 fTTL.Show();
             }

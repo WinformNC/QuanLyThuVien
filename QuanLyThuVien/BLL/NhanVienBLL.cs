@@ -33,5 +33,10 @@ namespace BLL
         {
             return nhanvienDAL.Update(ma, cv, ten, ns, cmnd, dc, dt, email);
         }
+
+        public string FindTenNV(string ma)
+        {
+            return nhanvienDAL.FindTenNV(ma);
+        }
     }
 }

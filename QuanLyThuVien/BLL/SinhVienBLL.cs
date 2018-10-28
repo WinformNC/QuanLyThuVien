@@ -23,5 +23,10 @@ namespace BLL
         {
             return sinhvien.loadMaSinhVien();
         }
+
+        public string FindTenSV(string ma)
+        {
+            return sinhvien.FindTenSV(ma);
+        }
     }
 }

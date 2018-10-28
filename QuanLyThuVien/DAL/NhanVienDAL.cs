@@ -38,5 +38,10 @@ namespace DAL
         {
             return adapterNV.UpdateQuery(cv, ten, DateTime.Parse(ns), cmnd, dc, dt, email, ma);
         }
+
+        public string FindTenNV(string ma)
+        {
+            return adapterNV.FindTenNV_ScalarQuery(ma);
+        }
     }
 }

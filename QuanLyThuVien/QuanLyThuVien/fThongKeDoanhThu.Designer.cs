@@ -34,8 +34,8 @@
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.button1 = new System.Windows.Forms.Button();
             this.viewDoanhThusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
@@ -56,6 +56,7 @@
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Location = new System.Drawing.Point(0, 0);
+            this.chartControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chartControl1.Name = "chartControl1";
             series1.ArgumentDataMember = "tongcong";
             series1.ColorDataMember = "tienmuon";
@@ -73,30 +74,33 @@
         series1,
         series2,
         series3};
-            this.chartControl1.Size = new System.Drawing.Size(567, 316);
+            this.chartControl1.Size = new System.Drawing.Size(661, 389);
             this.chartControl1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(492, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Xuất File";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // viewDoanhThusBindingSource
             // 
             this.viewDoanhThusBindingSource.DataSource = typeof(linQ.viewDoanhThu);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(562, 89);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 28);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Xuất File";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // fThongKeDoanhThu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 316);
+            this.ClientSize = new System.Drawing.Size(661, 389);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chartControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "fThongKeDoanhThu";
             this.Text = "fThongKeDoanhThu";
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();

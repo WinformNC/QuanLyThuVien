@@ -16,12 +16,16 @@ namespace QuanLyThuVien
     {
         //DSMuonBLL dsMuon = new DSMuonBLL();
         Conection conn = new Conection();
+        SinhVienBLL sinhvien = new SinhVienBLL();
+        NhanVienBLL nhanvien = new NhanVienBLL();
         string phieumuon, masach, masinhvien, lydo, tinhtrang;
         DateTime ngaydukien;
         float sotienphat;
-        public fTraTaiLieu()
+        string maNV;
+        public fTraTaiLieu(string maNV)
         {
             InitializeComponent();
+            this.maNV = maNV;
         }
 
         private void fTraTaiLieu_Load(object sender, EventArgs e)
@@ -66,7 +70,13 @@ namespace QuanLyThuVien
             {
                 sotienphat = (float)conn.tienphat(ngaydukien, DateTime.Now.AddDays(11));
                 if (sotienphat > 1)
+                {
+                    string tenNV = nhanvien.FindTenNV(maNV);
+                    string tenSV = sinhvien.FindTenSV(masinhvien);
                     lydo = "Không trả đúng hạn Sách " + masach;
+                    frmPhieuPhat phieuphat = new frmPhieuPhat(tenNV, masinhvien, tenSV, ((TimeSpan)(DateTime.Now.AddDays(11) - ngaydukien)).TotalDays, sotienphat);
+                    phieuphat.Show();
+                }
                 int kt = conn.addCTPhieuTra(phieumuon, masach, masinhvien, DateTime.Now.AddDays(11), sotienphat, lydo, tinhtrang);
                 if (kt == 1)
                 {
