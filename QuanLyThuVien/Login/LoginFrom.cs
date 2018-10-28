@@ -41,6 +41,7 @@ namespace Login
             if (dt.Rows.Count > 0)//dem so dong thoa dieu kien//
             {
                 flogin.Hide();
+                fmain.Tag = dt.Rows[0][2]; 
                 fmain.ShowDialog();
                 flogin.Show();
                 

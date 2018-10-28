@@ -25,10 +25,23 @@ namespace QuanLyThuVien
         fDSMuon fDSM;
         fTraTaiLieu fTTL;
         fDSPhat fDSP;
+        string loai;
 
+        public string Loai
+        {
+            get { return loai; }
+            set { loai = value; }
+        }
+        
         public fMain()
         {
             InitializeComponent();
+        }
+
+        public fMain(string loai)
+        {
+            InitializeComponent();
+            this.loai = loai;
         }
 
         private Form kiemtraForm(Type ftype)
@@ -45,6 +58,12 @@ namespace QuanLyThuVien
 
         private void btnDSTaiLieu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (loai == "2")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+
             Form frm = kiemtraForm(typeof(fDSTaiLieu));
             if (frm == null)
             {
@@ -63,6 +82,11 @@ namespace QuanLyThuVien
 
         private void btnDSNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "2" || loai == "3")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fDSNhanVien));
             if (frm == null)
             {
@@ -78,6 +102,11 @@ namespace QuanLyThuVien
 
         private void btnTacGia_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "2")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fDSTacGia));
             if (frm == null)
             {
@@ -93,6 +122,11 @@ namespace QuanLyThuVien
 
         private void btnNXB_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "2")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fDSNhaXuatBan));
             if (frm == null)
             {
@@ -108,6 +142,11 @@ namespace QuanLyThuVien
 
         private void btnViTri_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "2")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fViTri));
             if (frm == null)
             {
@@ -123,6 +162,11 @@ namespace QuanLyThuVien
 
         private void btnTheLoai_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "2")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fTheLoai));
             if (frm == null)
             {
@@ -138,6 +182,11 @@ namespace QuanLyThuVien
 
         private void btnChucVu_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "2" || loai == "3")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fChucVu));
             if (frm == null)
             {
@@ -153,6 +202,11 @@ namespace QuanLyThuVien
 
         private void btnMuonTaiLieu_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "3")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fMuonTaiLieu));
             if (frm == null)
             {
@@ -204,6 +258,11 @@ namespace QuanLyThuVien
 
         private void btnTraTaiLieu_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "3")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fTraTaiLieu));
             if (frm == null)
             {
@@ -222,6 +281,11 @@ namespace QuanLyThuVien
 
         private void btnDSPhat_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (loai == "3")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             Form frm = kiemtraForm(typeof(fDSPhat));
             if (frm == null)
             {
@@ -236,6 +300,11 @@ namespace QuanLyThuVien
                 fDSP.MdiParent = this;
                 fDSP.Show();
             }
+        }
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+            this.loai = this.Tag.ToString();
         }
     }
 }
