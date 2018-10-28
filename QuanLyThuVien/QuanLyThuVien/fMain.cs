@@ -26,7 +26,7 @@ namespace QuanLyThuVien
         fDSMuon fDSM;
         fTraTaiLieu fTTL;
         fDSPhat fDSP;
-        
+        fThongKeDoanhThu fTKDT;
         //Account
         string loai;
         string tenDN;
@@ -305,11 +305,29 @@ namespace QuanLyThuVien
 
         private void fMain_Load(object sender, EventArgs e)
         {
-            this.tenDN = this.Tag.ToString();
-            loai = taikhoan.getLoai(tenDN);
-            maNV = taikhoan.getMaNV(tenDN);
+            //this.tenDN = this.Tag.ToString();
+            //loai = taikhoan.getLoai(tenDN);
+            //maNV = taikhoan.getMaNV(tenDN);
 
-            MessageBox.Show(loai + " " + maNV, "");
+            //MessageBox.Show(loai + " " + maNV, "");
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraForm(typeof(fThongKeDoanhThu));
+            if (frm == null)
+            {
+                fTKDT = new fThongKeDoanhThu();
+                fTKDT.MdiParent = this;
+                fTKDT.Show();
+            }
+            else
+            {
+                frm.Close();
+                fTKDT = new fThongKeDoanhThu();
+                fTKDT.MdiParent = this;
+                fTKDT.Show();
+            }
         }
     }
 }
