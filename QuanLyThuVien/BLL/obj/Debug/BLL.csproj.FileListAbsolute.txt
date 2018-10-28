@@ -19,3 +19,10 @@ F:\Studio\WinformNC\QuanLyThuVien\BLL\bin\Debug\DAL.pdb
 F:\Studio\WinformNC\QuanLyThuVien\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 F:\Studio\WinformNC\QuanLyThuVien\BLL\obj\Debug\BLL.dll
 F:\Studio\WinformNC\QuanLyThuVien\BLL\obj\Debug\BLL.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\BLL\bin\Debug\BLL.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\BLL\bin\Debug\BLL.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\BLL\bin\Debug\DAL.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\BLL\bin\Debug\DAL.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\BLL\obj\Debug\BLL.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\BLL\obj\Debug\BLL.pdb

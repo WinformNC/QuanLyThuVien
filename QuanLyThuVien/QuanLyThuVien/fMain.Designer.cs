@@ -50,6 +50,7 @@
             this.btnViTri = new DevExpress.XtraBars.BarButtonItem();
             this.btnChucVu = new DevExpress.XtraBars.BarButtonItem();
             this.btnSV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDSPhat = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -61,7 +62,6 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnDSPhat = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +106,7 @@
             // 
             this.btnDSTaiLieu.Caption = "Danh sách tài liệu";
             this.btnDSTaiLieu.Id = 1;
-            this.btnDSTaiLieu.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Book_Stack_32;
+            this.btnDSTaiLieu.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Book_Shelf_32;
             this.btnDSTaiLieu.Name = "btnDSTaiLieu";
             this.btnDSTaiLieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSTaiLieu_ItemClick);
             // 
@@ -216,6 +216,7 @@
             // 
             this.btnTheLoai.Caption = "Thể loại";
             this.btnTheLoai.Id = 16;
+            this.btnTheLoai.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Bookmark_32;
             this.btnTheLoai.Name = "btnTheLoai";
             this.btnTheLoai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTheLoai_ItemClick);
             // 
@@ -223,6 +224,7 @@
             // 
             this.btnViTri.Caption = "Vị trí";
             this.btnViTri.Id = 17;
+            this.btnViTri.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Marker_32;
             this.btnViTri.Name = "btnViTri";
             this.btnViTri.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViTri_ItemClick);
             // 
@@ -230,6 +232,7 @@
             // 
             this.btnChucVu.Caption = "Chức vụ";
             this.btnChucVu.Id = 18;
+            this.btnChucVu.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Oppression_32;
             this.btnChucVu.Name = "btnChucVu";
             this.btnChucVu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChucVu_ItemClick);
             // 
@@ -237,8 +240,17 @@
             // 
             this.btnSV.Caption = "Danh sách sinh viên";
             this.btnSV.Id = 19;
+            this.btnSV.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Student_Male_32;
             this.btnSV.Name = "btnSV";
             this.btnSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSV_ItemClick);
+            // 
+            // btnDSPhat
+            // 
+            this.btnDSPhat.Caption = "Danh sách phạt";
+            this.btnDSPhat.Id = 20;
+            this.btnDSPhat.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Handcuffs_32;
+            this.btnDSPhat.Name = "btnDSPhat";
+            this.btnDSPhat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSPhat_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -276,13 +288,13 @@
             this.ribbonPageGroup6.ItemLinks.Add(this.btnTheLoai);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnViTri);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "ribbonPageGroup6";
             // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
             this.ribbonPageGroup7});
+            this.ribbonPage3.Image = global::QuanLyThuVien.Properties.Resources.icons8_Staff_32;
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Quản lý nhân viên";
             // 
@@ -290,18 +302,17 @@
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnDSNhanVien);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
             // ribbonPageGroup7
             // 
             this.ribbonPageGroup7.ItemLinks.Add(this.btnChucVu);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "ribbonPageGroup7";
             // 
             // ribbonPage4
             // 
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4});
+            this.ribbonPage4.Image = global::QuanLyThuVien.Properties.Resources.icons8_Reading_322;
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "Danh sách độc giả";
             // 
@@ -309,18 +320,10 @@
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.btnSV);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // btnDSPhat
-            // 
-            this.btnDSPhat.Caption = "Danh sách phạt";
-            this.btnDSPhat.Id = 20;
-            this.btnDSPhat.Name = "btnDSPhat";
-            this.btnDSPhat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSPhat_ItemClick);
             // 
             // fMain
             // 

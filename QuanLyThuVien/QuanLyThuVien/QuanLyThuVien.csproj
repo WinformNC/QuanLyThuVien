@@ -330,6 +330,30 @@
   <ItemGroup>
     <None Include="Resources\bg3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Handcuffs_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Book_Shelf_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Bookmark_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Marker_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Staff_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Oppression_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Reading_322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Student_Male_32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -317,3 +317,11 @@ as select s.*,TENTACGIA,TENNXB,TENTHELOAI
 from Sach s, TACGIA tg, VITRI vt, NHAXB nxb, THELOAI tl
 where s.MANXB = nxb.MANXB and s.MATACGIA = tg.MATACGIA and s.MATHELOAI = tl.MATHELOAI and s.MAVITRI = vt.MAVITRI;
 select *  from sachView
+
+create View ViewCT
+as select pm.MAPHIEUMUON ,ct.MASACH,pm.MANV,pm.MASINHVIEN,pm.NGAYMUON,pm.NGAYDUKIENTRA,pm.PHIMUON,pm.PHICOC,ct.TINHTRANG
+from CHITIETMUONTRA ct, PHIEUMUONTRA pm
+where ct.MAPHIEUMUON = pm.MAPHIEUMUON
+
+alter table PHAT
+Alter column SOTIENPHAT float
