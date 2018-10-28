@@ -14,6 +14,7 @@ namespace QuanLyThuVien
     public partial class fLogin : DevExpress.XtraEditors.XtraForm
     {
         string conn = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        
         string table = "TAIKHOAN";
         public fLogin()
         {

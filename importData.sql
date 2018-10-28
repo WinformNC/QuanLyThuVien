@@ -27,3 +27,10 @@ insert into TAIKHOAN
 values ('sa011','aaaaa',1)
 insert into NHANVIEN
 values('NV001','CV001','sa011',N'Nguyễn Thái Bảo','12/04/1997','201122312',N'Quận Tân Phú,TP.HCM','08081508','thaigiam@gmail.com')
+create View viewDoanhThu
+as
+select sum(p.SOTIENPHAT) as tienphat,
+		sum(pm.PHIMUON) as tienmuon,
+		sum(pm.PHIMUON) +sum(p.SOTIENPHAT) as tongcong
+from PHAT p ,PHIEUMUONTRA pm
+select * from viewDoanhThu
