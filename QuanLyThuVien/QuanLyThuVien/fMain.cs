@@ -305,11 +305,11 @@ namespace QuanLyThuVien
 
         private void fMain_Load(object sender, EventArgs e)
         {
-            //this.tenDN = this.Tag.ToString();
-            //loai = taikhoan.getLoai(tenDN);
-            //maNV = taikhoan.getMaNV(tenDN);
+            this.tenDN = this.Tag.ToString();
+            loai = taikhoan.getLoai(tenDN);
+            maNV = taikhoan.getMaNV(tenDN);
 
-            //MessageBox.Show(loai + " " + maNV, "");
+           
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
