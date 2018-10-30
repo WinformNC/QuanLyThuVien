@@ -21,3 +21,4 @@ C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ\obj\Debug\linQ.p
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ\bin\Debug\linQ.dll.config
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ\bin\Debug\linQ.dll
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ\bin\Debug\linQ.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ\obj\Debug\linQ.csprojResolveAssemblyReference.cache

@@ -44,12 +44,8 @@ namespace linQ
           string ma = mas.Substring(0, 2);
           int stt = int.Parse(mas.Substring(3));
           stt++;
-          if (stt < 10)
-              return ma + stt.ToString().PadLeft(3, '0');
-          else if (stt < 100)
-              return ma + stt.ToString().PadLeft(2, '0');
-          else
-              return ma + stt.ToString();
+          return ma + stt.ToString().PadLeft(3, '0');
+         
        }
 
     }

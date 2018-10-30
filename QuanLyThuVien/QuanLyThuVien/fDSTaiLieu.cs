@@ -79,7 +79,7 @@ namespace QuanLyThuVien
 
         private void setBoolField(bool b)
         {
-            btnLoadImage.Enabled = btnHuy.Enabled = btnLuu.Enabled = txtTen.Enabled = txtMoTa.Enabled = txtNamXB.Enabled = cboViTri.Enabled = cboTheLoai.Enabled = cboTacGia.Enabled = cboNXB.Enabled = b;
+            txtSoLuong.Enabled = btnLoadImage.Enabled = btnHuy.Enabled = btnLuu.Enabled = txtTen.Enabled = txtMoTa.Enabled = txtNamXB.Enabled = cboViTri.Enabled = cboTheLoai.Enabled = cboTacGia.Enabled = cboNXB.Enabled = b;
         }
         private void setBtn(bool b)
         {
@@ -120,7 +120,7 @@ namespace QuanLyThuVien
             {
                 return;
             }
-            DialogResult r = MessageBox.Show("Bạn có muốn xóa sách: " + dtgvSach.CurrentRow.Cells[2].Value.ToString(),
+            DialogResult r = MessageBox.Show("Bạn có muốn xóa sách: " + txtTen.Text,
                 "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
@@ -129,7 +129,7 @@ namespace QuanLyThuVien
                 loadDataGrid();
                 btnSua.Enabled = btnXoa.Enabled = false;
             }
-            dtgvSach.DataSource = conn.loadSach();
+            btnTaiLai.PerformClick();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -177,24 +177,26 @@ namespace QuanLyThuVien
             
             dtgvSach.DataSource = conn.loadSach();
             setBtn(false);
+            setBoolField(false);
             loadDataGrid();
+            btnThem.Enabled = true;
         }
         // Chuc nang
         private void clearTextBox()
         {
-            txtMa.Text = txtMoTa.Text = txtNamXB.Text = txtTen.Text = null;
+            txtSoLuong.Text = txtMa.Text = txtMoTa.Text = txtNamXB.Text = txtTen.Text = null;
             cboNXB.SelectedIndex = cboTacGia.SelectedIndex = cboTheLoai.SelectedIndex = cboViTri.SelectedIndex = 0;
         }
         private void them()
         {
-            if (conn.addSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, "1") == 1)
+            if (conn.addSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, txtSoLuong.Text) == 1)
                 MessageBox.Show("Nhập thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Nhập không thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void sua()
         {
-            if (conn.upSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, "1") == 1)
+            if (conn.upSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, txtSoLuong.Text) == 1)
             {
                 MessageBox.Show("Sửa thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -225,8 +227,15 @@ namespace QuanLyThuVien
         private void dtgvSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            PathImg = dtgvSach["HINHANHSACH", index].Value.ToString();
-            picbxAnh.Load(PathImg);
+            try
+            {
+                PathImg = dtgvSach["HINHANHSACH", index].Value.ToString();
+                picbxAnh.Load(PathImg);
+            }
+            catch
+            {
+                picbxAnh.Image = Properties.Resources.Book_96px;
+            }
             txtMa.Text = dtgvSach["MASACH", index].Value.ToString();
             txtTen.Text = dtgvSach["TENSACH", index].Value.ToString();
             cboTacGia.SelectedValue = dtgvSach["MATACGIA", index].Value.ToString();
@@ -235,6 +244,7 @@ namespace QuanLyThuVien
             cboViTri.SelectedValue = dtgvSach["MAVITRI", index].Value.ToString();
             txtMoTa.Text = dtgvSach["MOTA", index].Value.ToString();
             txtNamXB.Text = dtgvSach["NAMXB", index].Value.ToString();
+            txtSoLuong.Text = dtgvSach["SOLUONG", index].Value.ToString();
             setBtn(true);
             btnThem.Enabled =false;
             setBoolField(false);

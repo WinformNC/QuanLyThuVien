@@ -78,6 +78,7 @@ namespace linQ
             {
                 SACH s = linq.SACHes.Where(t => t.MASACH == masach).Select(t => t).FirstOrDefault();
                 linq.SACHes.DeleteOnSubmit(s);
+                linq.SubmitChanges();
                 return 1;
             }
             catch { return 0; }

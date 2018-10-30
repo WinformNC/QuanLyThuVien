@@ -165,6 +165,12 @@
     <Compile Include="fTheLoai.Designer.cs">
       <DependentUpon>fTheLoai.cs</DependentUpon>
     </Compile>
+    <Compile Include="fThietLapKetNoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fThietLapKetNoi.Designer.cs">
+      <DependentUpon>fThietLapKetNoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="fThongKeDoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +245,9 @@
     <EmbeddedResource Include="fTheLoai.resx">
       <DependentUpon>fTheLoai.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fThietLapKetNoi.resx">
+      <DependentUpon>fThietLapKetNoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fThongKeDoanhThu.resx">
       <DependentUpon>fThongKeDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,6 +276,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPhieuPhat.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
