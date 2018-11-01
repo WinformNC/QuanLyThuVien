@@ -28,33 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dtgvDS = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.ImageSach = new System.Windows.Forms.DataGridViewImageColumn();
-            this.MASACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENSACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENTHELOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VITRI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENTACGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NAMXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MATHELOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MATACGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAVITRI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TACGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NHAXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.THELOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HINHANHSACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgvMuon = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.colMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +46,26 @@
             this.btnThem = new Bunifu.Framework.UI.BunifuImageButton();
             this.cboMaSV = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ImageSach = new System.Windows.Forms.DataGridViewImageColumn();
+            this.MASACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENSACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENTHELOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VITRI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENTACGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAMXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MATHELOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MATACGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAVITRI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TACGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NHAXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.THELOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HINHANHSACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMuon)).BeginInit();
@@ -99,20 +100,20 @@
             // 
             this.dtgvDS.AllowUserToAddRows = false;
             this.dtgvDS.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgvDS.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgvDS.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvDS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvDS.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtgvDS.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvDS.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ImageSach,
@@ -125,6 +126,7 @@
             this.NAMXB,
             this.MOTA,
             this.SOLUONG,
+            this.Gia,
             this.MANXB,
             this.MATHELOAI,
             this.MATACGIA,
@@ -145,177 +147,38 @@
             this.dtgvDS.Name = "dtgvDS";
             this.dtgvDS.ReadOnly = true;
             this.dtgvDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvDS.RowTemplate.Height = 100;
             this.dtgvDS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvDS.Size = new System.Drawing.Size(827, 278);
             this.dtgvDS.TabIndex = 36;
             this.dtgvDS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDS_CellClick);
             // 
-            // ImageSach
-            // 
-            this.ImageSach.HeaderText = "Ảnh";
-            this.ImageSach.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ImageSach.Name = "ImageSach";
-            this.ImageSach.ReadOnly = true;
-            this.ImageSach.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // MASACH
-            // 
-            this.MASACH.DataPropertyName = "MASACH";
-            this.MASACH.HeaderText = "Mã Sách";
-            this.MASACH.Name = "MASACH";
-            this.MASACH.ReadOnly = true;
-            // 
-            // TENSACH
-            // 
-            this.TENSACH.DataPropertyName = "TENSACH";
-            this.TENSACH.HeaderText = "Tên Sách";
-            this.TENSACH.Name = "TENSACH";
-            this.TENSACH.ReadOnly = true;
-            // 
-            // TENTHELOAI
-            // 
-            this.TENTHELOAI.DataPropertyName = "TENTHELOAI";
-            this.TENTHELOAI.HeaderText = "Tên thể loại";
-            this.TENTHELOAI.Name = "TENTHELOAI";
-            this.TENTHELOAI.ReadOnly = true;
-            // 
-            // VITRI
-            // 
-            this.VITRI.DataPropertyName = "MAVITRI";
-            this.VITRI.HeaderText = "Vị Trí";
-            this.VITRI.Name = "VITRI";
-            this.VITRI.ReadOnly = true;
-            // 
-            // TENTACGIA
-            // 
-            this.TENTACGIA.DataPropertyName = "TENTACGIA";
-            this.TENTACGIA.HeaderText = "Tên tác giả";
-            this.TENTACGIA.Name = "TENTACGIA";
-            this.TENTACGIA.ReadOnly = true;
-            // 
-            // TenNXB
-            // 
-            this.TenNXB.DataPropertyName = "TENNXB";
-            this.TenNXB.HeaderText = "Tên nhà xuất bản";
-            this.TenNXB.Name = "TenNXB";
-            this.TenNXB.ReadOnly = true;
-            // 
-            // NAMXB
-            // 
-            this.NAMXB.DataPropertyName = "NAMXB";
-            this.NAMXB.HeaderText = "Năm xuất bản";
-            this.NAMXB.Name = "NAMXB";
-            this.NAMXB.ReadOnly = true;
-            // 
-            // MOTA
-            // 
-            this.MOTA.DataPropertyName = "MOTA";
-            this.MOTA.HeaderText = "Mô tả";
-            this.MOTA.Name = "MOTA";
-            this.MOTA.ReadOnly = true;
-            // 
-            // SOLUONG
-            // 
-            this.SOLUONG.DataPropertyName = "SOLUONG";
-            this.SOLUONG.HeaderText = "Số Lượng";
-            this.SOLUONG.Name = "SOLUONG";
-            this.SOLUONG.ReadOnly = true;
-            // 
-            // MANXB
-            // 
-            this.MANXB.DataPropertyName = "MANXB";
-            this.MANXB.HeaderText = "Column1";
-            this.MANXB.Name = "MANXB";
-            this.MANXB.ReadOnly = true;
-            this.MANXB.Visible = false;
-            // 
-            // MATHELOAI
-            // 
-            this.MATHELOAI.DataPropertyName = "MATHELOAI";
-            this.MATHELOAI.HeaderText = "Column1";
-            this.MATHELOAI.Name = "MATHELOAI";
-            this.MATHELOAI.ReadOnly = true;
-            this.MATHELOAI.Visible = false;
-            // 
-            // MATACGIA
-            // 
-            this.MATACGIA.DataPropertyName = "MATACGIA";
-            this.MATACGIA.HeaderText = "Column1";
-            this.MATACGIA.Name = "MATACGIA";
-            this.MATACGIA.ReadOnly = true;
-            this.MATACGIA.Visible = false;
-            // 
-            // MAVITRI
-            // 
-            this.MAVITRI.DataPropertyName = "MAVITRI";
-            this.MAVITRI.HeaderText = "Column1";
-            this.MAVITRI.Name = "MAVITRI";
-            this.MAVITRI.ReadOnly = true;
-            this.MAVITRI.Visible = false;
-            // 
-            // VT
-            // 
-            this.VT.HeaderText = "Column1";
-            this.VT.Name = "VT";
-            this.VT.ReadOnly = true;
-            this.VT.Visible = false;
-            // 
-            // TACGIA
-            // 
-            this.TACGIA.HeaderText = "Column1";
-            this.TACGIA.Name = "TACGIA";
-            this.TACGIA.ReadOnly = true;
-            this.TACGIA.Visible = false;
-            // 
-            // NHAXB
-            // 
-            this.NHAXB.HeaderText = "Column1";
-            this.NHAXB.Name = "NHAXB";
-            this.NHAXB.ReadOnly = true;
-            this.NHAXB.Visible = false;
-            // 
-            // THELOAI
-            // 
-            this.THELOAI.HeaderText = "Column1";
-            this.THELOAI.Name = "THELOAI";
-            this.THELOAI.ReadOnly = true;
-            this.THELOAI.Visible = false;
-            // 
-            // HINHANHSACH
-            // 
-            this.HINHANHSACH.DataPropertyName = "HINHANHSACH";
-            this.HINHANHSACH.HeaderText = "Column1";
-            this.HINHANHSACH.Name = "HINHANHSACH";
-            this.HINHANHSACH.ReadOnly = true;
-            this.HINHANHSACH.Visible = false;
-            // 
             // dtgvMuon
             // 
             this.dtgvMuon.AllowUserToAddRows = false;
             this.dtgvMuon.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgvMuon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgvMuon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgvMuon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvMuon.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtgvMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgvMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvMuon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMa,
@@ -331,14 +194,14 @@
             this.dtgvMuon.Name = "dtgvMuon";
             this.dtgvMuon.ReadOnly = true;
             this.dtgvMuon.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMuon.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMuon.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvMuon.RowTemplate.Height = 24;
             this.dtgvMuon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvMuon.Size = new System.Drawing.Size(827, 185);
@@ -441,6 +304,152 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên sinh viên";
             // 
+            // ImageSach
+            // 
+            this.ImageSach.HeaderText = "Ảnh";
+            this.ImageSach.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ImageSach.Name = "ImageSach";
+            this.ImageSach.ReadOnly = true;
+            this.ImageSach.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // MASACH
+            // 
+            this.MASACH.DataPropertyName = "MASACH";
+            this.MASACH.HeaderText = "Mã Sách";
+            this.MASACH.Name = "MASACH";
+            this.MASACH.ReadOnly = true;
+            // 
+            // TENSACH
+            // 
+            this.TENSACH.DataPropertyName = "TENSACH";
+            this.TENSACH.HeaderText = "Tên Sách";
+            this.TENSACH.Name = "TENSACH";
+            this.TENSACH.ReadOnly = true;
+            // 
+            // TENTHELOAI
+            // 
+            this.TENTHELOAI.DataPropertyName = "TENTHELOAI";
+            this.TENTHELOAI.HeaderText = "Tên thể loại";
+            this.TENTHELOAI.Name = "TENTHELOAI";
+            this.TENTHELOAI.ReadOnly = true;
+            // 
+            // VITRI
+            // 
+            this.VITRI.DataPropertyName = "MAVITRI";
+            this.VITRI.HeaderText = "Vị Trí";
+            this.VITRI.Name = "VITRI";
+            this.VITRI.ReadOnly = true;
+            // 
+            // TENTACGIA
+            // 
+            this.TENTACGIA.DataPropertyName = "TENTACGIA";
+            this.TENTACGIA.HeaderText = "Tên tác giả";
+            this.TENTACGIA.Name = "TENTACGIA";
+            this.TENTACGIA.ReadOnly = true;
+            // 
+            // TenNXB
+            // 
+            this.TenNXB.DataPropertyName = "TENNXB";
+            this.TenNXB.HeaderText = "Tên nhà xuất bản";
+            this.TenNXB.Name = "TenNXB";
+            this.TenNXB.ReadOnly = true;
+            // 
+            // NAMXB
+            // 
+            this.NAMXB.DataPropertyName = "NAMXB";
+            this.NAMXB.HeaderText = "Năm xuất bản";
+            this.NAMXB.Name = "NAMXB";
+            this.NAMXB.ReadOnly = true;
+            // 
+            // MOTA
+            // 
+            this.MOTA.DataPropertyName = "MOTA";
+            this.MOTA.HeaderText = "Mô tả";
+            this.MOTA.Name = "MOTA";
+            this.MOTA.ReadOnly = true;
+            // 
+            // SOLUONG
+            // 
+            this.SOLUONG.DataPropertyName = "SOLUONG";
+            this.SOLUONG.HeaderText = "Số Lượng";
+            this.SOLUONG.Name = "SOLUONG";
+            this.SOLUONG.ReadOnly = true;
+            // 
+            // Gia
+            // 
+            this.Gia.DataPropertyName = "Gia";
+            this.Gia.HeaderText = "Giá";
+            this.Gia.Name = "Gia";
+            this.Gia.ReadOnly = true;
+            // 
+            // MANXB
+            // 
+            this.MANXB.DataPropertyName = "MANXB";
+            this.MANXB.HeaderText = "Column1";
+            this.MANXB.Name = "MANXB";
+            this.MANXB.ReadOnly = true;
+            this.MANXB.Visible = false;
+            // 
+            // MATHELOAI
+            // 
+            this.MATHELOAI.DataPropertyName = "MATHELOAI";
+            this.MATHELOAI.HeaderText = "Column1";
+            this.MATHELOAI.Name = "MATHELOAI";
+            this.MATHELOAI.ReadOnly = true;
+            this.MATHELOAI.Visible = false;
+            // 
+            // MATACGIA
+            // 
+            this.MATACGIA.DataPropertyName = "MATACGIA";
+            this.MATACGIA.HeaderText = "Column1";
+            this.MATACGIA.Name = "MATACGIA";
+            this.MATACGIA.ReadOnly = true;
+            this.MATACGIA.Visible = false;
+            // 
+            // MAVITRI
+            // 
+            this.MAVITRI.DataPropertyName = "MAVITRI";
+            this.MAVITRI.HeaderText = "Column1";
+            this.MAVITRI.Name = "MAVITRI";
+            this.MAVITRI.ReadOnly = true;
+            this.MAVITRI.Visible = false;
+            // 
+            // VT
+            // 
+            this.VT.HeaderText = "Column1";
+            this.VT.Name = "VT";
+            this.VT.ReadOnly = true;
+            this.VT.Visible = false;
+            // 
+            // TACGIA
+            // 
+            this.TACGIA.HeaderText = "Column1";
+            this.TACGIA.Name = "TACGIA";
+            this.TACGIA.ReadOnly = true;
+            this.TACGIA.Visible = false;
+            // 
+            // NHAXB
+            // 
+            this.NHAXB.HeaderText = "Column1";
+            this.NHAXB.Name = "NHAXB";
+            this.NHAXB.ReadOnly = true;
+            this.NHAXB.Visible = false;
+            // 
+            // THELOAI
+            // 
+            this.THELOAI.HeaderText = "Column1";
+            this.THELOAI.Name = "THELOAI";
+            this.THELOAI.ReadOnly = true;
+            this.THELOAI.Visible = false;
+            // 
+            // HINHANHSACH
+            // 
+            this.HINHANHSACH.DataPropertyName = "HINHANHSACH";
+            this.HINHANHSACH.HeaderText = "Column1";
+            this.HINHANHSACH.Name = "HINHANHSACH";
+            this.HINHANHSACH.ReadOnly = true;
+            this.HINHANHSACH.Visible = false;
+            // 
             // fMuonTaiLieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,6 +497,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NAMXB;
         private System.Windows.Forms.DataGridViewTextBoxColumn MOTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOLUONG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
         private System.Windows.Forms.DataGridViewTextBoxColumn MANXB;
         private System.Windows.Forms.DataGridViewTextBoxColumn MATHELOAI;
         private System.Windows.Forms.DataGridViewTextBoxColumn MATACGIA;

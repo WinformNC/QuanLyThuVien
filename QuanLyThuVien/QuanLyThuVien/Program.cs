@@ -20,7 +20,7 @@ namespace QuanLyThuVien
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new fLogin());
+            Application.Run(new fMain());
         }
     }
 }

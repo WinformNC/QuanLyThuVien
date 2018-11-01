@@ -49,7 +49,7 @@ namespace linQ
                 return 0;
             }
         } 
-        public int addSach(string masach,string manxb,string matheloai,string matacgia,string mavitri,string tensach,string namxb,string hinhanhsach,string mota,string soluong)
+        public int addSach(string masach,string manxb,string matheloai,string matacgia,string mavitri,string tensach,string namxb,string hinhanhsach,string mota,string soluong,string gia)
         {
             try
             {
@@ -64,6 +64,7 @@ namespace linQ
                 s.HINHANHSACH = hinhanhsach;
                 s.MOTA = mota;
                 s.SOLUONG = int.Parse(soluong);
+                s.Gia = float.Parse(gia);
                 linq.SACHes.InsertOnSubmit(s);
                 
                 return 1;
@@ -83,7 +84,7 @@ namespace linQ
             }
             catch { return 0; }
         }
-        public int upSach(string masach, string manxb, string matheloai, string matacgia, string mavitri, string tensach, string namxb, string hinhanhsach, string mota, string soluong)
+        public int upSach(string masach, string manxb, string matheloai, string matacgia, string mavitri, string tensach, string namxb, string hinhanhsach, string mota, string soluong,string gia)
         {
             try
             {
@@ -98,6 +99,7 @@ namespace linQ
                 s.HINHANHSACH = hinhanhsach;
                 s.MOTA = mota;
                 s.SOLUONG = int.Parse(soluong);
+                s.Gia = float.Parse(gia);
                 
                 return 1;
             }
@@ -208,6 +210,7 @@ namespace linQ
             ph.MASINHVIEN = masinhvien;
             ph.SOTIENPHAT = sotienphat;
             ph.LYDO = lydo;
+            ph.TINHTRANG = chuatra;
             linq.PHATs.InsertOnSubmit(ph);
             linq.SubmitChanges();
         }
@@ -216,7 +219,7 @@ namespace linQ
             try
             {
                 PHAT ph = linq.PHATs.Where(t => t.MAPHAT == maphat).FirstOrDefault();
-                linq.PHATs.DeleteOnSubmit(ph);
+                ph.TINHTRANG = datra;
                 linq.SubmitChanges();
                 return 1;
             }

@@ -68,16 +68,16 @@ namespace QuanLyThuVien
         {
             if (phieumuon != null)
             {
-                sotienphat = (float)conn.tienphat(ngaydukien, DateTime.Now.AddDays(11));
+                sotienphat = (float)conn.tienphat(ngaydukien, DateTime.Now);
                 if (sotienphat > 1)
                 {
                     string tenNV = nhanvien.FindTenNV(maNV);
                     string tenSV = sinhvien.FindTenSV(masinhvien);
                     lydo = "Không trả đúng hạn Sách " + masach;
-                    frmPhieuPhat phieuphat = new frmPhieuPhat(tenNV, masinhvien, tenSV, ((TimeSpan)(DateTime.Now.AddDays(11) - ngaydukien)).TotalDays, sotienphat);
+                    frmPhieuPhat phieuphat = new frmPhieuPhat(tenNV, masinhvien, tenSV, ((TimeSpan)(DateTime.Now - ngaydukien)).TotalDays, sotienphat);
                     phieuphat.Show();
                 }
-                int kt = conn.addCTPhieuTra(phieumuon, masach, masinhvien, DateTime.Now.AddDays(11), sotienphat, lydo, tinhtrang);
+                int kt = conn.addCTPhieuTra(phieumuon, masach, masinhvien, DateTime.Now, sotienphat, lydo, tinhtrang);
                 if (kt == 1)
                 {
                     MessageBox.Show("Trả thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -91,5 +91,15 @@ namespace QuanLyThuVien
             else
                 MessageBox.Show("Chưa chọn phiếu trả ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+        private void btnMat_Click(object sender, EventArgs e)
+        {
+            string tenNV = nhanvien.FindTenNV(maNV);
+            string tenSV = sinhvien.FindTenSV(masinhvien);
+            lydo = "Mất sách " + masach;
+            sotienphat = 100000;
+            frmPhieuPhat phieuphat = new frmPhieuPhat(tenNV, masinhvien, tenSV, ((TimeSpan)(DateTime.Now - ngaydukien)).TotalDays, sotienphat);
+            phieuphat.Show();
+        }
     }
+
 }

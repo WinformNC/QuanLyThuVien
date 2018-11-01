@@ -31,28 +31,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dtgvMuon = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.btnTra = new DevExpress.XtraEditors.SimpleButton();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.dtgvMuon = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMuon)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // btnTra
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.dtgvMuon, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnTra, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(844, 570);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.btnTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTra.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.btnTra.Location = new System.Drawing.Point(3, 27);
+            this.btnTra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTra.Name = "btnTra";
+            this.btnTra.Size = new System.Drawing.Size(144, 28);
+            this.btnTra.TabIndex = 35;
+            this.btnTra.Text = "Trả tài liệu";
+            this.btnTra.Click += new System.EventHandler(this.btnTra_Click);
             // 
             // dtgvMuon
             // 
@@ -97,17 +93,22 @@
             this.dtgvMuon.TabIndex = 34;
             this.dtgvMuon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvMuon_CellClick);
             // 
-            // btnTra
+            // tableLayoutPanel1
             // 
-            this.btnTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTra.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnTra.Location = new System.Drawing.Point(3, 27);
-            this.btnTra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnTra.Name = "btnTra";
-            this.btnTra.Size = new System.Drawing.Size(144, 28);
-            this.btnTra.TabIndex = 35;
-            this.btnTra.Text = "Trả tài liệu";
-            this.btnTra.Click += new System.EventHandler(this.btnTra_Click);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.dtgvMuon, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnTra, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(844, 570);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // fTraTaiLieu
             // 
@@ -120,17 +121,18 @@
             this.Name = "fTraTaiLieu";
             this.Text = "Trả tài liệu";
             this.Load += new System.EventHandler(this.fTraTaiLieu_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMuon)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid dtgvMuon;
         private DevExpress.XtraEditors.SimpleButton btnTra;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dtgvMuon;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+
 
     }
 }

@@ -48,7 +48,7 @@ namespace QuanLyThuVien
 
            cboViTri.DataSource = conn.loadViTri();
             cboViTri.ValueMember = "MAVITRI";
-            cboViTri.DisplayMember = "MAVITRI";
+            cboViTri.DisplayMember = "TENVITRI";
         }
 
         private void loadDataGrid()
@@ -79,7 +79,7 @@ namespace QuanLyThuVien
 
         private void setBoolField(bool b)
         {
-            txtSoLuong.Enabled = btnLoadImage.Enabled = btnHuy.Enabled = btnLuu.Enabled = txtTen.Enabled = txtMoTa.Enabled = txtNamXB.Enabled = cboViTri.Enabled = cboTheLoai.Enabled = cboTacGia.Enabled = cboNXB.Enabled = b;
+            txtSoLuong.Enabled = btnLoadImage.Enabled = btnHuy.Enabled = btnLuu.Enabled = txtTen.Enabled = txtMoTa.Enabled = txtNamXB.Enabled = cboViTri.Enabled = cboTheLoai.Enabled = cboTacGia.Enabled = cboNXB.Enabled = txt_gia.Enabled = b;
         }
         private void setBtn(bool b)
         {
@@ -184,19 +184,19 @@ namespace QuanLyThuVien
         // Chuc nang
         private void clearTextBox()
         {
-            txtSoLuong.Text = txtMa.Text = txtMoTa.Text = txtNamXB.Text = txtTen.Text = null;
+            txtSoLuong.Text = txtMa.Text = txtMoTa.Text = txtNamXB.Text = txtTen.Text= txt_gia.Text = null;
             cboNXB.SelectedIndex = cboTacGia.SelectedIndex = cboTheLoai.SelectedIndex = cboViTri.SelectedIndex = 0;
         }
         private void them()
         {
-            if (conn.addSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, txtSoLuong.Text) == 1)
+            if (conn.addSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, txtSoLuong.Text,txt_gia.Text) == 1)
                 MessageBox.Show("Nhập thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Nhập không thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void sua()
         {
-            if (conn.upSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, txtSoLuong.Text) == 1)
+            if (conn.upSach(txtMa.Text, cboNXB.SelectedValue.ToString(), cboTheLoai.SelectedValue.ToString(), cboTacGia.SelectedValue.ToString(), cboViTri.SelectedValue.ToString(), txtTen.Text, txtNamXB.Text, PathImg, txtMoTa.Text, txtSoLuong.Text,txt_gia.Text) == 1)
             {
                 MessageBox.Show("Sửa thành công ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -245,6 +245,7 @@ namespace QuanLyThuVien
             txtMoTa.Text = dtgvSach["MOTA", index].Value.ToString();
             txtNamXB.Text = dtgvSach["NAMXB", index].Value.ToString();
             txtSoLuong.Text = dtgvSach["SOLUONG", index].Value.ToString();
+            txt_gia.Text = dtgvSach["GIA", index].Value.ToString();
             setBtn(true);
             btnThem.Enabled =false;
             setBoolField(false);

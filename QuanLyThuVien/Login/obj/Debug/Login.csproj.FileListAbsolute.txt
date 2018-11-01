@@ -16,3 +16,4 @@ C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\Login\obj\Debug\Login
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\Login\obj\Debug\Login.pdb
 >>>>>>> 8fe9b5534794289fe8d2ae2da95018a4e7887a6f
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\Login\obj\Debug\Login.csprojResolveAssemblyReference.cache
+F:\Studio\WinformNC\QuanLyThuVien\Login\obj\Debug\Login.csprojResolveAssemblyReference.cache
