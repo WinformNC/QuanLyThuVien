@@ -180,6 +180,7 @@ namespace QuanLyThuVien
             setBoolField(false);
             loadDataGrid();
             btnThem.Enabled = true;
+            btnTaiLai.Enabled = true;
         }
         // Chuc nang
         private void clearTextBox()
@@ -245,7 +246,13 @@ namespace QuanLyThuVien
             txtMoTa.Text = dtgvSach["MOTA", index].Value.ToString();
             txtNamXB.Text = dtgvSach["NAMXB", index].Value.ToString();
             txtSoLuong.Text = dtgvSach["SOLUONG", index].Value.ToString();
-            txt_gia.Text = dtgvSach["GIA", index].Value.ToString();
+            try
+            {
+                txt_gia.Text = dtgvSach["GIA", index].Value.ToString();
+            }
+            catch {
+                txt_gia.Text = 100000+"";
+            }
             setBtn(true);
             btnThem.Enabled =false;
             setBoolField(false);

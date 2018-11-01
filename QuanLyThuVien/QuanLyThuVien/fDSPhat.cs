@@ -41,11 +41,16 @@ namespace QuanLyThuVien
         string maphat;
         private void dtgvDSPhat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             int index = e.RowIndex;
             if(dtgvDSPhat.RowCount != 0)
                 maphat = dtgvDSPhat["Column1", index].Value.ToString();
 
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            ExcelExport export = new ExcelExport();
+            export.export2ExcelSpecial(dtgvDSPhat, @"C:\Users\Dell7559\Desktop\", "DataPhat");
         }
       
     }

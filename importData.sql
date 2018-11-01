@@ -54,6 +54,19 @@ from PHAT p ,PHIEUMUONTRA pm
 select * from viewDoanhThu
 
 /*Chay ngay day*/
-EXEC sp_RENAME 'VITTRI.VITRI', 'TenViTri', 'COLUMN'
+EXEC sp_RENAME 'VITRI.VITRI', TenViTri, 'COLUMN'
 ALTER TABLE Sach
 ADD Gia float
+ALTER Table Phat
+add TINHTRANG nvarchar(30)
+
+CREATE VIEW sachView
+as select s.*,TENTACGIA,TENNXB,TENTHELOAI
+from Sach s, TACGIA tg, VITRI vt, NHAXB nxb, THELOAI tl
+where s.MANXB = nxb.MANXB and s.MATACGIA = tg.MATACGIA and s.MATHELOAI = tl.MATHELOAI and s.MAVITRI = vt.MAVITRI;
+select *  from sachView
+
+create View ViewCT
+as select pm.MAPHIEUMUON ,ct.MASACH,pm.MANV,pm.MASINHVIEN,pm.NGAYMUON,pm.NGAYDUKIENTRA,pm.PHIMUON,pm.PHICOC,ct.TINHTRANG,s.Gia
+from CHITIETMUONTRA ct, PHIEUMUONTRA pm , SACH s
+where ct.MAPHIEUMUON = pm.MAPHIEUMUON and s.MASACH = ct.MASACH

@@ -100,7 +100,7 @@ namespace linQ
                 s.MOTA = mota;
                 s.SOLUONG = int.Parse(soluong);
                 s.Gia = float.Parse(gia);
-                
+                linq.SubmitChanges();
                 return 1;
             }
             catch
@@ -214,6 +214,12 @@ namespace linQ
             linq.PHATs.InsertOnSubmit(ph);
             linq.SubmitChanges();
         }
+        public void upTinhTrangMuon(string maphieumuon, string masach)
+        {
+            CHITIETMUONTRA ct = linq.CHITIETMUONTRAs.Where(t => t.MAPHIEUMUON == maphieumuon && t.MASACH == masach).FirstOrDefault();
+            ct.TINHTRANG = datra;
+            linq.SubmitChanges();
+        }
         public int delPhat(string maphat)
         {
             try
@@ -229,11 +235,11 @@ namespace linQ
 
         public List<PHAT> loadPhat()
         {
-            return linq.PHATs.Select(t => t).ToList<PHAT>();
+            return linq.PHATs.Select(t => t).Where(t => t.TINHTRANG  == chuatra).ToList<PHAT>();
         }
         public List<ViewCT> loadViewCT()
         {
-            return linq.ViewCTs.Select(t => t).ToList<ViewCT>();
+            return linq.ViewCTs.Select(t => t).Where(t => t.TINHTRANG == chuatra).ToList<ViewCT>();
         }
         public List<ViewCT> loadViewCT(string maSV)
         {
@@ -263,8 +269,11 @@ namespace linQ
         }
         private bool ktSVPhat(string masv)
         {
-            if (linq.PHATs.Where(t => t.MASINHVIEN == masv).Select(t => t).FirstOrDefault() != null)
+            PHAT phat = linq.PHATs.Where(t => t.MASINHVIEN == masv).Select(t => t).FirstOrDefault();
+            if (phat!= null && phat.TINHTRANG == chuatra)
+            {
                 return false;
+            }
             return true;
         }
     }

@@ -99,6 +99,7 @@
             this.barButtonItem3,
             this.barButtonItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 23;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
@@ -108,13 +109,14 @@
             this.ribbonPage3,
             this.ribbonPage4});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(896, 162);
+            this.ribbonControl1.Size = new System.Drawing.Size(1045, 194);
             // 
             // btnDSTaiLieu
             // 
             this.btnDSTaiLieu.Caption = "Danh sách tài liệu";
             this.btnDSTaiLieu.Id = 1;
             this.btnDSTaiLieu.ImageOptions.Image = global::QuanLyThuVien.Properties.Resources.icons8_Book_Shelf_32;
+            this.btnDSTaiLieu.ImageOptions.LargeImage = global::QuanLyThuVien.Properties.Resources.icons8_Book_Shelf_32;
             this.btnDSTaiLieu.Name = "btnDSTaiLieu";
             this.btnDSTaiLieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSTaiLieu_ItemClick);
             // 
@@ -262,7 +264,7 @@
             // 
             // barButtonItem3
             // 
-            this.barButtonItem3.Caption = "Thông kê doanh thu";
+            this.barButtonItem3.Caption = "Thống kê doanh thu";
             this.barButtonItem3.Id = 21;
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
@@ -278,14 +280,13 @@
             this.ribbonPageCategory1.Name = "ribbonPageCategory1";
             this.ribbonPageCategory1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2});
-            this.ribbonPageCategory1.Text = "ribbonPageCategory1";
             // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup8});
             this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "Thông kê";
+            this.ribbonPage2.Text = "Thống kê";
             // 
             // ribbonPageGroup8
             // 
@@ -368,12 +369,13 @@
             // fMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 591);
+            this.ClientSize = new System.Drawing.Size(1045, 727);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "fMain";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

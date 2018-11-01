@@ -20,7 +20,7 @@ namespace QuanLyThuVien
         NhanVienBLL nhanvien = new NhanVienBLL();
         string phieumuon, masach, masinhvien, lydo, tinhtrang;
         DateTime ngaydukien;
-        float sotienphat;
+        float sotienphat, gia;
         string maNV;
         public fTraTaiLieu(string maNV)
         {
@@ -50,6 +50,7 @@ namespace QuanLyThuVien
             dtgvMuon.Columns[6].HeaderText = "Phí mượn";
             dtgvMuon.Columns[7].HeaderText = "Phí cọc";
             dtgvMuon.Columns[8].HeaderText = "Tình trạng";
+            dtgvMuon.Columns[9].HeaderText = "Giá";
            
         }
         private void dtgvMuon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -60,6 +61,7 @@ namespace QuanLyThuVien
             phieumuon = dtgvMuon["MAPHIEUMUON", index].Value.ToString();
             masinhvien = dtgvMuon["MASINHVIEN", index].Value.ToString();
             tinhtrang = dtgvMuon["TINHTRANG", index].Value.ToString();
+            gia = float.Parse(dtgvMuon["Gia", index].Value.ToString());
         }
         
       
@@ -91,14 +93,18 @@ namespace QuanLyThuVien
             else
                 MessageBox.Show("Chưa chọn phiếu trả ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        private void btnMat_Click(object sender, EventArgs e)
+
+        private void btnBaoMat_Click(object sender, EventArgs e)
         {
             string tenNV = nhanvien.FindTenNV(maNV);
             string tenSV = sinhvien.FindTenSV(masinhvien);
             lydo = "Mất sách " + masach;
-            sotienphat = 100000;
+            sotienphat = gia;
             frmPhieuPhat phieuphat = new frmPhieuPhat(tenNV, masinhvien, tenSV, ((TimeSpan)(DateTime.Now - ngaydukien)).TotalDays, sotienphat);
             phieuphat.Show();
+            conn.addPhat(masinhvien, sotienphat, lydo);
+            conn.upTinhTrangMuon(phieumuon, masach);
+            dtgvMuon.DataSource = conn.loadViewCT();
         }
     }
 
