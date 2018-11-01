@@ -25,19 +25,6 @@ namespace QuanLyThuVien.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-66PHT9S\\SQLEXPRESS2;Initial Catalog=QuanLyThuVien;Integrated " +
-            "Security=True;")]
-        public string connectionString {
-            get {
-                return ((string)(this["connectionString"]));
-            }
-            set {
-                this["connectionString"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool isFirstTime {
             get {
@@ -45,6 +32,19 @@ namespace QuanLyThuVien.Properties {
             }
             set {
                 this["isFirstTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-66PHT9S\\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated S" +
+            "ecurity=True;")]
+        public string connectionString {
+            get {
+                return ((string)(this["connectionString"]));
+            }
+            set {
+                this["connectionString"] = value;
             }
         }
     }

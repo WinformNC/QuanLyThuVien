@@ -170,6 +170,12 @@ namespace QuanLyThuVien
                 txtEmail.Text = dtgvNhanVien.SelectedRows[0].Cells[8].Value.ToString();
             }
         }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            ExcelExport export = new ExcelExport();
+            export.export2Excel(dtgvNhanVien, @"C:\Users\Dell7559\Desktop\", "dataTest");
+        }
         
     }
 }
