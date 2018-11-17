@@ -1,0 +1,5 @@
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\LinqToMySQL\bin\Debug\LinqToMySQL.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\LinqToMySQL\bin\Debug\LinqToMySQL.pdb
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\LinqToMySQL\obj\Debug\LinqToMySQL.csprojResolveAssemblyReference.cache
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\LinqToMySQL\obj\Debug\LinqToMySQL.dll
+C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\LinqToMySQL\obj\Debug\LinqToMySQL.pdb

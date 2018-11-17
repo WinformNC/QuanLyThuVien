@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using BLL;
+using linQ;
+
 
 namespace QuanLyThuVien
 {
@@ -27,20 +29,25 @@ namespace QuanLyThuVien
         fTraTaiLieu fTTL;
         fDSPhat fDSP;
         fThongKeDoanhThu fTKDT;
+        fDSDatOnline fDSDONL;
+
         //Account
         string loai;
         string tenDN;
         string maNV;
+        Conection con = new Conection();
 
         public fMain()
         {
             InitializeComponent();
         }
 
-        public fMain(string loai)
+        public fMain(string tenDN, string loai)
         {
             InitializeComponent();
+            this.tenDN = tenDN;
             this.loai = loai;
+            maNV = con.findNV(tenDN);
         }
 
         private Form kiemtraForm(Type ftype)
@@ -209,7 +216,7 @@ namespace QuanLyThuVien
             Form frm = kiemtraForm(typeof(fMuonTaiLieu));
             if (frm == null)
             {
-                fMTL = new fMuonTaiLieu();
+                fMTL = new fMuonTaiLieu(maNV);
                 fMTL.MdiParent = this;
                 fMTL.Show();
             }
@@ -305,11 +312,9 @@ namespace QuanLyThuVien
 
         private void fMain_Load(object sender, EventArgs e)
         {
-            this.tenDN = this.Tag.ToString();
-            loai = taikhoan.getLoai(tenDN);
-            maNV = taikhoan.getMaNV(tenDN);
-
-           
+            //this.tenDN = this.Tag.ToString();
+            //loai = taikhoan.getLoai(tenDN);
+            //maNV = taikhoan.getMaNV(tenDN);
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
@@ -327,6 +332,33 @@ namespace QuanLyThuVien
                 fTKDT = new fThongKeDoanhThu();
                 fTKDT.MdiParent = this;
                 fTKDT.Show();
+            }
+        }
+
+        private void btnSetting_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (loai == "3")
+            {
+                MessageBox.Show("Truy cập không được phép", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
+        private void btnDatOnline_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraForm(typeof(fDSDatOnline));
+            if (frm == null)
+            {
+                fDSDONL = new fDSDatOnline(maNV);
+                fDSDONL.MdiParent = this;
+                fDSDONL.Show();
+            }
+            else
+            {
+                frm.Close();
+                fDSDONL = new fDSDatOnline(maNV);
+                fDSDONL.MdiParent = this;
+                fDSDONL.Show();
             }
         }
     }

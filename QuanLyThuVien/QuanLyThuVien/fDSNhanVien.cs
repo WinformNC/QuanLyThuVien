@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
+using linQ;
 
 namespace QuanLyThuVien
 {
@@ -18,6 +19,8 @@ namespace QuanLyThuVien
         ChucVuBLL chucvu = new ChucVuBLL();
         NhanVienBLL nhanvien = new NhanVienBLL();
         TaiKhoanBLL taikhoan = new TaiKhoanBLL();
+
+        Conection con = new Conection();
 
         public fDSNhanVien()
         {
@@ -40,8 +43,8 @@ namespace QuanLyThuVien
         {
             dtgvNhanVien.Columns[0].HeaderText = "Mã nhân viên";
             dtgvNhanVien.Columns[1].HeaderText = "Tên nhân viên";
-            dtgvNhanVien.Columns[2].HeaderText = "Tên đăng nhập";
-            dtgvNhanVien.Columns[3].HeaderText = "Chức vụ";
+            dtgvNhanVien.Columns[2].HeaderText = "Chức vụ";
+            dtgvNhanVien.Columns[3].HeaderText = "Tài khoản";
             dtgvNhanVien.Columns[4].HeaderText = "Ngày sinh";
             dtgvNhanVien.Columns[5].HeaderText = "CMND";
             dtgvNhanVien.Columns[6].HeaderText = "Địa chỉ";
@@ -51,14 +54,16 @@ namespace QuanLyThuVien
 
         private void LoadNhanVien()
         {
-            dtgvNhanVien.DataSource = nhanvien.LoadNhanVien();
+            dtgvNhanVien.DataSource = con.loadNV();
+            dtgvNhanVien.Columns["TAIKHOAN1"].Visible = false;
+            dtgvNhanVien.Columns["CHUCVU"].Visible = false;
             dtgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             setNameCol();
         }
 
         private void LoadcboChucVu()
         {
-            cboChucVu.DataSource = chucvu.LoadChucVu();
+            cboChucVu.DataSource = con.loadChucVu();
             cboChucVu.DisplayMember = "TENCHUCVU";
             cboChucVu.ValueMember = "MACHUCVU";
         }
@@ -104,7 +109,7 @@ namespace QuanLyThuVien
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            cboChucVu.Enabled = txtTen.Enabled = txtNgaySinh.Enabled = txtCMND.Enabled = txtDT.Enabled = txtDiaChi.Enabled = txtEmail.Enabled = btnHuy.Enabled = btnLuu.Enabled = false;
+            txtMa.Enabled = cboChucVu.Enabled = txtTen.Enabled = txtNgaySinh.Enabled = txtCMND.Enabled = txtDT.Enabled = txtDiaChi.Enabled = txtEmail.Enabled = btnHuy.Enabled = btnLuu.Enabled = false;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
         }
 
@@ -113,22 +118,18 @@ namespace QuanLyThuVien
             if (txtMa.Text.Trim().Length != 0)
                 if (chucnang == CHUCNANG.THEM)
                 {
-                    if (taikhoan.CheckPrimary(txtEmail.Text))
-                    {
-                        MessageBox.Show("Email đã tồn tại. Không thể lập tài khoản.", "Thông báo", MessageBoxButtons.OK);
-                        return;
-                    }
-
-                    if (nhanvien.CheckPrimary(txtMa.Text))
-                    {
-                        MessageBox.Show("Mã nhân viên đã tồn tại. Không thể lập tài khoản.", "Thông báo", MessageBoxButtons.OK);
-                        return;
-                    }
-
-                    int result = nhanvien.Insert(txtMa.Text, cboChucVu.SelectedValue.ToString(), txtEmail.Text, txtTen.Text, txtNgaySinh.Text, txtCMND.Text, txtDiaChi.Text, txtDT.Text, txtEmail.Text);
+                    int result = con.addNV(txtMa.Text, txtTen.Text, cboChucVu.SelectedValue.ToString(), DateTime.Parse(txtNgaySinh.Text), txtCMND.Text, txtDiaChi.Text, txtDT.Text, txtEmail.Text);
                     if (result == 1)
                     {
-                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Thêm thành công. Tên đăng nhập tài khoản là Email và Mật khẩu là số điện thoại của nhân viên.", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else if (result == 2)
+                    {
+                        MessageBox.Show("Mã nhân viên đã tồn tại", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else if (result == 3)
+                    {
+                        MessageBox.Show("Email đã tồn tại. Không thể tạo tài khoản", "Thông báo", MessageBoxButtons.OK);
                     }
                     else
                     {
@@ -137,10 +138,18 @@ namespace QuanLyThuVien
                 }
                 else if (chucnang == CHUCNANG.SUA)
                 {
-                    int result = nhanvien.Update(txtMa.Text, cboChucVu.SelectedValue.ToString(), txtTen.Text, txtNgaySinh.Text, txtCMND.Text, txtDiaChi.Text, txtDT.Text, txtEmail.Text);
+                    int result = con.upNV(txtMa.Text, txtTen.Text, cboChucVu.SelectedValue.ToString(), DateTime.Parse(txtNgaySinh.Text), txtCMND.Text, txtDiaChi.Text, txtDT.Text, txtEmail.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else if (result == 0)
+                    {
+                        MessageBox.Show("Email đã tồn tại.", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else if (result == 2)
+                    {
+                        MessageBox.Show("Sửa thành công. Tên đăng nhập mới của nhân viên sẽ là: " + txtEmail.Text.Trim(), "Thông báo", MessageBoxButtons.OK);
                     }
                     else
                     {
@@ -154,6 +163,7 @@ namespace QuanLyThuVien
         private void btnTaiLai_Click(object sender, EventArgs e)
         {
             LoadNhanVien();
+            LoadcboChucVu();
         }
 
         private void dtgvNhanVien_Click(object sender, EventArgs e)
@@ -162,8 +172,14 @@ namespace QuanLyThuVien
             {
                 txtMa.Text = dtgvNhanVien.SelectedRows[0].Cells[0].Value.ToString();
                 txtTen.Text = dtgvNhanVien.SelectedRows[0].Cells[1].Value.ToString();
-                cboChucVu.Text = dtgvNhanVien.SelectedRows[0].Cells[3].Value.ToString();
-                txtNgaySinh.Text = dtgvNhanVien.SelectedRows[0].Cells[4].Value.ToString();
+                cboChucVu.Text = dtgvNhanVien.SelectedRows[0].Cells[2].Value.ToString();
+                try
+                {
+                    txtNgaySinh.Text = dtgvNhanVien.SelectedRows[0].Cells[4].Value.ToString();
+                }
+                catch
+                {
+                }
                 txtCMND.Text = dtgvNhanVien.SelectedRows[0].Cells[5].Value.ToString();
                 txtDiaChi.Text = dtgvNhanVien.SelectedRows[0].Cells[6].Value.ToString();
                 txtDT.Text = dtgvNhanVien.SelectedRows[0].Cells[7].Value.ToString();

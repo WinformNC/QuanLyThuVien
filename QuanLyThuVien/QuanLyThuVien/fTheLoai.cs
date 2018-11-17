@@ -16,6 +16,8 @@ namespace QuanLyThuVien
     {
         CHUCNANG chucnang;
         TheLoaiBLL theloai = new TheLoaiBLL();
+        Connection1 con = new Connection1();
+
         public fTheLoai()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace QuanLyThuVien
 
         private void LoadTheLoai()
         {
-            dtgvTL.DataSource = theloai.LoadTheLoai();
+            dtgvTL.DataSource = con.loadTheLoai();
             dtgvTL.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             setNameCol();
         }
@@ -64,7 +66,7 @@ namespace QuanLyThuVien
                 "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
-                theloai.Delete(txtMa.Text);
+                con.delTheLoai(txtMa.Text);
                 LoadTheLoai();
                 btnSua.Enabled = btnXoa.Enabled = false;
             }
@@ -94,7 +96,7 @@ namespace QuanLyThuVien
             if (txtTen.Text.Trim().Length != 0)
                 if (chucnang == CHUCNANG.THEM)
                 {
-                    int result = theloai.Insert(txtMa.Text, txtTen.Text);
+                    int result = con.addTheLoai(txtMa.Text, txtTen.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
@@ -106,7 +108,7 @@ namespace QuanLyThuVien
                 }
                 else if (chucnang == CHUCNANG.SUA)
                 {
-                    int result = theloai.Update(txtMa.Text, txtTen.Text);
+                    int result = con.upTheLoai(txtMa.Text, txtTen.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);

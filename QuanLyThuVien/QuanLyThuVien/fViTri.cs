@@ -16,6 +16,8 @@ namespace QuanLyThuVien
     {
         CHUCNANG chucnang;
         ViTriBLL vitri = new ViTriBLL();
+        Connection1 con = new Connection1();
+
         public fViTri()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace QuanLyThuVien
 
         private void LoadViTri()
         {
-            dtgvVT.DataSource = vitri.LoadViTri();
+            dtgvVT.DataSource = con.loadViTri();
             dtgvVT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             setNameCol();
         }
@@ -64,7 +66,7 @@ namespace QuanLyThuVien
                 "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
-                vitri.Delete(txtMa.Text);
+                con.delViTri(txtMa.Text);
                 LoadViTri();
                 btnSua.Enabled = btnXoa.Enabled = false;
             }
@@ -94,7 +96,7 @@ namespace QuanLyThuVien
             if (txtTen.Text.Trim().Length != 0)
                 if (chucnang == CHUCNANG.THEM)
                 {
-                    int result = vitri.Insert(txtMa.Text, txtTen.Text);
+                    int result = con.addViTri(txtMa.Text, txtTen.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
@@ -106,7 +108,7 @@ namespace QuanLyThuVien
                 }
                 else if (chucnang == CHUCNANG.SUA)
                 {
-                    int result = vitri.Update(txtMa.Text, txtTen.Text);
+                    int result = con.upViTri(txtMa.Text, txtTen.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);

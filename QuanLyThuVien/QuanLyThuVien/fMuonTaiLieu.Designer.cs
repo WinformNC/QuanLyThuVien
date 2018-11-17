@@ -50,7 +50,7 @@
             this.MASACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENSACH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENTHELOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VITRI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENTACGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NAMXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,12 +88,12 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(833, 609);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(972, 750);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dtgvDS
@@ -108,7 +108,7 @@
             this.dtgvDS.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -120,7 +120,7 @@
             this.MASACH,
             this.TENSACH,
             this.TENTHELOAI,
-            this.VITRI,
+            this.MAVT,
             this.TENTACGIA,
             this.TenNXB,
             this.NAMXB,
@@ -141,7 +141,7 @@
             this.dtgvDS.EnableHeadersVisualStyles = false;
             this.dtgvDS.HeaderBgColor = System.Drawing.Color.White;
             this.dtgvDS.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtgvDS.Location = new System.Drawing.Point(3, 83);
+            this.dtgvDS.Location = new System.Drawing.Point(3, 102);
             this.dtgvDS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvDS.MultiSelect = false;
             this.dtgvDS.Name = "dtgvDS";
@@ -149,7 +149,7 @@
             this.dtgvDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 7.8F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -157,7 +157,7 @@
             this.dtgvDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvDS.RowTemplate.Height = 100;
             this.dtgvDS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvDS.Size = new System.Drawing.Size(827, 278);
+            this.dtgvDS.Size = new System.Drawing.Size(966, 344);
             this.dtgvDS.TabIndex = 36;
             this.dtgvDS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDS_CellClick);
             // 
@@ -173,7 +173,7 @@
             this.dtgvMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 7.8F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -188,7 +188,7 @@
             this.dtgvMuon.EnableHeadersVisualStyles = false;
             this.dtgvMuon.HeaderBgColor = System.Drawing.Color.White;
             this.dtgvMuon.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtgvMuon.Location = new System.Drawing.Point(3, 422);
+            this.dtgvMuon.Location = new System.Drawing.Point(3, 520);
             this.dtgvMuon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvMuon.MultiSelect = false;
             this.dtgvMuon.Name = "dtgvMuon";
@@ -196,7 +196,7 @@
             this.dtgvMuon.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 7.8F);
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -204,7 +204,7 @@
             this.dtgvMuon.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvMuon.RowTemplate.Height = 24;
             this.dtgvMuon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvMuon.Size = new System.Drawing.Size(827, 185);
+            this.dtgvMuon.Size = new System.Drawing.Size(966, 228);
             this.dtgvMuon.TabIndex = 32;
             // 
             // colMa
@@ -224,20 +224,20 @@
             this.panel1.Controls.Add(this.btnMuon);
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 365);
+            this.panel1.Location = new System.Drawing.Point(3, 450);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(827, 53);
+            this.panel1.Size = new System.Drawing.Size(966, 66);
             this.panel1.TabIndex = 34;
             // 
             // btnMuon
             // 
             this.btnMuon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMuon.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnMuon.Location = new System.Drawing.Point(675, 18);
+            this.btnMuon.Location = new System.Drawing.Point(788, 23);
             this.btnMuon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMuon.Name = "btnMuon";
-            this.btnMuon.Size = new System.Drawing.Size(144, 28);
+            this.btnMuon.Size = new System.Drawing.Size(168, 34);
             this.btnMuon.TabIndex = 34;
             this.btnMuon.Text = "Lập phiếu mượn";
             this.btnMuon.Click += new System.EventHandler(this.btnMuon_Click);
@@ -248,10 +248,10 @@
             this.btnXoa.BackColor = System.Drawing.Color.Transparent;
             this.btnXoa.Image = global::QuanLyThuVien.Properties.Resources.Trash_Can_48px;
             this.btnXoa.ImageActive = null;
-            this.btnXoa.Location = new System.Drawing.Point(9, 18);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(9, 24, 3, 2);
+            this.btnXoa.Location = new System.Drawing.Point(10, 23);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(10, 30, 3, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(34, 32);
+            this.btnXoa.Size = new System.Drawing.Size(40, 39);
             this.btnXoa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnXoa.TabIndex = 33;
             this.btnXoa.TabStop = false;
@@ -267,7 +267,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(827, 77);
+            this.panel2.Size = new System.Drawing.Size(966, 96);
             this.panel2.TabIndex = 35;
             // 
             // btnThem
@@ -276,10 +276,10 @@
             this.btnThem.BackColor = System.Drawing.Color.Transparent;
             this.btnThem.Image = global::QuanLyThuVien.Properties.Resources.icons8_Plus_Math_32;
             this.btnThem.ImageActive = null;
-            this.btnThem.Location = new System.Drawing.Point(14, 42);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(9, 24, 3, 2);
+            this.btnThem.Location = new System.Drawing.Point(16, 53);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(10, 30, 3, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(34, 32);
+            this.btnThem.Size = new System.Drawing.Size(40, 39);
             this.btnThem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnThem.TabIndex = 34;
             this.btnThem.TabStop = false;
@@ -289,18 +289,18 @@
             // cboMaSV
             // 
             this.cboMaSV.FormattingEnabled = true;
-            this.cboMaSV.Location = new System.Drawing.Point(87, 7);
+            this.cboMaSV.Location = new System.Drawing.Point(101, 9);
             this.cboMaSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboMaSV.Name = "cboMaSV";
-            this.cboMaSV.Size = new System.Drawing.Size(151, 21);
+            this.cboMaSV.Size = new System.Drawing.Size(175, 24);
             this.cboMaSV.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 13);
+            this.label1.Location = new System.Drawing.Point(9, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên sinh viên";
             // 
@@ -333,12 +333,12 @@
             this.TENTHELOAI.Name = "TENTHELOAI";
             this.TENTHELOAI.ReadOnly = true;
             // 
-            // VITRI
+            // MAVT
             // 
-            this.VITRI.DataPropertyName = "MAVITRI";
-            this.VITRI.HeaderText = "Vị Trí";
-            this.VITRI.Name = "VITRI";
-            this.VITRI.ReadOnly = true;
+            this.MAVT.DataPropertyName = "MAVT";
+            this.MAVT.HeaderText = "Vị Trí";
+            this.MAVT.Name = "MAVT";
+            this.MAVT.ReadOnly = true;
             // 
             // TENTACGIA
             // 
@@ -452,9 +452,9 @@
             // 
             // fMuonTaiLieu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 609);
+            this.ClientSize = new System.Drawing.Size(972, 750);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -491,7 +491,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MASACH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENSACH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENTHELOAI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VITRI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENTACGIA;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNXB;
         private System.Windows.Forms.DataGridViewTextBoxColumn NAMXB;

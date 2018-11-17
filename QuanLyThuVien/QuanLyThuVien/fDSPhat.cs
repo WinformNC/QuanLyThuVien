@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using linQ;
+using linQ_View;
+
 namespace QuanLyThuVien
 {
     public partial class fDSPhat : DevExpress.XtraEditors.XtraForm
     {
         Conection conn = new Conection();
+        View_Linq view = new View_Linq();
+
         public fDSPhat()
         {
             InitializeComponent();
@@ -22,7 +26,8 @@ namespace QuanLyThuVien
         
         public void loadDgv()
         {
-            dtgvDSPhat.DataSource = conn.loadPhat();
+            dtgvDSPhat.DataSource = view.loadPhat();
+            dtgvDSPhat.Columns[dtgvDSPhat.Columns.Count - 1].Visible = false;
         }
 
         private void btnDongPhat_Click(object sender, EventArgs e)
@@ -43,7 +48,7 @@ namespace QuanLyThuVien
         {
             int index = e.RowIndex;
             if(dtgvDSPhat.RowCount != 0)
-                maphat = dtgvDSPhat["Column1", index].Value.ToString();
+                maphat = dtgvDSPhat["MAPHAT", index].Value.ToString();
 
         }
 

@@ -10,25 +10,31 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
 using linQ;
+using linQ_View;
 
 namespace QuanLyThuVien
 {
     public partial class fMuonTaiLieu : DevExpress.XtraEditors.XtraForm
     {
-    
-        Conection conn = new Conection();
-        createPrimaryKey pk = new createPrimaryKey();
+        Connection1 conn = new Connection1();
+        Conection con = new Conection();
+        View_Linq view = new View_Linq();
+
+        CreatePrimaryKey pk = new CreatePrimaryKey();
         string ma, ten, maNV;
+        int index;
         public fMuonTaiLieu()
         {
             InitializeComponent();
-            dtgvDS.DataSource = conn.loadSach();
+            //dtgvDS.DataSource = connloadSach();
             this.maNV = "NV001";
         }
         public fMuonTaiLieu(string maNV)
         {
             InitializeComponent();
-            dtgvDS.DataSource = conn.loadSach();
+            dtgvDS.DataSource = view.loadSach();
+            dtgvDS.Columns["KHOA"].Visible = false;
+            dtgvDS.Columns["THANGNHAP"].Visible = false;
             this.maNV = maNV;
         }
         private void fMuonTaiLieu_Load(object sender, EventArgs e)
@@ -36,18 +42,6 @@ namespace QuanLyThuVien
             LoadMaSinhVien();
             loadDataGrid_DS();
             btnMuon.Enabled = false;
-        }
-
-        private void setNameCol_DS()
-        {
-            dtgvDS.Columns[1].HeaderText = "Mã tài liệu";
-            dtgvDS.Columns[2].HeaderText = "Tựa";
-            dtgvDS.Columns[3].HeaderText = "Tác giả";
-            dtgvDS.Columns[4].HeaderText = "Nhà xuất bản";
-            dtgvDS.Columns[5].HeaderText = "Thể loại";
-            dtgvDS.Columns[6].HeaderText = "Năm xuất bản";
-            dtgvDS.Columns[7].HeaderText = "Mô tả";
-            dtgvDS.Columns[8].HeaderText = "Vị trí";
         }
 
         private void loadDataGrid_DS()
@@ -68,10 +62,10 @@ namespace QuanLyThuVien
 
         private void LoadMaSinhVien()
         {
-            cboMaSV.DataSource = conn.loadSinhVien();
+            cboMaSV.DataSource = con.loadSinhVien();
             
-            cboMaSV.ValueMember = "MASINHVIEN";
-            cboMaSV.DisplayMember = "TENSINHVIEN";
+            cboMaSV.ValueMember = "MADG";
+            cboMaSV.DisplayMember = "MADG";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -112,13 +106,18 @@ namespace QuanLyThuVien
         }
         private void btnMuon_Click(object sender, EventArgs e)
         {
+            if (dtgvDS["SOLUONG", index].Value.ToString() == "0")
+            {
+                MessageBox.Show("Sách bạn chọn hiện không có sẵn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             string ma = pk.createKeyMuonSach();
             int kt = conn.addPhieuMuon(ma, maNV, cboMaSV.SelectedValue.ToString(), dtgvMuon.RowCount,loadMa());
             if (kt == 1)
             {
                 MessageBox.Show("Thêm thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmPhieuMuon phieuMuon = new frmPhieuMuon(ma.ToString(), maNV);
-                phieuMuon.Show();
+                //frmPhieuMuon phieuMuon = new frmPhieuMuon(ma.ToString(), maNV);
+                //phieuMuon.Show();
             }
             else if (kt == 2)
                 MessageBox.Show("Sinh viên chưa đóng phạt ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -132,7 +131,7 @@ namespace QuanLyThuVien
         {
             if (dtgvDS.RowCount != 0)
             {
-                int index = e.RowIndex;
+                index = e.RowIndex;
                  ma = dtgvDS["MASACH", index].Value.ToString();
                  ten = dtgvDS["TENSACH", index].Value.ToString();
                  if (dtgvDS["SOLUONG", index].Value.ToString() == "0") 

@@ -13,6 +13,7 @@ namespace DAL
         NHANVIEN_CVTableAdapter adapter = new NHANVIEN_CVTableAdapter();
         NHANVIENTableAdapter adapterNV = new NHANVIENTableAdapter();
         TAIKHOANTableAdapter adapterTK = new TAIKHOANTableAdapter();
+        CHUCVUTableAdapter adapterCV = new CHUCVUTableAdapter();
 
         public NhanVienDAL() { }
 
@@ -30,7 +31,13 @@ namespace DAL
 
         public int Insert(string ma, string cv, string username, string ten, string ns, string cmnd, string dc, string dt, string email)
         {
-            adapterTK.InsertQuery(email, dt, "NV");
+            string tencv = adapterCV.FindTenCV_ScalarQuery(cv);
+            string loainv;
+            if (tencv == "Thủ kho")
+                loainv = "2";
+            else
+                loainv = "1";
+            adapterTK.InsertQuery(email, dt, loainv);
             return adapterNV.InsertQuery(ma, cv, username, ten, DateTime.Parse(ns), cmnd, dc, dt, email);
         }
 

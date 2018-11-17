@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
 using linQ;
+using linQ_View;
+
 enum CHUCNANG
 {
     THEM, XOA, SUA
@@ -21,33 +23,37 @@ namespace QuanLyThuVien
         CHUCNANG chucnang;
 
         Conection conn = new Conection();
-        createPrimaryKey pk = new createPrimaryKey();
+        Connection1 con = new Connection1();
+        View_Linq view = new View_Linq();
+        CreatePrimaryKey pk = new CreatePrimaryKey();
         string PathImg = "";
 
         public fDSTaiLieu()
         {
             InitializeComponent();
-           // dtgvSach.DataSource = sachBLL.LoadSach();
-            dtgvSach.DataSource = conn.loadSach();
+            dtgvSach.DataSource = view.loadSach();
+            dtgvSach.Columns["KHOA"].Visible = false;
+            dtgvSach.Columns["THANGNHAP"].Visible = false;
+            //.DataSource = conn.loadSach();
             setBtn(false);
         }
 
         private void loadCombobox()
         {
-            cboNXB.DataSource = conn.loadNXB();
+            cboNXB.DataSource = con.loadNXB();
             cboNXB.ValueMember = "MANXB";
             cboNXB.DisplayMember = "TENNXB";
 
-            cboTacGia.DataSource = conn.loadTacGia();
+            cboTacGia.DataSource = con.loadTacGia();
             cboTacGia.ValueMember = "MATACGIA";
             cboTacGia.DisplayMember = "TENTACGIA";
 
-            cboTheLoai.DataSource = conn.loadTheLoai();
+            cboTheLoai.DataSource = con.loadTheLoai();
             cboTheLoai.ValueMember = "MATHELOAI";
             cboTheLoai.DisplayMember = "TENTHELOAI";
 
-           cboViTri.DataSource = conn.loadViTri();
-            cboViTri.ValueMember = "MAVITRI";
+            cboViTri.DataSource = con.loadViTri();
+            cboViTri.ValueMember = "MAVT";
             cboViTri.DisplayMember = "TENVITRI";
         }
 
@@ -125,7 +131,7 @@ namespace QuanLyThuVien
             if (r == DialogResult.Yes)
             {
                 xoa();
-                dtgvSach.DataSource = conn.loadSach();
+                dtgvSach.DataSource = view.loadSach();
                 loadDataGrid();
                 btnSua.Enabled = btnXoa.Enabled = false;
             }
@@ -175,7 +181,9 @@ namespace QuanLyThuVien
              
 
             
-            dtgvSach.DataSource = conn.loadSach();
+            dtgvSach.DataSource = view.loadSach();
+            dtgvSach.Columns["KHOA"].Visible = false;
+            dtgvSach.Columns["THANGNHAP"].Visible = false;
             setBtn(false);
             setBoolField(false);
             loadDataGrid();
@@ -242,7 +250,7 @@ namespace QuanLyThuVien
             cboTacGia.SelectedValue = dtgvSach["MATACGIA", index].Value.ToString();
             cboTheLoai.SelectedValue = dtgvSach["MATHELOAI", index].Value.ToString();
             cboNXB.SelectedValue = dtgvSach["MANXB", index].Value.ToString();
-            cboViTri.SelectedValue = dtgvSach["MAVITRI", index].Value.ToString();
+            cboViTri.SelectedValue = dtgvSach["MAVT", index].Value.ToString();
             txtMoTa.Text = dtgvSach["MOTA", index].Value.ToString();
             txtNamXB.Text = dtgvSach["NAMXB", index].Value.ToString();
             txtSoLuong.Text = dtgvSach["SOLUONG", index].Value.ToString();
@@ -264,7 +272,9 @@ namespace QuanLyThuVien
         {
             if (e.KeyCode == Keys.Enter)
             {
-                dtgvSach.DataSource = conn.loadSach(textEdit1.Text);
+                dtgvSach.DataSource = view.loadSach(textEdit1.Text);
+                dtgvSach.Columns["KHOA"].Visible = false;
+                dtgvSach.Columns["THANGNHAP"].Visible = false;
                 loadDataGrid();
             }
         }

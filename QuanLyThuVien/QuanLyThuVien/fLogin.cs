@@ -10,53 +10,100 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Configuration;
 using System.Data.SqlClient;
+using linQ;
 
 namespace QuanLyThuVien
 {
     public partial class fLogin : DevExpress.XtraEditors.XtraForm
     {
-        string conn = Properties.Settings.Default.connectionString;
-        
-        string table = "TAIKHOAN";
+        Conection con = new Conection();
+
         public fLogin()
         {
             InitializeComponent();
-
-            bool res = testConnection();
-            if (!res)
-            {
-                DialogResult r = MessageBox.Show("Chuỗi kết nối không hợp lệ. Thiết lập chuỗi kết nối ?", "Thông báo", MessageBoxButtons.OK);
-                if (r == System.Windows.Forms.DialogResult.OK)
-                {
-                    fThietLapKetNoi f = new fThietLapKetNoi();
-                    f.ShowDialog();
-                    conn = Properties.Settings.Default.connectionString;
-                }
-                else
-                    this.Close();
-            }
         }
 
         private void fLogin_Load(object sender, EventArgs e)
         {
-            fMain f = new fMain();
-            loginFrom1.setValue(f, this, table, conn);
+            txtUsername.Text = Properties.Settings.Default.UserName;
+            txtPass.Text = Properties.Settings.Default.Password;
+            chkRemember.Checked = Properties.Settings.Default.RememberMe;
         }
 
-        private bool testConnection()
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(conn);
-            try
+            if (txtUsername.Text.Trim().Length == 0 || txtPass.Text.Trim().Length == 0)
             {
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-                con.Close();
-                return true;
+                MessageBox.Show("Vui long nhap du thong tin", "Thong bao", MessageBoxButtons.OK);
+                return;
             }
-            catch
+
+            int res = con.ktDangNhap(txtUsername.Text.Trim(), txtPass.Text.Trim());
+
+            if (res == 0)
             {
-                return false;
-            }      
+                MessageBox.Show("Khong phai tai khoan nhan vien", "Thong bao", MessageBoxButtons.OK);
+            }
+            else if (res == -1)
+            {
+                MessageBox.Show("Tai khoan khong ton tai", "Thong bao", MessageBoxButtons.OK);
+            }
+            else
+            {
+                fMain f = new fMain(txtUsername.Text.Trim(), res.ToString());
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+                if (chkRemember.Checked)
+                    return;
+                else
+                {
+                    txtPass.Clear();
+                    txtUsername.Focus();
+                    return;
+                }
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if (chkRemember.Checked)
+            {
+                Properties.Settings.Default.UserName = txtUsername.Text;
+                Properties.Settings.Default.Password = txtPass.Text;
+                Properties.Settings.Default.RememberMe = true;
+            }
+            else
+            {
+                Properties.Settings.Default.UserName = "";
+                Properties.Settings.Default.Password = "";
+                Properties.Settings.Default.RememberMe = false;
+            }
+            Properties.Settings.Default.Save();
+            this.Close();
+        }
+
+        private void fLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (chkRemember.Checked)
+            {
+                Properties.Settings.Default.UserName = txtUsername.Text;
+                Properties.Settings.Default.Password = txtPass.Text;
+                Properties.Settings.Default.RememberMe = true;
+            }
+            else
+            {
+                Properties.Settings.Default.UserName = "";
+                Properties.Settings.Default.Password = "";
+                Properties.Settings.Default.RememberMe = false;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnLogin.PerformClick();
         }
     }
 }

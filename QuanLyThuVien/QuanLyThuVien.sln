@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linQ", "linQ\linQ.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{92F5E326-7A28-4379-A048-9C656ADB7C02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linQ_View", "linQ_View\linQ_View.csproj", "{01D961C5-82FF-4ED3-9B02-77518D212EDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{92F5E326-7A28-4379-A048-9C656ADB7C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92F5E326-7A28-4379-A048-9C656ADB7C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92F5E326-7A28-4379-A048-9C656ADB7C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D961C5-82FF-4ED3-9B02-77518D212EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D961C5-82FF-4ED3-9B02-77518D212EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D961C5-82FF-4ED3-9B02-77518D212EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D961C5-82FF-4ED3-9B02-77518D212EDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -28,19 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dtgvDSPhat = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDongPhat = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SINHVIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDongPhat = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSPhat)).BeginInit();
             this.panel1.SuspendLayout();
@@ -66,27 +61,21 @@
             // 
             this.dtgvDSPhat.AllowUserToAddRows = false;
             this.dtgvDSPhat.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgvDSPhat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgvDSPhat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvDSPhat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvDSPhat.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtgvDSPhat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvDSPhat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvDSPhat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvDSPhat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvDSPhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvDSPhat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.SINHVIEN});
             this.dtgvDSPhat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvDSPhat.DoubleBuffered = true;
             this.dtgvDSPhat.EnableHeadersVisualStyles = false;
@@ -97,14 +86,14 @@
             this.dtgvDSPhat.Name = "dtgvDSPhat";
             this.dtgvDSPhat.ReadOnly = true;
             this.dtgvDSPhat.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvDSPhat.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvDSPhat.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvDSPhat.RowTemplate.Height = 24;
             this.dtgvDSPhat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvDSPhat.Size = new System.Drawing.Size(1033, 632);
@@ -121,18 +110,6 @@
             this.panel1.Size = new System.Drawing.Size(1033, 64);
             this.panel1.TabIndex = 35;
             // 
-            // btnDongPhat
-            // 
-            this.btnDongPhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDongPhat.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnDongPhat.Location = new System.Drawing.Point(9, 28);
-            this.btnDongPhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDongPhat.Name = "btnDongPhat";
-            this.btnDongPhat.Size = new System.Drawing.Size(168, 34);
-            this.btnDongPhat.TabIndex = 36;
-            this.btnDongPhat.Text = "Đóng phạt";
-            this.btnDongPhat.Click += new System.EventHandler(this.btnDongPhat_Click);
-            // 
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -145,41 +122,17 @@
             this.btnExport.Text = "Xuất danh sách";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // Column1
+            // btnDongPhat
             // 
-            this.Column1.DataPropertyName = "MAPHAT";
-            this.Column1.HeaderText = "Mã phiếu phạt";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MASINHVIEN";
-            this.Column2.HeaderText = "Mã sinh viên";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SOTIENPHAT";
-            this.Column3.HeaderText = "Số tiền phạt";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "LYDO";
-            this.Column4.HeaderText = "Lý do";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // SINHVIEN
-            // 
-            this.SINHVIEN.DataPropertyName = "SINHVIEN";
-            this.SINHVIEN.HeaderText = "Tình trạng";
-            this.SINHVIEN.Name = "SINHVIEN";
-            this.SINHVIEN.ReadOnly = true;
-            this.SINHVIEN.Visible = false;
+            this.btnDongPhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDongPhat.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.btnDongPhat.Location = new System.Drawing.Point(9, 28);
+            this.btnDongPhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDongPhat.Name = "btnDongPhat";
+            this.btnDongPhat.Size = new System.Drawing.Size(168, 34);
+            this.btnDongPhat.TabIndex = 36;
+            this.btnDongPhat.Text = "Đóng phạt";
+            this.btnDongPhat.Click += new System.EventHandler(this.btnDongPhat_Click);
             // 
             // fDSPhat
             // 
@@ -205,11 +158,6 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnDongPhat;
         private DevExpress.XtraEditors.SimpleButton btnExport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SINHVIEN;
 
 
 

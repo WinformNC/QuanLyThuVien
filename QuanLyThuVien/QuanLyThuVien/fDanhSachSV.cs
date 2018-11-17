@@ -15,7 +15,7 @@ namespace QuanLyThuVien
     public partial class fDanhSachSV : DevExpress.XtraEditors.XtraForm
     {
         SinhVienBLL sinhvien = new SinhVienBLL();
-
+        Connection1 con = new Connection1();
         public fDanhSachSV()
         {
             InitializeComponent();
@@ -23,21 +23,20 @@ namespace QuanLyThuVien
 
         private void LoadSinhVien()
         {
-            dtgvSinhVien.DataSource = sinhvien.LoadSinhVien();
+            dtgvSinhVien.DataSource = con.loadDocGia();
             setNameCol();
         }
 
         private void setNameCol()
         {
             dtgvSinhVien.Columns[0].HeaderText = "Mã sinh viên";
-            dtgvSinhVien.Columns[1].HeaderText = "Tên sinh viên";
-            dtgvSinhVien.Columns[2].HeaderText = "Khoa";
-            dtgvSinhVien.Columns[3].HeaderText = "Ngày sinh";
-            dtgvSinhVien.Columns[4].HeaderText = "CMND";
-            dtgvSinhVien.Columns[5].HeaderText = "Email";
-            dtgvSinhVien.Columns[6].HeaderText = "Địa chỉ";
-            dtgvSinhVien.Columns[7].HeaderText = "Điện thoại";
-            dtgvSinhVien.Columns[8].HeaderText = "Năm vào trường";
+            dtgvSinhVien.Columns[1].HeaderText = "Tài khoản";
+            dtgvSinhVien.Columns[2].HeaderText = "Tên sinh viên";
+            dtgvSinhVien.Columns[3].HeaderText = "Email";
+            dtgvSinhVien.Columns[4].HeaderText = "Địa chỉ";
+            dtgvSinhVien.Columns[5].HeaderText = "Điện thoại";
+            dtgvSinhVien.Columns[6].HeaderText = "Giới tính";
+            dtgvSinhVien.Columns[7].HeaderText = "Năm vào trường";
         }
 
         private void fDanhSachSV_Load(object sender, EventArgs e)

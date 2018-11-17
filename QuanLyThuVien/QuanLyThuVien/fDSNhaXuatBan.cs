@@ -16,6 +16,8 @@ namespace QuanLyThuVien
     {
         CHUCNANG chucnang;
         NXBBLL nxb = new NXBBLL();
+        Connection1 con = new Connection1();
+
         public fDSNhaXuatBan()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace QuanLyThuVien
 
         private void LoadNXB()
         {
-            dtgvNXB.DataSource = nxb.LoadNXB();
+            dtgvNXB.DataSource = con.loadNXB();
             dtgvNXB.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             setNameCol();
         }
@@ -79,7 +81,7 @@ namespace QuanLyThuVien
                 "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
-                nxb.Delete(txtMa.Text);
+                con.delNXB(txtMa.Text);
                 LoadNXB();
                 btnSua.Enabled = btnXoa.Enabled = false;
             }
@@ -109,7 +111,7 @@ namespace QuanLyThuVien
             if (txtTen.Text.Trim().Length != 0)
                 if (chucnang == CHUCNANG.THEM)
                 {
-                    int result = nxb.Insert(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
+                    int result = con.addNXB(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
@@ -121,7 +123,7 @@ namespace QuanLyThuVien
                 }
                 else if (chucnang == CHUCNANG.SUA)
                 {
-                    int result = nxb.Update(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
+                    int result = con.upNXB(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);

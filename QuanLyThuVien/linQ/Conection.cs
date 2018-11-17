@@ -8,47 +8,207 @@ namespace linQ
 {
     public class Conection
     {
+        QUANLYTHUVIENDataContext linqToMySQL = new QUANLYTHUVIENDataContext();
+
+        public List<TAIKHOAN> loadTK()
+        {
+            return linqToMySQL.TAIKHOANs.Select(t => t).ToList<TAIKHOAN>();
+        }
+
+        #region Chức vụ
+        public List<CHUCVU> loadChucVu()
+        {
+            return linqToMySQL.CHUCVUs.Select(t => t).ToList<CHUCVU>();
+        }
+
+        public int addChucVu(string macv, string tencv)
+        {
+            try
+            {
+                CHUCVU s = new CHUCVU();
+                s.MACHUCVU = macv;
+                s.TENCHUCVU = tencv;
+                linqToMySQL.CHUCVUs.InsertOnSubmit(s);
+                linqToMySQL.SubmitChanges();
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int upChucVu(string macv, string tencv)
+        {
+            try
+            {
+                CHUCVU s = linqToMySQL.CHUCVUs.Where(t => t.MACHUCVU == macv).Select(t => t).FirstOrDefault();
+                s.TENCHUCVU = tencv;
+                linqToMySQL.SubmitChanges();
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int delChucVu(string macv)
+        {
+            try
+            {
+                CHUCVU s = linqToMySQL.CHUCVUs.Where(t => t.MACHUCVU == macv).Select(t => t).FirstOrDefault();
+                linqToMySQL.CHUCVUs.DeleteOnSubmit(s);
+                linqToMySQL.SubmitChanges();
+                return 1;
+            }
+            catch { return 0; }
+        }
+        #endregion
+
+        #region Nhân viên
+        public List<NHANVIEN> loadNV()
+        {
+            return linqToMySQL.NHANVIENs.Select(t => t).ToList<NHANVIEN>();
+        }
+
+        private bool checkMaNV(string ma)
+        {
+            NHANVIEN nv = linqToMySQL.NHANVIENs.Where(t => t.MANV == ma).Select(t => t).FirstOrDefault();
+            if (nv != null)
+                return true;
+            return false;
+        }
+
+        private bool checkEmail(string email)
+        {
+            NHANVIEN nv = linqToMySQL.NHANVIENs.Where(t => t.EMAIL == email).Select(t => t).FirstOrDefault();
+            if (nv != null)
+                return true;
+            return false;
+        }
+
+        public int addNV(string ma, string ten, string cv, DateTime ns, string cmnd, string dc, string dt, string email)
+        {
+            try
+            {
+                bool checkNV = checkMaNV(ma);
+                if (checkNV)
+                    return 2;
+                bool checkMail = checkEmail(email);
+                if (checkMail)
+                    return 3;
+
+                NHANVIEN nv = new NHANVIEN();
+                nv.MANV = ma;
+                nv.TENNV = ten;
+                nv.MACHUCVU = cv;
+                nv.NGAYSINH = ns;
+                nv.SOCMND = cmnd;
+                nv.DIACHITHUONGTRU = dc;
+                nv.SODT = dt;
+                nv.EMAIL = email;
+                nv.TAIKHOAN = email;
+                addTK(email, dt);
+                linqToMySQL.NHANVIENs.InsertOnSubmit(nv);
+                linqToMySQL.SubmitChanges();
+                return 1;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        public int addTK(string email, string sdt)
+        {
+            try
+            {
+                TAIKHOAN tk = new TAIKHOAN();
+                tk.TAIKHOAN1 = email;
+                tk.MATKHAU = sdt;
+                tk.MALOAITK = "LTK01";
+                linqToMySQL.TAIKHOANs.InsertOnSubmit(tk);
+                linqToMySQL.SubmitChanges();
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        private bool checkEmailUpdate(string ma, string email)
+        {
+            NHANVIEN nv = linqToMySQL.NHANVIENs.Where(t => t.MANV != ma && t.EMAIL == email).Select(t => t).FirstOrDefault();
+            if (nv != null)
+                return true;
+            return false;
+        }
+
+        public int upNV(string ma, string ten, string cv, DateTime ns, string cmnd, string dc, string dt, string email)
+        {
+            try
+            {
+                bool checkMail = checkEmailUpdate(ma, email);
+                if (checkMail)
+                {
+                    return 0;
+                }
+                NHANVIEN nv = linqToMySQL.NHANVIENs.Where(t => t.MANV == ma).Select(t => t).FirstOrDefault();
+                string mail = nv.EMAIL;
+
+                nv.TENNV = ten;
+                nv.MACHUCVU = cv;
+                nv.NGAYSINH = ns;
+                nv.SOCMND = cmnd;
+                nv.DIACHITHUONGTRU = dc;
+                nv.SODT = dt;
+                nv.EMAIL = email;
+                linqToMySQL.SubmitChanges();
+                return 1;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        public int upTK(string email, string email2)
+        {
+            try
+            {
+                TAIKHOAN tk = linqToMySQL.TAIKHOANs.Where(t => t.TAIKHOAN1 == email).Select(t => t).FirstOrDefault();
+                tk.TAIKHOAN1 = email2;
+                linqToMySQL.SubmitChanges();
+                return 1;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        #endregion
+
+
         string datra =  "Đã trả ",chuatra =  "Chưa trả";
-        DataTVDataContext linq = new DataTVDataContext();
         createPrimaryKey pk = new createPrimaryKey();
         public Conection()
         { }
-        public List<TACGIA> loadTacGia()
-        {
-            return linq.TACGIAs.Select(t => t).ToList<TACGIA>();
-        }
-        public List<VITRI> loadViTri()
-        {
-            return linq.VITRIs.Select(t => t).ToList<VITRI>();
-        }
-        public List<THELOAI> loadTheLoai()
-        {
-            return linq.THELOAIs.Select(t => t).ToList<THELOAI>();
-        }
-        public List<sachView> loadSach()
-        {
-            return linq.sachViews.Select(t => t).ToList<sachView>();
-        }
-        public List<sachView> loadSach(string masach)
-        {
-            return linq.sachViews.Where(t=>t.MASACH == masach).Select(t => t).ToList<sachView>();
-        }
-        public List<NHAXB> loadNXB()
-        {
-            return linq.NHAXBs.Select(t => t).ToList<NHAXB>();
-        }
 
+        #region Sách
         public int saveSach()
         {
             try
             {
-                linq.SubmitChanges();
+                linqToMySQL.SubmitChanges();
                 return 1;
             }
             catch {
                 return 0;
             }
         } 
+
         public int addSach(string masach,string manxb,string matheloai,string matacgia,string mavitri,string tensach,string namxb,string hinhanhsach,string mota,string soluong,string gia)
         {
             try
@@ -58,14 +218,14 @@ namespace linQ
                 s.MANXB = manxb;
                 s.MATHELOAI = matheloai;
                 s.MATACGIA = matacgia;
-                s.MAVITRI = mavitri;
+                s.MAVT = mavitri;
                 s.TENSACH = tensach;
                 s.NAMXB = int.Parse(namxb);
                 s.HINHANHSACH = hinhanhsach;
                 s.MOTA = mota;
                 s.SOLUONG = int.Parse(soluong);
-                s.Gia = float.Parse(gia);
-                linq.SACHes.InsertOnSubmit(s);
+                s.GIA = float.Parse(gia);
+                linqToMySQL.SACHES.InsertOnSubmit(s);
                 
                 return 1;
             }
@@ -73,34 +233,36 @@ namespace linQ
                 return 0;
             }
         }
+        
         public int delSach(string masach)
         {
             try
             {
-                SACH s = linq.SACHes.Where(t => t.MASACH == masach).Select(t => t).FirstOrDefault();
-                linq.SACHes.DeleteOnSubmit(s);
-                linq.SubmitChanges();
+                SACH s = linqToMySQL.SACHES.Where(t => t.MASACH == masach).Select(t => t).FirstOrDefault();
+                linqToMySQL.SACHES.DeleteOnSubmit(s);
+                linqToMySQL.SubmitChanges();
                 return 1;
             }
             catch { return 0; }
         }
+        
         public int upSach(string masach, string manxb, string matheloai, string matacgia, string mavitri, string tensach, string namxb, string hinhanhsach, string mota, string soluong,string gia)
         {
             try
             {
 
-                SACH s = linq.SACHes.Where(t => t.MASACH == masach).Select(t => t).FirstOrDefault();
+                SACH s = linqToMySQL.SACHES.Where(t => t.MASACH == masach).Select(t => t).FirstOrDefault();
                 s.MANXB = manxb;
                 s.MATHELOAI = matheloai;
                 s.MATACGIA = matacgia;
-                s.MAVITRI = mavitri;
+                s.MAVT = mavitri;
                 s.TENSACH = tensach;
                 s.NAMXB = int.Parse(namxb);
                 s.HINHANHSACH = hinhanhsach;
                 s.MOTA = mota;
                 s.SOLUONG = int.Parse(soluong);
-                s.Gia = float.Parse(gia);
-                linq.SubmitChanges();
+                s.GIA = float.Parse(gia);
+                linqToMySQL.SubmitChanges();
                 return 1;
             }
             catch
@@ -108,173 +270,131 @@ namespace linQ
                 return 0;
             }
         }
+        #endregion
 
-        public List<PHIEUMUONTRA> loadMuonSach()
+        public List<DOCGIA> loadSinhVien()
         {
-            return linq.PHIEUMUONTRAs.Select(t => t).ToList<PHIEUMUONTRA>();
-        }
-
-
-        public List<SINHVIEN> loadSinhVien()
-        {
-            return linq.SINHVIENs.Select(t => t).ToList<SINHVIEN>();
+            return linqToMySQL.DOCGIAs.Select(t => t).ToList<DOCGIA>();
         }
 
-        public int addPhieuMuon(string maphieumuon,string manv,string masinhvien,int sosach,List<string> masach)
-        {
-            try
-            {
-                if (ktSVPhat(masinhvien))
-                {
-                    if (ktSVMuon(masinhvien))
-                    {
-                        PHIEUMUONTRA ptm = new PHIEUMUONTRA();
-                        ptm.MAPHIEUMUON = maphieumuon;
-                        ptm.MANV = manv;
-                        ptm.MASINHVIEN = masinhvien;
-                        DateTime ngaymuon = DateTime.Today;
-                        ptm.NGAYMUON = ngaymuon;
-                        ptm.NGAYDUKIENTRA = ngaymuon.AddDays(10);
-                        ptm.PHICOC = 150000;
-                        ptm.PHIMUON = 20000;
 
-                        linq.PHIEUMUONTRAs.InsertOnSubmit(ptm);
-                        foreach (string sach in masach)
-                            addCTPhieuMuonTra(maphieumuon, sach);
-                        linq.SubmitChanges();
-                        return 1;
-                    }
-                    else
-                        return 3;
-                }
-                else 
-                    return 2;
-                
-            }
-            catch {
-                return 0;
-            }
-        }
-        private void updateMuonSLSach(string masach)
-        {
-            SACH s = linq.SACHes.Where(t => t.MASACH == masach).Select(t => t).FirstOrDefault();
-            s.SOLUONG -= 1;
-            linq.SubmitChanges();
-        }
-        private void updateTraSLSach(string masach)
-        {
-            SACH s = linq.SACHes.Where(t => t.MASACH == masach).Select(t => t).FirstOrDefault();
-            s.SOLUONG += 1;
-            linq.SubmitChanges();
-        }
-        //Phieu muon tra
-        public void addCTPhieuMuonTra(string maphieumuon, string masach)
-        {
-            CHITIETMUONTRA ct = new CHITIETMUONTRA();
-            ct.MAPHIEUMUON = maphieumuon;
-            ct.MASACH = masach;
-            updateMuonSLSach(masach);
-            ct.TINHTRANG = chuatra;
-            linq.CHITIETMUONTRAs.InsertOnSubmit(ct);
-            
-        }
-
-        public int addCTPhieuTra(string maphieumuon,string masach,string masinhvien,DateTime ngaytra,float sotienphat,string lydo,string tinhtrang)
-        {
-            if (tinhtrang !=  datra)
-            {
-                try
-                {
-                    CHITIETMUONTRA ct = new CHITIETMUONTRA();
-                    ct = linq.CHITIETMUONTRAs.Where(t => t.MAPHIEUMUON == maphieumuon && t.MASACH == masach).FirstOrDefault();
-                    ct.NGAYTRA = ngaytra;
-                    ct.TINHTRANG = datra;
-                    updateTraSLSach(masach);
-                    linq.SubmitChanges();
-                    if (sotienphat > 1)
-                        addPhat(masinhvien, sotienphat, lydo);
-                    return 1;
-                }
-                catch
-                {
-                    return 0;
-                }
-            }
-            else
-                return 2;
-        }
-        public void addPhat(string masinhvien,float sotienphat , string lydo )
+        public void addPhat(string masinhvien, string manv, string loai, int ngayquahan, string masach)
         {
             PHAT ph = new PHAT();
-            ph.MAPHAT = pk.createKeyPhat();
-            ph.MASINHVIEN = masinhvien;
-            ph.SOTIENPHAT = sotienphat;
-            ph.LYDO = lydo;
-            ph.TINHTRANG = chuatra;
-            linq.PHATs.InsertOnSubmit(ph);
-            linq.SubmitChanges();
+            string key = pk.createKeyPhat();
+            ph.MAPHAT = key;
+            ph.MADG = masinhvien;
+            ph.MANV = manv;
+            linqToMySQL.PHATs.InsertOnSubmit(ph);
+            linqToMySQL.SubmitChanges();
+            addCTPhat(key, loai, masach, ngayquahan);
         }
-        public void upTinhTrangMuon(string maphieumuon, string masach)
+
+        public void addCTPhat(string maphat, string loai, string masach, int ngayquahan)
         {
-            CHITIETMUONTRA ct = linq.CHITIETMUONTRAs.Where(t => t.MAPHIEUMUON == maphieumuon && t.MASACH == masach).FirstOrDefault();
-            ct.TINHTRANG = datra;
-            linq.SubmitChanges();
+            CHITIETPHAT ct = new CHITIETPHAT();
+            ct.MAPHAT = maphat;
+            ct.MALOAIVIPHAM = loai;
+            ct.GHICHU = "0";
+            DIEUKHOANVIPHAM dk = linqToMySQL.DIEUKHOANVIPHAMs.Where(t => t.MADIEUKHOAN == loai).Select(t => t).FirstOrDefault();
+            if (dk.MADIEUKHOAN == "DK001")
+            {
+                ct.TIENPHAT = dk.SOTIENPHAT * ngayquahan;
+            }
+            else
+            {
+                SACH s = linqToMySQL.SACHES.Where(t => t.MASACH == masach).Select(t => t).FirstOrDefault();
+                ct.TIENPHAT = dk.SOTIENPHAT / 100 * s.GIA;
+            }
+            linqToMySQL.CHITIETPHATs.InsertOnSubmit(ct);
+            linqToMySQL.SubmitChanges();
         }
+
         public int delPhat(string maphat)
         {
             try
             {
-                PHAT ph = linq.PHATs.Where(t => t.MAPHAT == maphat).FirstOrDefault();
-                ph.TINHTRANG = datra;
-                linq.SubmitChanges();
+                CHITIETPHAT ph = linqToMySQL.CHITIETPHATs.Where(t => t.MAPHAT == maphat).FirstOrDefault();
+                ph.GHICHU = "1";
+                linqToMySQL.SubmitChanges();
                 return 1;
             }
             catch { return 0; }
         }
 
-
-        public List<PHAT> loadPhat()
+        public List<CHITIETPHAT> loadPhat()
         {
-            return linq.PHATs.Select(t => t).Where(t => t.TINHTRANG  == chuatra).ToList<PHAT>();
-        }
-        public List<ViewCT> loadViewCT()
-        {
-            return linq.ViewCTs.Select(t => t).Where(t => t.TINHTRANG == chuatra).ToList<ViewCT>();
-        }
-        public List<ViewCT> loadViewCT(string maSV)
-        {
-            return linq.ViewCTs.Where(t => t.MASINHVIEN == maSV).Select(t => t).ToList<ViewCT>();
+            return linqToMySQL.CHITIETPHATs.Where(t => t.GHICHU == "0").Select(t => t).ToList<CHITIETPHAT>();
         }
 
-        //XuLy
-        public double tienphat(DateTime ngaydukien,DateTime ngaytra)
+        ////XuLy
+        //public double tienphat(DateTime ngaydukien,DateTime ngaytra)
+        //{
+        //    double day = (ngaytra - ngaydukien).TotalDays;
+        //    day = (double) Math.Round((decimal)day);
+        //    if (day < 1)
+        //        return 0;
+        //    else
+        //    {
+        //        return day * 1000;
+        //    }
+        //}
+
+        public bool ktSVPhat(string masv)
         {
-            double day = (ngaytra - ngaydukien).TotalDays;
-            day = (double) Math.Round((decimal)day);
-            if (day < 1)
-                return 0;
-            else
+            List<PHAT> phat = linqToMySQL.PHATs.Where(t => t.MADG == masv).Select(t => t).ToList<PHAT>();
+            foreach(PHAT item in phat)
             {
-                return day * 1000;
-            }
-        }
-
-        private bool ktSVMuon(string masv)
-        {
-            List<ViewCT> ct = linq.ViewCTs.Where(t => t.MASINHVIEN == masv).Select(t => t).ToList<ViewCT>();
-            foreach (ViewCT ctt in ct)
-                if (ctt.TINHTRANG == chuatra)
+                CHITIETPHAT ct = linqToMySQL.CHITIETPHATs.Where(t => t.MAPHAT == item.MAPHAT).Select(t => t).FirstOrDefault();
+                if (ct != null && ct.GHICHU == "0")
+                {
                     return false;
-            return true;
-        }
-        private bool ktSVPhat(string masv)
-        {
-            PHAT phat = linq.PHATs.Where(t => t.MASINHVIEN == masv).Select(t => t).FirstOrDefault();
-            if (phat!= null && phat.TINHTRANG == chuatra)
-            {
-                return false;
+                }
             }
             return true;
+        }
+
+        public string findNV(string username)
+        {
+            return linqToMySQL.NHANVIENs.Where(t => t.TAIKHOAN == username).Select(t => t.MANV).FirstOrDefault();
+        }
+
+        public int ktDangNhap(string username, string pass)
+        {
+            TAIKHOAN obj = linqToMySQL.TAIKHOANs.Where(t => t.TAIKHOAN1.Trim() == username && t.MATKHAU.Trim() == pass).Select(t => t).FirstOrDefault();
+            if (obj != null)
+            {
+                LOAITAIKHOAN loai = linqToMySQL.LOAITAIKHOANs.Where(t => t.MALOAITK == obj.MALOAITK).Select(t => t).FirstOrDefault();
+                if (loai.TENLOAI.Trim() == "2")
+                {
+                    return 0;
+                }
+                NHANVIEN nv = linqToMySQL.NHANVIENs.Where(t => t.TAIKHOAN == obj.TAIKHOAN1).Select(t => t).FirstOrDefault();
+                CHUCVU cv = linqToMySQL.CHUCVUs.Where(t => t.MACHUCVU == nv.MACHUCVU).Select(t => t).FirstOrDefault();
+                if (cv.TENCHUCVU.Trim() == "quản lý")
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+
+            }
+            return -1;  
+        }
+
+        public List<DATONLINE> loadDatOnline_DocGia(string maDG)
+        {
+            return linqToMySQL.DATONLINEs.Where(t => t.MADG == maDG).Select(t => t).ToList<DATONLINE>();
+        }
+
+        public int delDatOnline(string maDG, string maSach)
+        {
+            DATONLINE item = linqToMySQL.DATONLINEs.Where(t => t.MADG == maDG && t.MASACH == maSach).Select(t => t).FirstOrDefault();
+            linqToMySQL.DATONLINEs.DeleteOnSubmit(item);
+            linqToMySQL.SubmitChanges();
+            return 1;
         }
     }
 }

@@ -10,12 +10,16 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
 using linQ;
+using linQ_View;
+
 namespace QuanLyThuVien
 {
     public partial class fDSMuon : DevExpress.XtraEditors.XtraForm
     {
       
         Conection conn = new Conection();
+        View_Linq view = new View_Linq();
+
         public fDSMuon()
         {
             InitializeComponent();
@@ -28,7 +32,8 @@ namespace QuanLyThuVien
 
         private void LoadDSMuon()
         {
-            dtgvMuon.DataSource = conn.loadViewCT();
+            dtgvMuon.DataSource = view.loadViewCT();
+            dtgvMuon.Columns["Gia"].Visible = false;
             setNameCol();
         }
 

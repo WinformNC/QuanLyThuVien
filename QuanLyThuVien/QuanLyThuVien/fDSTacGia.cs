@@ -15,6 +15,7 @@ namespace QuanLyThuVien
     public partial class fDSTacGia : DevExpress.XtraEditors.XtraForm
     {
         TacGiaBLL tacgia = new TacGiaBLL();
+        Connection1 con = new Connection1();
         CHUCNANG chucnang;
 
         public fDSTacGia()
@@ -25,7 +26,7 @@ namespace QuanLyThuVien
 
         private void LoadTacGia()
         {
-            dtgvTacGia.DataSource = tacgia.LoadTacGia();
+            dtgvTacGia.DataSource = con.loadTacGia();
             dtgvTacGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             setNameCol();
         }
@@ -70,7 +71,7 @@ namespace QuanLyThuVien
                 "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
-                tacgia.Delete(txtMa.Text);
+                con.delTacGia(txtMa.Text);
                 LoadTacGia();
                 btnSua.Enabled = btnXoa.Enabled = false;
             }
@@ -100,7 +101,7 @@ namespace QuanLyThuVien
             if (txtTen.Text.Trim().Length != 0)
                 if (chucnang == CHUCNANG.THEM)
                 {
-                    int result = tacgia.Insert(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
+                    int result = con.addTacGia(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
@@ -112,7 +113,7 @@ namespace QuanLyThuVien
                 }
                 else if (chucnang == CHUCNANG.SUA)
                 {
-                    int result = tacgia.Update(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
+                    int result = con.upTacGia(txtMa.Text, txtTen.Text, txtDT.Text, txtDiaChi.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);

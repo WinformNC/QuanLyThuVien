@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database Name="quanlythuvien" EntityNamespace="linQ" ContextNamespace="linQ" Class="QUANLYTHUVIENDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="caeea08c-d634-4b37-92a5-0cdaa7e94df5" Provider="Devart.Data.MySql.Linq.Provider.MySqlDataProvider, Devart.Data.MySql.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
+  <Connection Mode="ConnectionString" ConnectionString="User Id=root;Host=localhost;Database=quanlythuvien;Persist Security Info=True;Character Set=UTF8" Provider="Devart.Data.MySql" />
+  <Table Name="quanlythuvien.dieukhoanvipham" Member="DIEUKHOANVIPHAMs">
+    <Type Name="DIEUKHOANVIPHAM" ed:Guid="b6a56559-680e-4f4a-946a-34257368aab9">
+      <Column Name="MADIEUKHOAN" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="2418e104-7c47-4884-b96d-7111bc288314" />
+      <Column Name="TENDIEUKHOAN" Type="System.String" DbType="VARCHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="False" ed:Guid="1a2822e7-227e-4b68-aa8c-42f2efe6c33d" />
+      <Column Name="SOTIENPHAT" Type="System.Single" DbType="FLOAT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="a3792ae1-4f63-4e25-a6a4-23990ef37be0" />
+      <Column Name="HUONGXULY" Type="System.String" DbType="VARCHAR(500) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="500" Unicode="true" ed:ValidateMaxLength="500" ed:ValidateRequired="False" ed:Guid="78e34cb9-4d5c-4641-a7d7-9f980aabfcd3" />
+      <Association Name="DIEUKHOANVIPHAM_CHITIETPHAT" ed:AssociationGuid="a64c43ee-1d28-4700-afb5-263b19e9d6d2" Member="CHITIETPHATs" ed:Guid="73eb133b-d84a-4770-84ca-7f9df1467c14" ThisKey="MADIEUKHOAN" OtherKey="MALOAIVIPHAM" Type="CHITIETPHAT" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.phat" Member="PHATs">
+    <Type Name="PHAT" ed:Guid="98062444-1f6c-4238-bfa8-efa5f1721c22">
+      <Column Name="MAPHAT" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="e9fe7445-997a-4490-926c-bcf9c869fba7" />
+      <Column Name="MANV" Type="System.String" DbType="CHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="False" ed:Guid="c8389f1d-34f7-45ee-ad81-1e1344619616" />
+      <Column Name="MADG" Type="System.String" DbType="CHAR(5) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="False" ed:Guid="f5c899d8-65c5-4efc-af48-ab4c67cc1f2c" />
+      <Association Name="DOCGIA_PHAT" ed:AssociationGuid="c9b7161c-6184-4f6d-bc0f-2218083d9354" Member="DOCGIA" ed:Guid="0858614e-bb7b-43af-910d-974dadd97585" ThisKey="MADG" OtherKey="MADG" Type="DOCGIA" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="NHANVIEN_PHAT" ed:AssociationGuid="157f6dce-854e-44e2-a2c6-79baf02360a9" Member="NHANVIEN" ed:Guid="3b67cd97-19e6-4a20-a2a8-0498e3b91aec" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="PHAT_CHITIETPHAT" ed:AssociationGuid="79e1f47c-bb93-4b5f-bb6e-019f1be89cbb" Member="CHITIETPHATs" ed:Guid="16ebf3f1-47bd-43ba-9068-7e35713d7100" ThisKey="MAPHAT" OtherKey="MAPHAT" Type="CHITIETPHAT" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.chucvu" Member="CHUCVUs">
+    <Type Name="CHUCVU" ed:Guid="27d9619f-3251-4c00-adfa-32db860a3e47">
+      <Column Name="MACHUCVU" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="78900f4c-c198-4446-b37e-f401f11af94e" />
+      <Column Name="TENCHUCVU" Type="System.String" DbType="VARCHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="False" ed:Guid="3b458462-66aa-46f4-9ef6-2d0ca991e2b5" />
+      <Association Name="CHUCVU_NHANVIEN" ed:AssociationGuid="2ab2b5ba-8a8c-4829-b42e-e3d9dc4f3a23" Member="NHANVIENs" ed:Guid="6fa005b2-bf6e-4413-99f3-15f3c592f52b" ThisKey="MACHUCVU" OtherKey="MACHUCVU" Type="NHANVIEN" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.taikhoan" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN" ed:Guid="636af64d-412e-4351-8a09-d700066dc2dd">
+      <Column Name="TAIKHOAN" Member="TAIKHOAN1" Type="System.String" DbType="VARCHAR(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" MaxLength="30" Unicode="true" ed:ValidateMaxLength="30" ed:ValidateRequired="True" ed:Guid="8a168e52-6c99-4f23-9437-3f427c7d09cc" />
+      <Column Name="MALOAITK" Type="System.String" DbType="CHAR(5) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="False" ed:Guid="5d6b8695-b81e-4755-85ab-32ceaf004f2b" />
+      <Column Name="MATKHAU" Type="System.String" DbType="VARCHAR(30) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="30" Unicode="true" ed:ValidateMaxLength="30" ed:ValidateRequired="False" ed:Guid="fee562f2-a60d-4a2a-9707-9f16a5ee6296" />
+      <Association Name="LOAITAIKHOAN_TAIKHOAN" ed:AssociationGuid="4d47ed5a-4804-45ac-af28-00deb0f38c87" Member="LOAITAIKHOAN" ed:Guid="6525fdda-3256-4b79-9d2b-ea270f8af51b" ThisKey="MALOAITK" OtherKey="MALOAITK" Type="LOAITAIKHOAN" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="TAIKHOAN_DOCGIA" ed:AssociationGuid="5b528598-4d37-4f13-a826-df3e0d0ced5d" Member="DOCGIAs" ed:Guid="8ec17f3a-28f4-4fa8-b0d3-ba1b10954cde" ThisKey="TAIKHOAN1" OtherKey="TAIKHOAN" Type="DOCGIA" />
+      <Association Name="TAIKHOAN_NHANVIEN" ed:AssociationGuid="59eb1e12-84d0-4a77-a7e3-93560182b61c" Member="NHANVIENs" ed:Guid="58f1fffb-f255-4a51-bd2b-24296cd0d11e" ThisKey="TAIKHOAN1" OtherKey="TAIKHOAN" Type="NHANVIEN" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.loaitaikhoan" Member="LOAITAIKHOANs">
+    <Type Name="LOAITAIKHOAN" ed:Guid="0039abd4-9a9f-4bbd-8c9e-f393b1bbbb63">
+      <Column Name="MALOAITK" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="22fb7448-fbb3-43b4-a767-71ff0d8f9e97" />
+      <Column Name="TENLOAI" Type="System.String" DbType="VARCHAR(30) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="30" Unicode="true" ed:ValidateMaxLength="30" ed:ValidateRequired="False" ed:Guid="6b06a9ba-e41c-403c-9602-e921fa26f34f" />
+      <Association Name="LOAITAIKHOAN_TAIKHOAN" ed:AssociationGuid="4d47ed5a-4804-45ac-af28-00deb0f38c87" Member="TAIKHOANs" ed:Guid="6a5269cd-76d0-4b3b-a3c8-081f73003b98" ThisKey="MALOAITK" OtherKey="MALOAITK" Type="TAIKHOAN" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.docgia" Member="DOCGIAs">
+    <Type Name="DOCGIA" ed:Guid="663c70d6-45b8-4bd7-aa28-e41bf114d509">
+      <Column Name="MADG" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="282d800f-6512-4522-889f-929e03b84b29" />
+      <Column Name="MALOAIDG" Type="System.String" DbType="CHAR(5) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="False" ed:Guid="ca75401b-537a-4ad1-8f53-68a8a49436f6" />
+      <Column Name="TENDG" Type="System.String" DbType="VARCHAR(30) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="30" Unicode="true" ed:ValidateMaxLength="30" ed:ValidateRequired="False" ed:Guid="894db5ed-af68-4f5c-bcaa-fc97ee267d71" />
+      <Column Name="EMAILDG" Type="System.String" DbType="VARCHAR(20) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="20" Unicode="true" ed:ValidateMaxLength="20" ed:ValidateRequired="False" ed:Guid="6582af6d-f46f-4e65-8bd5-6114ee3d3767" />
+      <Column Name="DIACHIDG" Type="System.String" DbType="VARCHAR(100) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="False" ed:Guid="ba31de1d-f941-4378-b0bc-fa8a195ab814" />
+      <Column Name="SDTDG" Type="System.String" DbType="VARCHAR(11) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="11" Unicode="true" ed:ValidateMaxLength="11" ed:ValidateRequired="False" ed:Guid="03d24947-a149-47cb-b9d8-2e9922b255e5" />
+      <Column Name="GIOITINHDG" Type="System.String" DbType="VARCHAR(5) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="False" ed:Guid="d97d0992-533c-4925-a21f-cdac04cc445e" />
+      <Column Name="TAIKHOAN" Type="System.String" DbType="VARCHAR(30) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="30" Unicode="true" ed:ValidateMaxLength="30" ed:ValidateRequired="False" ed:Guid="3696e827-e0e2-446d-9746-2e217dede345" />
+      <Association Name="DOCGIA_PHAT" ed:AssociationGuid="c9b7161c-6184-4f6d-bc0f-2218083d9354" Member="PHATs" ed:Guid="5fb280fd-0cbb-43d6-aa6e-787ae892825e" ThisKey="MADG" OtherKey="MADG" Type="PHAT" />
+      <Association Name="TAIKHOAN_DOCGIA" ed:AssociationGuid="5b528598-4d37-4f13-a826-df3e0d0ced5d" Member="TAIKHOAN1" ed:Guid="17e176a0-a882-4467-8a3d-270d5cdb18ff" ThisKey="TAIKHOAN" OtherKey="TAIKHOAN1" Type="TAIKHOAN" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="DOCGIA_DATONLINE" ed:AssociationGuid="7f9a44ab-289d-4049-8507-40a4df0749e9" Member="DATONLINEs" ed:Guid="74ab8977-66d9-4544-9501-419d450f9272" ThisKey="MADG" OtherKey="MADG" Type="DATONLINE" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.datonline" Member="DATONLINEs">
+    <Type Name="DATONLINE" ed:Guid="606cf490-e1ef-4b4e-a2fe-48e9c531703e">
+      <Column Name="MASACH" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="597f4db4-48a7-4766-9bc3-ccc21b6fb2be" />
+      <Column Name="MADG" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="455268a3-6445-448e-93f0-57c826b23f4d" />
+      <Column Name="NGAYLAY" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="6f6b02e6-732b-491e-b631-6b619a7d21ce" />
+      <Column Name="NGAYDAT" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="538bc82c-5df9-4bea-9474-6ae83998e09a" />
+      <Association Name="DOCGIA_DATONLINE" ed:AssociationGuid="7f9a44ab-289d-4049-8507-40a4df0749e9" Member="DOCGIA" ed:Guid="2ebb8f28-87a0-49b1-99c6-0567aef8f869" ThisKey="MADG" OtherKey="MADG" Type="DOCGIA" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="SACH_DATONLINE" ed:AssociationGuid="bb1778a8-ac76-4ad2-a245-d36a9fee4c0d" Member="SACH" ed:Guid="54e69adc-91e4-423b-9d42-bdae11c7a623" ThisKey="MASACH" OtherKey="MASACH" Type="SACH" DeleteRule="RESTRICT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.sach" Member="SACHES">
+    <Type Name="SACH" ed:Guid="4d44a289-1d4c-4cfc-ba39-89ce43cf620b">
+      <Column Name="MASACH" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="e0b7fc00-37f4-4ea8-b02c-c813eab00667" />
+      <Column Name="MATHELOAI" Type="System.String" DbType="CHAR(5) NOT NULL" CanBeNull="false" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="c33a8340-344a-45b0-b3ce-03b342687023" />
+      <Column Name="MATACGIA" Type="System.String" DbType="CHAR(5) NOT NULL" CanBeNull="false" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="f90b46c6-21ff-4da2-9738-2a7bfc398fa2" />
+      <Column Name="MANXB" Type="System.String" DbType="CHAR(5) NOT NULL" CanBeNull="false" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="57725e6c-76dc-45c3-9d00-fc82a8f5ec75" />
+      <Column Name="MAVT" Type="System.String" DbType="CHAR(5) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="False" ed:Guid="3a814457-1234-4c3e-a0a9-d1a0a6b03d3c" />
+      <Column Name="TENSACH" Type="System.String" DbType="VARCHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="False" ed:Guid="fcde2098-87ae-4faf-bdd7-47e6e31f5a3a" />
+      <Column Name="NAMXB" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="8cc9c18f-cf6f-43f8-854a-cda1edd6ad66" />
+      <Column Name="HINHANHSACH" Type="System.String" DbType="VARCHAR(100) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="False" ed:Guid="3f113bbb-6b1e-4a1d-9be3-ca3607283d27" />
+      <Column Name="MOTA" Type="System.String" DbType="VARCHAR(1500) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="1500" Unicode="true" ed:ValidateMaxLength="1500" ed:ValidateRequired="False" ed:Guid="408ba3f9-1c10-435e-9b69-da0cc2d11d38" />
+      <Column Name="KHOA" Type="System.String" DbType="VARCHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="False" ed:Guid="630db6c6-7483-45ee-9288-19ce3e09a132" />
+      <Column Name="THANGNHAP" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="3ecaf796-63f7-41c1-9e09-7a9c2f73fc92" />
+      <Column Name="GIA" Type="System.Single" DbType="FLOAT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="bae79562-bec5-4500-8b8d-80d34c211725" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="False" ed:Guid="563f3ceb-ebbb-49ed-97bf-df044fa2d7d9" />
+      <Association Name="SACH_DATONLINE" ed:AssociationGuid="bb1778a8-ac76-4ad2-a245-d36a9fee4c0d" Member="DATONLINEs" ed:Guid="3b4ee967-23b9-4665-980a-525e55dd0840" ThisKey="MASACH" OtherKey="MASACH" Type="DATONLINE" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.nhanvien" Member="NHANVIENs">
+    <Type Name="NHANVIEN" ed:Guid="574c6d08-0c96-4b0d-9a37-2d73e8f30747">
+      <Column Name="MANV" Type="System.String" DbType="CHAR(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="True" ed:Guid="a31a85ea-e202-41e6-9b50-8ab78fd4ece5" />
+      <Column Name="TENNV" Type="System.String" DbType="VARCHAR(150) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="150" Unicode="true" ed:ValidateMaxLength="150" ed:ValidateRequired="False" ed:Guid="721218db-7a1c-4009-b9d6-e1f45146e3b4" />
+      <Column Name="MACHUCVU" Type="System.String" DbType="CHAR(5) NOT NULL" CanBeNull="false" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="756e8f56-9251-44ed-b0da-2d1763d48c85" />
+      <Column Name="TAIKHOAN" Type="System.String" DbType="VARCHAR(30) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="30" Unicode="true" ed:ValidateMaxLength="30" ed:ValidateRequired="False" ed:Guid="20296b36-3abb-44d9-9d89-8f8f614bb56a" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="d4c3068b-2b03-4bb5-b9af-26cca1866662" />
+      <Column Name="SOCMND" Type="System.String" DbType="VARCHAR(10) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="10" Unicode="true" ed:ValidateMaxLength="10" ed:ValidateRequired="False" ed:Guid="aba830e1-3c21-408f-972f-9e5ed9f01ec0" />
+      <Column Name="DIACHITHUONGTRU" Type="System.String" DbType="VARCHAR(250) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="250" Unicode="true" ed:ValidateMaxLength="250" ed:ValidateRequired="False" ed:Guid="24eed7c4-7a8b-4a8b-965e-f2b09974ad9d" />
+      <Column Name="SODT" Type="System.String" DbType="VARCHAR(10) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="10" Unicode="true" ed:ValidateMaxLength="10" ed:ValidateRequired="False" ed:Guid="eea98e2f-d929-4d4a-b244-dac267a46298" />
+      <Column Name="EMAIL" Type="System.String" DbType="VARCHAR(150) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="150" Unicode="true" ed:ValidateMaxLength="150" ed:ValidateRequired="False" ed:Guid="619edc03-6f2f-4e9e-9663-a26fc0862b5f" />
+      <Association Name="NHANVIEN_PHAT" ed:AssociationGuid="157f6dce-854e-44e2-a2c6-79baf02360a9" Member="PHATs" ed:Guid="fc040060-ccba-42be-b03f-f5fb6022ddb1" ThisKey="MANV" OtherKey="MANV" Type="PHAT" />
+      <Association Name="CHUCVU_NHANVIEN" ed:AssociationGuid="2ab2b5ba-8a8c-4829-b42e-e3d9dc4f3a23" Member="CHUCVU" ed:Guid="94b16c26-4663-443e-9ea7-9af965c9bbd5" ThisKey="MACHUCVU" OtherKey="MACHUCVU" Type="CHUCVU" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="TAIKHOAN_NHANVIEN" ed:AssociationGuid="59eb1e12-84d0-4a77-a7e3-93560182b61c" Member="TAIKHOAN1" ed:Guid="72899bc9-ad0b-46de-9dc8-6f6c193bca4f" ThisKey="TAIKHOAN" OtherKey="TAIKHOAN1" Type="TAIKHOAN" DeleteRule="RESTRICT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.chitietphat" Member="CHITIETPHATs">
+    <Type Name="CHITIETPHAT" ed:Guid="a6e26d46-bf93-442c-bf37-bc3b7718c77d">
+      <Column Name="MAPHAT" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="634726e4-c879-4fb1-999e-5d5d95ccd326" />
+      <Column Name="MALOAIVIPHAM" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="df645847-4329-4ba4-87bc-c6de026a01b7" />
+      <Column Name="TIENPHAT" Type="System.Single" DbType="FLOAT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="ecc80f64-0f7d-4a48-9e2d-17fa4176bc78" />
+      <Column Name="GHICHU" Type="System.String" DbType="VARCHAR(500) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="500" Unicode="true" ed:ValidateMaxLength="500" ed:ValidateRequired="False" ed:Guid="10315c6a-9eb3-4ef3-a397-25c89c4eb09f" />
+      <Association Name="DIEUKHOANVIPHAM_CHITIETPHAT" ed:AssociationGuid="a64c43ee-1d28-4700-afb5-263b19e9d6d2" Member="DIEUKHOANVIPHAM" ed:Guid="f152fcd3-87f7-4c28-969f-a081497ad96f" ThisKey="MALOAIVIPHAM" OtherKey="MADIEUKHOAN" Type="DIEUKHOANVIPHAM" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="PHAT_CHITIETPHAT" ed:AssociationGuid="79e1f47c-bb93-4b5f-bb6e-019f1be89cbb" Member="PHAT" ed:Guid="eabe06f3-47bc-4637-b55e-c16bcbbb2ac4" ThisKey="MAPHAT" OtherKey="MAPHAT" Type="PHAT" DeleteRule="RESTRICT" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

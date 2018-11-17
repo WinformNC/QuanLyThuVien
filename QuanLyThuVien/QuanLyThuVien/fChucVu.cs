@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
+using linQ;
 
 namespace QuanLyThuVien
 {
@@ -16,6 +17,10 @@ namespace QuanLyThuVien
     {
         CHUCNANG chucnang;
         ChucVuBLL chucvu = new ChucVuBLL();
+
+        Conection con = new Conection();
+        Connection1 con1 = new Connection1();
+
         public fChucVu()
         {
             InitializeComponent();
@@ -34,7 +39,7 @@ namespace QuanLyThuVien
 
         private void LoadChucVu()
         {
-            dtgvCV.DataSource = chucvu.LoadChucVu();
+            dtgvCV.DataSource = con.loadChucVu();
             dtgvCV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             setNameCol();
         }
@@ -60,11 +65,11 @@ namespace QuanLyThuVien
             {
                 return;
             }
-            DialogResult r = MessageBox.Show("Bạn có muốn xóa vị trí: " + dtgvCV.CurrentRow.Cells[1].Value.ToString(),
+            DialogResult r = MessageBox.Show("Bạn có muốn xóa chức vụ: " + dtgvCV.CurrentRow.Cells[1].Value.ToString(),
                 "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (r == DialogResult.Yes)
             {
-                chucvu.Delete(txtMa.Text);
+                con.delChucVu(txtMa.Text);
                 LoadChucVu();
                 btnSua.Enabled = btnXoa.Enabled = false;
             }
@@ -94,7 +99,7 @@ namespace QuanLyThuVien
             if (txtTen.Text.Trim().Length != 0)
                 if (chucnang == CHUCNANG.THEM)
                 {
-                    int result = chucvu.Insert(txtMa.Text, txtTen.Text);
+                    int result = con.addChucVu(txtMa.Text, txtTen.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
@@ -106,7 +111,7 @@ namespace QuanLyThuVien
                 }
                 else if (chucnang == CHUCNANG.SUA)
                 {
-                    int result = chucvu.Update(txtMa.Text, txtTen.Text);
+                    int result = con.upChucVu(txtMa.Text, txtTen.Text);
                     if (result == 1)
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);

@@ -10,17 +10,18 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
 using linQ;
+using linQ_View;
+
 namespace QuanLyThuVien
 {
     public partial class fTraTaiLieu : DevExpress.XtraEditors.XtraForm
     {
-        //DSMuonBLL dsMuon = new DSMuonBLL();
-        Conection conn = new Conection();
-        SinhVienBLL sinhvien = new SinhVienBLL();
-        NhanVienBLL nhanvien = new NhanVienBLL();
-        string phieumuon, masach, masinhvien, lydo, tinhtrang;
-        DateTime ngaydukien;
-        float sotienphat, gia;
+        Conection con = new Conection();
+
+        Connection1 conn = new Connection1();
+
+        View_Linq view = new View_Linq();
+
         string maNV;
         public fTraTaiLieu(string maNV)
         {
@@ -30,81 +31,38 @@ namespace QuanLyThuVien
 
         private void fTraTaiLieu_Load(object sender, EventArgs e)
         {
-            loadDSMuon();
+            loadDocGia();
         }
 
-        private void loadDSMuon()
+        private void loadDocGia()
         {
-            dtgvMuon.DataSource = conn.loadViewCT();
-            setNameCol();
-        }
+            dtgv_DocGia.DataSource = conn.loadDocGia();
+            dtgv_DocGia.Columns[1].Visible = false;
+            for (int i = 3; i < dtgv_DocGia.Columns.Count; i++)
+            {
+                dtgv_DocGia.Columns[i].Visible = false;
+            }
+        }     
 
-        private void setNameCol()
-        {
-            dtgvMuon.Columns[0].HeaderText = "Mã phiếu mượn";
-            dtgvMuon.Columns[1].HeaderText = "Mã sách";
-            dtgvMuon.Columns[2].HeaderText = "Mã nhân viên";
-            dtgvMuon.Columns[3].HeaderText = "Mã sinh viên";
-            dtgvMuon.Columns[4].HeaderText = "Ngày mượn";
-            dtgvMuon.Columns[5].HeaderText = "Ngày dự kiến trả";
-            dtgvMuon.Columns[6].HeaderText = "Phí mượn";
-            dtgvMuon.Columns[7].HeaderText = "Phí cọc";
-            dtgvMuon.Columns[8].HeaderText = "Tình trạng";
-            dtgvMuon.Columns[9].HeaderText = "Giá";
-           
-        }
-        private void dtgvMuon_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgv_DocGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            ngaydukien = DateTime.Parse(dtgvMuon["NGAYDUKIENTRA", index].Value.ToString());
-            masach = dtgvMuon["MASACH", index].Value.ToString();
-            phieumuon = dtgvMuon["MAPHIEUMUON", index].Value.ToString();
-            masinhvien = dtgvMuon["MASINHVIEN", index].Value.ToString();
-            tinhtrang = dtgvMuon["TINHTRANG", index].Value.ToString();
-            gia = float.Parse(dtgvMuon["Gia", index].Value.ToString());
-        }
-        
-      
-
-        private void btnTra_Click(object sender, EventArgs e)
-        {
-            if (phieumuon != null)
+            List<CTPHIEUMUONTRA> lst = conn.loadCTMuon_DocGia(dtgv_DocGia["MADG", index].Value.ToString());
+            pnlDSTaiLieu.Controls.Clear();
+            for (int i = 0; i < lst.Count; i++)
             {
-                sotienphat = (float)conn.tienphat(ngaydukien, DateTime.Now);
-                if (sotienphat > 1)
-                {
-                    string tenNV = nhanvien.FindTenNV(maNV);
-                    string tenSV = sinhvien.FindTenSV(masinhvien);
-                    lydo = "Không trả đúng hạn Sách " + masach;
-                    frmPhieuPhat phieuphat = new frmPhieuPhat(tenNV, masinhvien, tenSV, ((TimeSpan)(DateTime.Now - ngaydukien)).TotalDays, sotienphat);
-                    phieuphat.Show();
-                }
-                int kt = conn.addCTPhieuTra(phieumuon, masach, masinhvien, DateTime.Now, sotienphat, lydo, tinhtrang);
-                if (kt == 1)
-                {
-                    MessageBox.Show("Trả thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dtgvMuon.DataSource = conn.loadViewCT();
-                }
-                else if (kt == 2)
-                    MessageBox.Show("Sách đã được trả rồi ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                    MessageBox.Show("Trả không thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string maPM = lst[i].MAPHIEUMUON.ToString();
+                string nv = lst[i].PHIEUMUONTRA.NHANVIEN.TENNV.ToString();
+                string maSach = lst[i].MASACH.ToString();
+                string tenSach = lst[i].SACH.TENSACH.ToString();
+                string hinhanh = lst[i].SACH.HINHANHSACH.ToString();
+                DateTime ngayMuon = lst[i].PHIEUMUONTRA.NGAYMUON.Value;
+                DateTime ngayTra = lst[i].NGAYDUKIENTRA.Value;
+                SachMuon_Item item = new SachMuon_Item(maPM, nv, maSach, tenSach, hinhanh, ngayMuon, ngayTra);
+                pnlDSTaiLieu.Controls.Add(item);
+                item.Dock = DockStyle.Top;
+                item.Show();
             }
-            else
-                MessageBox.Show("Chưa chọn phiếu trả ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void btnBaoMat_Click(object sender, EventArgs e)
-        {
-            string tenNV = nhanvien.FindTenNV(maNV);
-            string tenSV = sinhvien.FindTenSV(masinhvien);
-            lydo = "Mất sách " + masach;
-            sotienphat = gia;
-            frmPhieuPhat phieuphat = new frmPhieuPhat(tenNV, masinhvien, tenSV, ((TimeSpan)(DateTime.Now - ngaydukien)).TotalDays, sotienphat);
-            phieuphat.Show();
-            conn.addPhat(masinhvien, sotienphat, lydo);
-            conn.upTinhTrangMuon(phieumuon, masach);
-            dtgvMuon.DataSource = conn.loadViewCT();
         }
     }
 

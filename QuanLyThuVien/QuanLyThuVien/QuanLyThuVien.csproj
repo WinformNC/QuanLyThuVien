@@ -44,6 +44,10 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data, Version=5.0.907.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.Linq, Version=4.4.453.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.MySql, Version=8.3.115.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.MySql.Linq, Version=4.4.453.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.BonusSkins.v17.1" />
     <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.1" />
@@ -59,6 +63,9 @@
     <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="linQ_View">
+      <HintPath>..\linQ_View\bin\Debug\linQ_View.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -81,6 +88,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection1.cs" />
+    <Compile Include="CreatePrimaryKey.cs" />
+    <Compile Include="DataContext1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataContext1.lqml</DependentUpon>
+    </Compile>
     <Compile Include="ExcelExport.cs" />
     <Compile Include="fChucVu.cs">
       <SubType>Form</SubType>
@@ -93,6 +107,12 @@
     </Compile>
     <Compile Include="fDanhSachSV.Designer.cs">
       <DependentUpon>fDanhSachSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fDSDatOnline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDSDatOnline.Designer.cs">
+      <DependentUpon>fDSDatOnline.cs</DependentUpon>
     </Compile>
     <Compile Include="fDSMuon.cs">
       <SubType>Form</SubType>
@@ -204,11 +224,26 @@
       <DependentUpon>rptPhieuPhat.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SachDatOnline_Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SachDatOnline_Item.Designer.cs">
+      <DependentUpon>SachDatOnline_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SachMuon_Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SachMuon_Item.Designer.cs">
+      <DependentUpon>SachMuon_Item.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fChucVu.resx">
       <DependentUpon>fChucVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fDanhSachSV.resx">
       <DependentUpon>fDanhSachSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fDSDatOnline.resx">
+      <DependentUpon>fDSDatOnline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fDSMuon.resx">
       <DependentUpon>fDSMuon.cs</DependentUpon>
@@ -277,8 +312,27 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPhieuPhat.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="SachDatOnline_Item.resx">
+      <DependentUpon>SachDatOnline_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SachMuon_Item.resx">
+      <DependentUpon>SachMuon_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SachMuon_Item.vi-VN.resx">
+      <DependentUpon>SachMuon_Item.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="DataContext1.Diagram1.view">
+      <DependentUpon>DataContext1.lqml</DependentUpon>
+    </None>
+    <None Include="DataContext1.edps">
+      <DependentUpon>DataContext1.lqml</DependentUpon>
+    </None>
+    <None Include="DataContext1.lqml">
+      <Generator>DevartLinqToSqlGenerator</Generator>
+      <LastGenOutput>DataContext1.Designer.cs</LastGenOutput>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -459,6 +513,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

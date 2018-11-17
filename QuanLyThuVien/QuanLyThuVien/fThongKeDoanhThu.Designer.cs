@@ -79,7 +79,7 @@
             // 
             // viewDoanhThusBindingSource
             // 
-            this.viewDoanhThusBindingSource.DataSource = typeof(linQ.viewDoanhThu);
+            //this.viewDoanhThusBindingSource.DataSource = typeof(linQ.viewDoanhThu);
             // 
             // button1
             // 
