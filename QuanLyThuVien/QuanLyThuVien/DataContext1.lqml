@@ -52,6 +52,7 @@
       <Column Name="DC_NXB" Member="DCNXB" Type="System.String" DbType="VARCHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="False" ed:Guid="4f9d47c9-40e7-4bd1-ae82-9acd7c88f7b7" />
       <Column Name="DT_NXB" Member="DTNXB" Type="System.String" DbType="VARCHAR(10) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="10" Unicode="true" ed:ValidateMaxLength="10" ed:ValidateRequired="False" ed:Guid="fc3dfd90-eac7-4ab3-ad12-b6ac4743609e" />
       <Association Name="NHAXB_SACH" ed:AssociationGuid="e605a15f-9e59-4384-b6b7-2fb39acda350" Member="SACHES" ed:Guid="58977660-b927-4817-9c35-59f038f66f05" ThisKey="MANXB" OtherKey="MANXB" Type="SACH" />
+      <Association Name="NHAXB_DONDATHANG" ed:AssociationGuid="4fdd2c75-6f61-41a7-a85a-77cef4479d6e" Member="DONDATHANGs" ed:Guid="35e521f4-0322-4b2a-ae20-d4929b34282f" ThisKey="MANXB" OtherKey="MANXB" Type="DONDATHANG" />
     </Type>
   </Table>
   <Table Name="quanlythuvien.vitri" Member="VITRIs">
@@ -80,6 +81,7 @@
       <Column Name="SODT" Type="System.String" DbType="VARCHAR(10) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="10" Unicode="true" ed:ValidateMaxLength="10" ed:ValidateRequired="False" ed:Guid="14f699f2-d1c1-49ae-a61b-38b65694b3f9" />
       <Column Name="EMAIL" Type="System.String" DbType="VARCHAR(150) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="150" Unicode="true" ed:ValidateMaxLength="150" ed:ValidateRequired="False" ed:Guid="81c3565e-3955-41ea-b366-948b13b347b5" />
       <Association Name="NHANVIEN_PHIEUMUONTRA" ed:AssociationGuid="ef6b35e5-c4ca-4459-bbb9-510881037165" Member="PHIEUMUONTRAs" ed:Guid="310e0f14-862b-46e0-9a9b-8a7c7b57b71a" ThisKey="MANV" OtherKey="MANV" Type="PHIEUMUONTRA" />
+      <Association Name="NHANVIEN_DONDATHANG" ed:AssociationGuid="d03720d2-b32d-4a72-8440-82ddfa16e57b" Member="DONDATHANGs" ed:Guid="8adf1d52-9191-4c71-b438-97d7a19bb313" ThisKey="MANV" OtherKey="MANV" Type="DONDATHANG" />
     </Type>
   </Table>
   <Table Name="quanlythuvien.ct_phieumuontra" Member="CTPHIEUMUONTRAs">
@@ -104,6 +106,16 @@
       <Association Name="DOCGIA_PHIEUMUONTRA" ed:AssociationGuid="86eb1fd8-fd89-41f2-ae82-fe971c836026" Member="DOCGIA" ed:Guid="a196fa0e-cd90-4611-8e52-049207417b33" ThisKey="MADG" OtherKey="MADG" Type="DOCGIA" DeleteRule="RESTRICT" IsForeignKey="true" />
       <Association Name="NHANVIEN_PHIEUMUONTRA" ed:AssociationGuid="ef6b35e5-c4ca-4459-bbb9-510881037165" Member="NHANVIEN" ed:Guid="20fb82d7-006c-42bf-8794-bf2593f54f4e" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" DeleteRule="RESTRICT" IsForeignKey="true" />
       <Association Name="PHIEUMUONTRA_CTPHIEUMUONTRA" ed:AssociationGuid="0eaf8c61-12f1-4225-a98b-a0eca685ee04" Member="CTPHIEUMUONTRAs" ed:Guid="837c69ce-f33b-45c0-b57b-2257a3332343" ThisKey="MAPHIEUMUON" OtherKey="MAPHIEUMUON" Type="CTPHIEUMUONTRA" />
+    </Type>
+  </Table>
+  <Table Name="quanlythuvien.dondathang" Member="DONDATHANGs">
+    <Type Name="DONDATHANG" ed:Guid="29b871fd-9e7f-42af-9e62-82b17f82ca60">
+      <Column Name="MADDH" Type="System.String" DbType="CHAR(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="True" ed:Guid="8d008617-7036-4939-a7ef-0092ffddb9e6" />
+      <Column Name="MANV" Type="System.String" DbType="CHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="False" ed:Guid="e8b3fc90-c2bd-4310-8b8b-bc5af90c88c7" />
+      <Column Name="MANXB" Type="System.String" DbType="CHAR(5) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="5" Unicode="true" ed:ValidateMaxLength="5" ed:ValidateRequired="False" ed:Guid="3634498e-0bc9-41e4-bbd2-df097324fb67" />
+      <Column Name="NGAYNHAP" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="False" ed:Guid="6f64f78a-57af-4c6d-b528-c7a793ffb69a" />
+      <Association Name="NHANVIEN_DONDATHANG" ed:AssociationGuid="d03720d2-b32d-4a72-8440-82ddfa16e57b" Member="NHANVIEN" ed:Guid="6536b418-9c1c-4bc7-8b5c-d3a494809311" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" DeleteRule="RESTRICT" IsForeignKey="true" />
+      <Association Name="NHAXB_DONDATHANG" ed:AssociationGuid="4fdd2c75-6f61-41a7-a85a-77cef4479d6e" Member="NHAXB" ed:Guid="94d13e99-8752-4549-bb59-b81b399c4cd1" ThisKey="MANXB" OtherKey="MANXB" Type="NHAXB" DeleteRule="RESTRICT" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -21,6 +21,17 @@ namespace QuanLyThuVien
                 return "PM001";
         }
 
+        public string createKeyDatHang()
+        {
+            DONDATHANG ddh = new DONDATHANG();
+            foreach (DONDATHANG dh in linq.DONDATHANGs)
+                ddh = dh;
+            if (ddh.MADDH != null)
+                return createAuto(ddh.MADDH);
+            else
+                return "DDH01";
+        }
+
         public string createKeySach()
         {
             SACH s = new SACH();

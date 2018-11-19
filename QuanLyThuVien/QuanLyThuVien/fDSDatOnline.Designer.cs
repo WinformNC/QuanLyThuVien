@@ -32,10 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.dtgv_DocGia = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.MADG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENDG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlDSTaiLieu = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DocGia)).BeginInit();
@@ -57,19 +57,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1084, 749);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.label1.Size = new System.Drawing.Size(319, 74);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Danh sách độc giả";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // dtgv_DocGia
             // 
@@ -131,6 +118,19 @@
             this.TENDG.Name = "TENDG";
             this.TENDG.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.label1.Size = new System.Drawing.Size(319, 74);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Danh sách độc giả";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // pnlDSTaiLieu
             // 
             this.pnlDSTaiLieu.AutoScroll = true;
@@ -148,7 +148,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fDSDatOnline";
-            this.Text = "fDSDatOnline";
+            this.Text = "Danh sách đặt online";
             this.Load += new System.EventHandler(this.fDSDatOnline_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

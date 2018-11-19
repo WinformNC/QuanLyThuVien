@@ -108,6 +108,12 @@
     <Compile Include="fDanhSachSV.Designer.cs">
       <DependentUpon>fDanhSachSV.cs</DependentUpon>
     </Compile>
+    <Compile Include="fDatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDatHang.Designer.cs">
+      <DependentUpon>fDatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="fDSDatOnline.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,12 @@
     <Compile Include="fMuonTaiLieu.Designer.cs">
       <DependentUpon>fMuonTaiLieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="fNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fNhapHang.Designer.cs">
+      <DependentUpon>fNhapHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +236,12 @@
       <DependentUpon>rptPhieuPhat.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SachDatNXB_Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SachDatNXB_Item.Designer.cs">
+      <DependentUpon>SachDatNXB_Item.cs</DependentUpon>
+    </Compile>
     <Compile Include="SachDatOnline_Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,11 +254,20 @@
     <Compile Include="SachMuon_Item.Designer.cs">
       <DependentUpon>SachMuon_Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="SachNhapNXB_Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SachNhapNXB_Item.Designer.cs">
+      <DependentUpon>SachNhapNXB_Item.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fChucVu.resx">
       <DependentUpon>fChucVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fDanhSachSV.resx">
       <DependentUpon>fDanhSachSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fDatHang.resx">
+      <DependentUpon>fDatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fDSDatOnline.resx">
       <DependentUpon>fDSDatOnline.cs</DependentUpon>
@@ -271,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fMuonTaiLieu.resx">
       <DependentUpon>fMuonTaiLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fNhapHang.resx">
+      <DependentUpon>fNhapHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhieuMuon.resx">
       <DependentUpon>frmPhieuMuon.cs</DependentUpon>
@@ -312,6 +342,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPhieuPhat.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="SachDatNXB_Item.resx">
+      <DependentUpon>SachDatNXB_Item.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SachDatOnline_Item.resx">
       <DependentUpon>SachDatOnline_Item.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SachMuon_Item.vi-VN.resx">
       <DependentUpon>SachMuon_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SachNhapNXB_Item.resx">
+      <DependentUpon>SachNhapNXB_Item.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
@@ -516,6 +552,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Settings_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Shopping_Cart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Purchase_Order_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

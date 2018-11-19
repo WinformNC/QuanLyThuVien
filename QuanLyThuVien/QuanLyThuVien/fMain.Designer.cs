@@ -54,6 +54,9 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDatOnline = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDatHang = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhapHang = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -61,13 +64,13 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnDatOnline = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -100,10 +103,12 @@
             this.barButtonItem3,
             this.barButtonItem4,
             this.btnSetting,
-            this.btnDatOnline});
+            this.btnDatOnline,
+            this.btnDatHang,
+            this.btnNhapHang});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 25;
+            this.ribbonControl1.MaxItemId = 27;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.ribbonPageCategory1});
@@ -292,6 +297,29 @@
             this.btnSetting.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             this.btnSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSetting_ItemClick);
             // 
+            // btnDatOnline
+            // 
+            this.btnDatOnline.Caption = "Danh sách đặt online";
+            this.btnDatOnline.Id = 24;
+            this.btnDatOnline.Name = "btnDatOnline";
+            this.btnDatOnline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDatOnline_ItemClick);
+            // 
+            // btnDatHang
+            // 
+            this.btnDatHang.Caption = "Đặt hàng";
+            this.btnDatHang.Id = 25;
+            this.btnDatHang.ImageOptions.LargeImage = global::QuanLyThuVien.Properties.Resources.icons8_Shopping_Cart_32;
+            this.btnDatHang.Name = "btnDatHang";
+            this.btnDatHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDatHang_ItemClick);
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Caption = "Nhập hàng";
+            this.btnNhapHang.Id = 26;
+            this.btnNhapHang.ImageOptions.LargeImage = global::QuanLyThuVien.Properties.Resources.icons8_Purchase_Order_32;
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapHang_ItemClick);
+            // 
             // ribbonPageCategory1
             // 
             this.ribbonPageCategory1.Name = "ribbonPageCategory1";
@@ -315,7 +343,8 @@
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup6});
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup5});
             this.ribbonPage1.Image = global::QuanLyThuVien.Properties.Resources.icons8_Books_32;
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Quản lý thư viện";
@@ -341,6 +370,13 @@
             this.ribbonPageGroup6.ItemLinks.Add(this.btnTheLoai);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnViTri);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnDatHang);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapHang);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Đặt hàng nhà xuất bản";
             // 
             // ribbonPage3
             // 
@@ -377,13 +413,6 @@
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // btnDatOnline
-            // 
-            this.btnDatOnline.Caption = "Danh sách đặt online";
-            this.btnDatOnline.Id = 24;
-            this.btnDatOnline.Name = "btnDatOnline";
-            this.btnDatOnline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDatOnline_ItemClick);
             // 
             // fMain
             // 
@@ -447,5 +476,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnSetting;
         private DevExpress.XtraBars.BarButtonItem btnDatOnline;
+        private DevExpress.XtraBars.BarButtonItem btnDatHang;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem btnNhapHang;
     }
 }

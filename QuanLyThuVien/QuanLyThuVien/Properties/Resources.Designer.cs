@@ -323,6 +323,16 @@ namespace QuanLyThuVien.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_Purchase_Order_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Purchase_Order_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_Reading_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_Reading_32", resourceCulture);
@@ -416,6 +426,16 @@ namespace QuanLyThuVien.Properties {
         internal static System.Drawing.Bitmap icons8_Search_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_Search_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_Shopping_Cart_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Shopping_Cart_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

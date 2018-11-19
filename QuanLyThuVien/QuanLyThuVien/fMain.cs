@@ -30,6 +30,8 @@ namespace QuanLyThuVien
         fDSPhat fDSP;
         fThongKeDoanhThu fTKDT;
         fDSDatOnline fDSDONL;
+        fDatHang fDH;
+        fNhapHang fNH;
 
         //Account
         string loai;
@@ -361,5 +363,43 @@ namespace QuanLyThuVien
                 fDSDONL.Show();
             }
         }
+
+        private void btnDatHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraForm(typeof(fDatHang));
+            if (frm == null)
+            {
+                fDH = new fDatHang(maNV);
+                fDH.MdiParent = this;
+                fDH.Show();
+            }
+            else
+            {
+                frm.Close();
+                fDH = new fDatHang(maNV);
+                fDH.MdiParent = this;
+                fDH.Show();
+            }
+        }
+
+        private void btnNhapHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraForm(typeof(fNhapHang));
+            if (frm == null)
+            {
+                fNH = new fNhapHang();
+                fNH.MdiParent = this;
+                fNH.Show();
+            }
+            else
+            {
+                frm.Close();
+                fNH = new fNhapHang();
+                fNH.MdiParent = this;
+                fNH.Show();
+            }
+        }
+
+
     }
 }

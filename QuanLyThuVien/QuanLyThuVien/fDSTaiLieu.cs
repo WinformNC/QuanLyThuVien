@@ -235,36 +235,43 @@ namespace QuanLyThuVien
 
         private void dtgvSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
             try
             {
-                PathImg = dtgvSach["HINHANHSACH", index].Value.ToString();
-                picbxAnh.Load(PathImg);
+                int index = e.RowIndex;
+                try
+                {
+                    PathImg = dtgvSach["HINHANHSACH", index].Value.ToString();
+                    picbxAnh.Load(PathImg);
+                }
+                catch
+                {
+                    picbxAnh.Image = Properties.Resources.Book_96px;
+                }
+                txtMa.Text = dtgvSach["MASACH", index].Value.ToString();
+                txtTen.Text = dtgvSach["TENSACH", index].Value.ToString();
+                cboTacGia.SelectedValue = dtgvSach["MATACGIA", index].Value.ToString();
+                cboTheLoai.SelectedValue = dtgvSach["MATHELOAI", index].Value.ToString();
+                cboNXB.SelectedValue = dtgvSach["MANXB", index].Value.ToString();
+                cboViTri.SelectedValue = dtgvSach["MAVT", index].Value.ToString();
+                txtMoTa.Text = dtgvSach["MOTA", index].Value.ToString();
+                txtNamXB.Text = dtgvSach["NAMXB", index].Value.ToString();
+                txtSoLuong.Text = dtgvSach["SOLUONG", index].Value.ToString();
+                try
+                {
+                    txt_gia.Text = dtgvSach["GIA", index].Value.ToString();
+                }
+                catch
+                {
+                    txt_gia.Text = 100000 + "";
+                }
+                setBtn(true);
+                btnThem.Enabled = false;
+                setBoolField(false);
             }
             catch
             {
-                picbxAnh.Image = Properties.Resources.Book_96px;
+                return;
             }
-            txtMa.Text = dtgvSach["MASACH", index].Value.ToString();
-            txtTen.Text = dtgvSach["TENSACH", index].Value.ToString();
-            cboTacGia.SelectedValue = dtgvSach["MATACGIA", index].Value.ToString();
-            cboTheLoai.SelectedValue = dtgvSach["MATHELOAI", index].Value.ToString();
-            cboNXB.SelectedValue = dtgvSach["MANXB", index].Value.ToString();
-            cboViTri.SelectedValue = dtgvSach["MAVT", index].Value.ToString();
-            txtMoTa.Text = dtgvSach["MOTA", index].Value.ToString();
-            txtNamXB.Text = dtgvSach["NAMXB", index].Value.ToString();
-            txtSoLuong.Text = dtgvSach["SOLUONG", index].Value.ToString();
-            try
-            {
-                txt_gia.Text = dtgvSach["GIA", index].Value.ToString();
-            }
-            catch {
-                txt_gia.Text = 100000+"";
-            }
-            setBtn(true);
-            btnThem.Enabled =false;
-            setBoolField(false);
-            
         }
 
    
