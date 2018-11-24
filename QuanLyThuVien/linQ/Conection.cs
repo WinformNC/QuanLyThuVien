@@ -190,8 +190,6 @@ namespace linQ
         }
         #endregion
 
-
-        string datra =  "Đã trả ",chuatra =  "Chưa trả";
         createPrimaryKey pk = new createPrimaryKey();
         public Conection()
         { }

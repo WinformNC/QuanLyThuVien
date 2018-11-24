@@ -116,6 +116,8 @@ namespace QuanLyThuVien
             if (kt == 1)
             {
                 MessageBox.Show("Thêm thành công ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadDataGrid_DS();
+                dtgvMuon.Rows.Clear();
                 //frmPhieuMuon phieuMuon = new frmPhieuMuon(ma.ToString(), maNV);
                 //phieuMuon.Show();
             }
@@ -129,18 +131,25 @@ namespace QuanLyThuVien
         
         private void dtgvDS_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtgvDS.RowCount != 0)
+            try
             {
-                index = e.RowIndex;
-                 ma = dtgvDS["MASACH", index].Value.ToString();
-                 ten = dtgvDS["TENSACH", index].Value.ToString();
-                 if (dtgvDS["SOLUONG", index].Value.ToString() == "0") 
-                 {
-                     MessageBox.Show("Sách bạn chọn hiện không có sẵn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                     return;
-                 }
-                 
+                if (dtgvDS.RowCount != 0)
+                {
+                    index = e.RowIndex;
+                    ma = dtgvDS["MASACH", index].Value.ToString();
+                    ten = dtgvDS["TENSACH", index].Value.ToString();
+                    if (dtgvDS["SOLUONG", index].Value.ToString() == "0")
+                    {
+                        MessageBox.Show("Sách bạn chọn hiện không có sẵn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                }
             }
+            catch
+            {
+                return;
+            }       
         }
     }
 }

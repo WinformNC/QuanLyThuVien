@@ -301,6 +301,7 @@
             // 
             this.btnDatOnline.Caption = "Danh sách đặt online";
             this.btnDatOnline.Id = 24;
+            this.btnDatOnline.ImageOptions.LargeImage = global::QuanLyThuVien.Properties.Resources.icons8_Shopping_Basket_32;
             this.btnDatOnline.Name = "btnDatOnline";
             this.btnDatOnline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDatOnline_ItemClick);
             // 
@@ -357,6 +358,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDSPhat);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDatOnline);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Quản lý tài liệu";
             // 
             // ribbonPageGroup2
@@ -364,18 +366,21 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTacGia);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnNXB);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.ShowCaptionButton = false;
             // 
             // ribbonPageGroup6
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.btnTheLoai);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnViTri);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.ShowCaptionButton = false;
             // 
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.btnDatHang);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapHang);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.ShowCaptionButton = false;
             this.ribbonPageGroup5.Text = "Đặt hàng nhà xuất bản";
             // 
             // ribbonPage3

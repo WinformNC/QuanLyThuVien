@@ -271,7 +271,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "SachDatOnline_Item";
-            this.Size = new System.Drawing.Size(698, 258);
+            this.Size = new System.Drawing.Size(690, 258);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

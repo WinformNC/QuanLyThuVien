@@ -16,7 +16,7 @@ namespace QuanLyThuVien
             foreach (PHIEUMUONTRA pmt in linq.PHIEUMUONTRAs)
                 pm = pmt;
             if (pm.MAPHIEUMUON != null)
-                return createAuto(pm.MAPHIEUMUON);
+                return createAuto3(pm.MAPHIEUMUON);
             else
                 return "PM001";
         }
@@ -27,7 +27,7 @@ namespace QuanLyThuVien
             foreach (DONDATHANG dh in linq.DONDATHANGs)
                 ddh = dh;
             if (ddh.MADDH != null)
-                return createAuto(ddh.MADDH);
+                return createAuto2(ddh.MADDH);
             else
                 return "DDH01";
         }
@@ -38,16 +38,25 @@ namespace QuanLyThuVien
             foreach (SACH sh in linq.SACHES)
                 s = sh;
             if (s.MASACH != null)
-                return createAuto(s.MASACH);
+                return createAuto3(s.MASACH);
             else
                 return "SA001";
         }
-        private string createAuto(string mas)
+        private string createAuto3(string mas)
         {
             string ma = mas.Substring(0, 2);
             int stt = int.Parse(mas.Substring(3));
             stt++;
             return ma + stt.ToString().PadLeft(3, '0');
+
+        }
+
+        private string createAuto2(string mas)
+        {
+            string ma = mas.Substring(0, 3);
+            int stt = int.Parse(mas.Substring(3));
+            stt++;
+            return ma + stt.ToString().PadLeft(2, '0');
 
         }
     }

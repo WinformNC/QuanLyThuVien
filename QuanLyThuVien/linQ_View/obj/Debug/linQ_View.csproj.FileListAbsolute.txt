@@ -2,4 +2,3 @@ C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ_View\bin\Debug\l
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ_View\bin\Debug\linQ_View.pdb
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ_View\obj\Debug\linQ_View.dll
 C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ_View\obj\Debug\linQ_View.pdb
-C:\Users\Dell7559\Documents\WF\QuanLyThuVien\QuanLyThuVien\linQ_View\obj\Debug\linQ_View.csprojResolveAssemblyReference.cache

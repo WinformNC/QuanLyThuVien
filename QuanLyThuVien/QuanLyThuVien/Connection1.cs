@@ -232,6 +232,11 @@ namespace QuanLyThuVien
             return linqToMySQL1.DOCGIAs.Select(t => t).ToList<DOCGIA>();
         }
 
+        public List<DOCGIA> searchDocGia(string x)
+        {
+            return linqToMySQL1.DOCGIAs.Select(t => t).Where(t => t.TENDG.StartsWith(x) || t.TENDG.EndsWith(x) || t.MADG == x).ToList<DOCGIA>();
+        }
+
         public List<PHIEUMUONTRA> loadMuonSach()
         {
             return linqToMySQL1.PHIEUMUONTRAs.Select(t => t).ToList<PHIEUMUONTRA>();

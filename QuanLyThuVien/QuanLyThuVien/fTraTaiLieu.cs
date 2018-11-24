@@ -46,22 +46,53 @@ namespace QuanLyThuVien
 
         private void dtgv_DocGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            List<CTPHIEUMUONTRA> lst = conn.loadCTMuon_DocGia(dtgv_DocGia["MADG", index].Value.ToString());
-            pnlDSTaiLieu.Controls.Clear();
-            for (int i = 0; i < lst.Count; i++)
+            try
             {
-                string maPM = lst[i].MAPHIEUMUON.ToString();
-                string nv = lst[i].PHIEUMUONTRA.NHANVIEN.TENNV.ToString();
-                string maSach = lst[i].MASACH.ToString();
-                string tenSach = lst[i].SACH.TENSACH.ToString();
-                string hinhanh = lst[i].SACH.HINHANHSACH.ToString();
-                DateTime ngayMuon = lst[i].PHIEUMUONTRA.NGAYMUON.Value;
-                DateTime ngayTra = lst[i].NGAYDUKIENTRA.Value;
-                SachMuon_Item item = new SachMuon_Item(maPM, nv, maSach, tenSach, hinhanh, ngayMuon, ngayTra);
-                pnlDSTaiLieu.Controls.Add(item);
-                item.Dock = DockStyle.Top;
-                item.Show();
+                int index = e.RowIndex;
+                List<CTPHIEUMUONTRA> lst = conn.loadCTMuon_DocGia(dtgv_DocGia["MADG", index].Value.ToString());
+                pnlDSTaiLieu.Controls.Clear();
+                for (int i = 0; i < lst.Count; i++)
+                {
+                    string maPM = lst[i].MAPHIEUMUON.ToString();
+                    string nv = lst[i].PHIEUMUONTRA.NHANVIEN.TENNV.ToString();
+                    string maSach = lst[i].MASACH.ToString();
+                    string tenSach = lst[i].SACH.TENSACH.ToString();
+                    string hinhanh = lst[i].SACH.HINHANHSACH.ToString();
+                    DateTime ngayMuon = lst[i].PHIEUMUONTRA.NGAYMUON.Value;
+                    DateTime ngayTra = lst[i].NGAYDUKIENTRA.Value;
+                    SachMuon_Item item = new SachMuon_Item(maPM, nv, maSach, tenSach, hinhanh, ngayMuon, ngayTra);
+                    pnlDSTaiLieu.Controls.Add(item);
+                    item.Dock = DockStyle.Top;
+                    item.Show();
+                }
+            }
+            catch
+            {
+                return;
+            }     
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text.Trim().Length == 0)
+            {
+                loadDocGia();
+                pnlDSTaiLieu.Controls.Clear();
+            }
+            else
+            {
+                searchDocGia(txtTimKiem.Text.Trim());
+                pnlDSTaiLieu.Controls.Clear();
+            }
+        }
+
+        private void searchDocGia(string x)
+        {
+            dtgv_DocGia.DataSource = conn.searchDocGia(x);
+            dtgv_DocGia.Columns[1].Visible = false;
+            for (int i = 3; i < dtgv_DocGia.Columns.Count; i++)
+            {
+                dtgv_DocGia.Columns[i].Visible = false;
             }
         }
     }

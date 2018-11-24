@@ -62,6 +62,30 @@ namespace QuanLyThuVien
                 item.Dock = DockStyle.Top;
                 item.Show();
             }
-        }     
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text.Trim().Length == 0)
+            {
+                loadDocGia();
+                pnlDSTaiLieu.Controls.Clear();
+            }
+            else
+            {
+                searchDocGia(txtTimKiem.Text.Trim());
+                pnlDSTaiLieu.Controls.Clear();
+            }
+        }
+
+        private void searchDocGia(string x)
+        {
+            dtgv_DocGia.DataSource = conn.searchDocGia(x);
+            dtgv_DocGia.Columns[1].Visible = false;
+            for (int i = 3; i < dtgv_DocGia.Columns.Count; i++)
+            {
+                dtgv_DocGia.Columns[i].Visible = false;
+            }
+        }   
     }
 }
